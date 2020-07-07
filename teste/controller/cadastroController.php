@@ -25,9 +25,9 @@
 		$create->bindValue(3, $senha, PDO::PARAM_STR);
 
 		if($create->execute()){
-			echo "Inserido com sucesso no Banco de Dados!";
+			echo "Cadastrado com sucesso!";
 		} else {
-			echo "Erro ao inserir os dados no Banco de Dados!";
+			echo "Erro no cadastro!";
 		}
 	}
 
