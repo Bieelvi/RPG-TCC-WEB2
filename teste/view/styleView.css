@@ -1,0 +1,8 @@
+*{margin: 0; padding: 0; border: 0;}
+
+.CadastroFormulario{float: left; width: 60%; margin: 10px 20% 10px 20%;}
+	.CadastroFormulario input[type='text'] , input[type='email'] , input[type='password']{float: left; width: 100%; height: 40px;}
+    .CadastroFormulario input[type='submit']{display: inline-block; width: 20%; height: 40px; font-size: 17px; color:#FFF; font-weight: bold; text-align: center; border:0; cursor:pointer; background: #41B13B;}
+
+.TituloLoginCadastro{float: left; width: 20%; margin: 20px 20% 10px 20%;}
+	.TituloLoginCadastro span{float: left; width: 100%; height: 40px;}
