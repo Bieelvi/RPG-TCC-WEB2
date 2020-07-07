@@ -13,7 +13,7 @@
 	<div class="Formulario">
 		<form name="formCadastro" id="formCadastro" action="controller/cadastroController.php" method="post">
 			<div class="CadastroFormulario">
-				<span>Nome: <br></span>
+				<span>Usuário: <br></span>
 				<input type="text" name="usuario" id="usuario" required>
 			</div>
 			<div class="CadastroFormulario">

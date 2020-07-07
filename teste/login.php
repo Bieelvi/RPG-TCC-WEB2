@@ -15,11 +15,14 @@
 			<div class="CadastroFormulario">
 				<span>E-mail: <br></span>
 				<input type="text" name="email" id="email" required>
-			</div>			<div class="CadastroFormulario">
+			</div>			
+			<div class="CadastroFormulario">
 				<span>Senha: <br></span>
 				<input type="text" name="senha" id="senha" required>
 			</div>
-			<small>Caso não possua conta <a href="cadastro.php">registre-se</a> agora!</small>
+			<div class="CadastroFormulario">
+				<small>Ainda não possui uma conta? <a href="cadastro.php"><strong>Cadastre-se!</strong></a></small>
+			</div>
 			<div class="CadastroFormulario">
 				<input type="submit" value="Cadastrar">
 			</div>

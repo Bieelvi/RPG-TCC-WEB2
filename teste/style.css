@@ -22,6 +22,8 @@
 	.CadastroFormulario span{font-family: 'Josefin Sans', sans-serif;}
 	.CadastroFormulario input[type='text'] , input[type='email'] , input[type='password']{float: left; width: 100%; height: 40px; border: 2px solid #41B13B; border-radius: 5px; background: #D8E2D5}
     .CadastroFormulario input[type='submit']{display: inline-block; width: 20%; height: 40px; font-size: 17px; color:#FFF; font-weight: bold; text-align: center; border:0; border-radius: 15px; cursor:pointer; background: #41B13B; font-family: 'Josefin Sans', sans-serif;}
+    .CadastroFormulario a{color: #41B13B; text-decoration: none;}
+    .CadastroFormulario a:hover{text-decoration: underline;}
 
 .TituloLoginCadastro{float: left; width: 20%; margin: 20px 20% 10px 20%;}
 	.TituloLoginCadastro span{float: left; width: 100%; height: 40px;}
