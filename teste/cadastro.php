@@ -1,5 +1,3 @@
-<?php session_start(); ?>
-
 <?php include("header.php"); ?>
 
 	<div>
@@ -26,23 +24,16 @@
 			</div>
 			<div class="CadastroFormulario">
 				<span>Senha: <br></span>
-				<input type="text" name="senha" id="senha" required>
+				<input type="password" name="senha" id="senha" required>
 			</div>
 			<div class="CadastroFormulario">
 				<span>Confirmar senha: <br></span>
-				<input type="text" name="confSenha" id="confSenha" required>
+				<input type="password" name="confSenha" id="confSenha" required>
 			</div>
 			<div class="CadastroFormulario">
 				<input type="submit" value="Cadastrar">
 			</div>
 		</form>
-	</div>	
-
-	<?php 
-		if(isset($_SESSION['mensagem'])){
-			echo $_SESSION['mensagem'];
-			unset ($_SESSION['mensagem']);
-		}
-	?>
+	</div>
 
 <?php include("footer.php"); ?>

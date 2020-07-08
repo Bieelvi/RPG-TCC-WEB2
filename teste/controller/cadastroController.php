@@ -1,34 +1,47 @@
-<?php 
-
-	session_start();
-
+<?php
 	include("../model/ConexaoDataBase.php");
 
 	if($_POST[('senha')] != $_POST[('confSenha')]){
-		$_SESSION['mensagem'] = "<p style='color:red;'>Por favor inserir senhar iguais!</p>";
-		header("Location: http://localhost/teste/view/cadastro.php");
+		echo "Oa senhas não estão corretamente preenchidas!";
 	} elseif($_POST[('email')] != $_POST[('confEmail')]) {
-		$_SESSION['mensagem'] = "<p style='color:red;'>Por favor inserir e-mail iguais!</p>";
-		header("Location: http://localhost/teste/view/cadastro.php");
+		echo "Os e-mail não estão corretamente preenchidos!";
 	} else {
 
-		$usuario = filter_input(INPUT_POST,'usuario',FILTER_SANITIZE_SPECIAL_CHARS);
-		$email = filter_input(INPUT_POST,'email',FILTER_SANITIZE_EMAIL);
-		$confEmail = filter_input(INPUT_POST,'confEmail',FILTER_SANITIZE_EMAIL);
-		$senha = filter_input(INPUT_POST,'senha',FILTER_SANITIZE_SPECIAL_CHARS);
-		$confSenha = filter_input(INPUT_POST,'confSenha',FILTER_SANITIZE_SPECIAL_CHARS);
+		$sql = $conn->prepare("SELECT codigoUsuario FROM usuario WHERE nomeUsuario = ?");
 
-		$create = $conn->prepare("INSERT INTO usuario (nomeUsuario, senhaUsuario, emailUsuario) VALUES (?, ?, ?)");
+		$sql->bindValue(1, $_POST[('usuario')]);
 
-		$create->bindValue(1, $usuario, PDO::PARAM_STR);
-		$create->bindValue(2, $email, PDO::PARAM_STR);
-		$create->bindValue(3, $senha, PDO::PARAM_STR);
+		$sql->execute();
 
-		if($create->execute()){
-			echo "Cadastrado com sucesso!";
+		if($sql->rowCount() > 0){
+
+			echo "Usuário já cadastrado!";
+
 		} else {
-			echo "Erro no cadastro!";
+
+			$usuario = filter_input(INPUT_POST,'usuario',FILTER_SANITIZE_SPECIAL_CHARS);
+			$email = filter_input(INPUT_POST,'email',FILTER_SANITIZE_EMAIL);
+			$confEmail = filter_input(INPUT_POST,'confEmail',FILTER_SANITIZE_EMAIL);
+			$senha = filter_input(INPUT_POST,'senha',FILTER_SANITIZE_SPECIAL_CHARS);
+			$confSenha = filter_input(INPUT_POST,'confSenha',FILTER_SANITIZE_SPECIAL_CHARS);
+
+			$sql = $conn->prepare("INSERT INTO usuario (nomeUsuario, senhaUsuario, emailUsuario) VALUES (?, ?, ?)");
+
+			$sql->bindValue(1, $usuario, PDO::PARAM_STR);
+			$sql->bindValue(2, $email, PDO::PARAM_STR);
+			$sql->bindValue(3, md5($senha), PDO::PARAM_STR);
+
+			if($sql->execute()){
+				echo "Cadastrado com sucesso!";
+			} else {
+				echo "Erro no cadastro!";
+			}
+
 		}
+
+
+
+		
 	}
 
 ?>
