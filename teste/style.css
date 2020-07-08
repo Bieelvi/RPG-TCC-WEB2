@@ -16,6 +16,8 @@
 
 .Retorno{display: none; float: left; width: 70%; border: 2px solid #41B13B; background: #D8E2D5; text-align: center; padding: 15px; margin: 20px 15% 10px 15%;}
 
+.RetornoNegativo{display: none; float: left; width: 70%; border: 2px solid #41B13B; background: #D8E2D5; text-align: center; padding: 15px; margin: 20px 15% 10px 15%;}
+
 .Formulario{float: left; width: 70%; height: 500px; padding: 20px; margin: 60px 15%;}
 
 .CadastroFormulario{float: left; width: 60%; margin: 10px 20% 10px 20%;}

@@ -2,7 +2,7 @@
 	include("../model/ConexaoDataBase.php");
 
 	if($_POST[('senha')] != $_POST[('confSenha')]){
-		echo "Oa senhas não estão corretamente preenchidas!";
+		echo "Os senhas não estão corretamente preenchidas!";
 	} elseif($_POST[('email')] != $_POST[('confEmail')]) {
 		echo "Os e-mail não estão corretamente preenchidos!";
 	} else {
@@ -28,8 +28,8 @@
 			$sql = $conn->prepare("INSERT INTO usuario (nomeUsuario, senhaUsuario, emailUsuario) VALUES (?, ?, ?)");
 
 			$sql->bindValue(1, $usuario, PDO::PARAM_STR);
-			$sql->bindValue(2, $email, PDO::PARAM_STR);
-			$sql->bindValue(3, md5($senha), PDO::PARAM_STR);
+			$sql->bindValue(2, md5($senha), PDO::PARAM_STR);
+			$sql->bindValue(3,  $email, PDO::PARAM_STR);
 
 			if($sql->execute()){
 				echo "Cadastrado com sucesso!";
@@ -37,11 +37,7 @@
 				echo "Erro no cadastro!";
 			}
 
-		}
-
-
-
-		
+		}		
 	}
 
 ?>

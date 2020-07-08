@@ -1,24 +1,26 @@
-<?php session_start(); ?>
-
 <?php include("header.php"); ?>
 
 	<div>
 		<h1 class="Titulo Center">ENTRAR</h1>	
 	</div>
 
-	<div class="Retorno">
+	<div class="RetornoPositivo">
+		
+	</div>
+
+	<div class="RetornoNegativo">
 		
 	</div>
 
 	<div class="Formulario">
-		<form name="formCadastro" id="formCadastro" action="controller/cadastroController.php" method="post">
+		<form name="formLogin" id="formLogin" action="controller/loginController.php" method="post">
 			<div class="CadastroFormulario">
 				<span>E-mail: <br></span>
 				<input type="text" name="email" id="email" required>
 			</div>			
 			<div class="CadastroFormulario">
 				<span>Senha: <br></span>
-				<input type="text" name="senha" id="senha" required>
+				<input type="password" name="senha" id="senha" required>
 			</div>
 			<div class="CadastroFormulario">
 				<small>Ainda não possui uma conta? <a href="cadastro.php"><strong>Cadastre-se!</strong></a></small>
@@ -27,13 +29,6 @@
 				<input type="submit" value="Cadastrar">
 			</div>
 		</form>
-	</div>	
-
-	<?php 
-		if(isset($_SESSION['mensagem'])){
-			echo $_SESSION['mensagem'];
-			unset ($_SESSION['mensagem']);
-		}
-	?>
+	</div>
 
 <?php include("footer.php"); ?>
