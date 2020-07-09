@@ -4,10 +4,6 @@
 		<h1 class="Titulo Center">ENTRAR</h1>	
 	</div>
 
-	<div class="Retorno">
-		
-	</div>
-
 	<div class="Formulario">
 		<form name="formLogin" id="formLogin" action="controller/loginController.php" method="post">
 			<div class="CadastroFormulario">
