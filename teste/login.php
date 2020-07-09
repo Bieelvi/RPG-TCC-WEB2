@@ -4,11 +4,7 @@
 		<h1 class="Titulo Center">ENTRAR</h1>	
 	</div>
 
-	<div class="RetornoPositivo">
-		
-	</div>
-
-	<div class="RetornoNegativo">
+	<div class="Retorno">
 		
 	</div>
 

@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script type="text/javascript" src="view/js/jquery.min.js"></script>
+	<script type="text/javascript" src="view/js/script.js"></script>
 	<link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Josefin+Sans:wght@500&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="view/css/style.css">
+	<link rel="stylesheet" href="view/css/cssresponsivo.css">
 	<title>Roll and Play GENG</title>
 </head>
 <body>

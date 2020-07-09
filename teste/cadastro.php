@@ -8,10 +8,6 @@
 		
 	</div>
 
-	<div class="RetornoNegativo">
-		
-	</div>
-
 	<div class="Formulario">
 		<form name="formCadastro" id="formCadastro" action="controller/cadastroController.php" method="post">
 			<div class="CadastroFormulario">
