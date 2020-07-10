@@ -11,37 +11,36 @@
 		$senha = filter_input(INPUT_POST,'senha',FILTER_SANITIZE_SPECIAL_CHARS);
 	
 		$sql = $conn->prepare("SELECT emailUsuario FROM usuario WHERE senhaUsuario = ? AND emailUsuario = ?");
-
 		$sql->bindValue(1, md5($senha)); 
 		$sql->bindValue(2, $email);
-
 		$sql->execute();
 
 		if($sql->rowCount() > 0){
 
 			$dado = $sql->fetch();
+			session_start();
+			$_SESSION['emailUsuario'] = $dado['emailUsuario'];
+			header('Location: http://localhost/teste/userPage.php');
 
-			if($dado['emailUsuario'] == "bieelvii@gmail.com" || $dado['emailUsuario'] == "edilsonFilho@gmail.com" || $dado['emailUsuario'] == "gubiRosin@gmail.com"){
+		} else {
 
+			$sqlAdm = $conn->prepare("SELECT emailUsuario FROM administrador WHERE senhaUsuario = ? AND emailUsuario = ?");
+			$sqlAdm->bindValue(1, $senha); 
+			$sqlAdm->bindValue(2, $email);
+			$sqlAdm->execute();
+
+			if($sqlAdm->rowCount() > 0) {
+
+				$dadoAdm = $sqlAdm->fetch();
 				session_start();
-
-				$_SESSION['emailUsuario'] = $dado['emailUsuario'];
-
+				$_SESSION['emailUsuarioAdm'] = $dadoAdm['emailUsuario'];
 				header('Location: http://localhost/teste/admPage.php');
 
 			} else {
 
-				session_start();
+				echo "Acesso Negado!";
 
-				$_SESSION['emailUsuario'] = $dado['emailUsuario'];
-
-				header('Location: http://localhost/teste/userPage.php');
-
-			}			
-
-		} else {
-
-			echo "Acesso negado!";
+			}
 
 		}
 
