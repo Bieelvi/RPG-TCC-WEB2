@@ -10,7 +10,7 @@
 		$email = filter_input(INPUT_POST,'email',FILTER_SANITIZE_EMAIL);
 		$senha = filter_input(INPUT_POST,'senha',FILTER_SANITIZE_SPECIAL_CHARS);
 	
-		$sql = $conn->prepare("SELECT nomeUsuario FROM usuario WHERE senhaUsuario = ? AND emailUsuario = ?");
+		$sql = $conn->prepare("SELECT emailUsuario FROM usuario WHERE senhaUsuario = ? AND emailUsuario = ?");
 
 		$sql->bindValue(1, md5($senha)); 
 		$sql->bindValue(2, $email);
@@ -21,11 +21,25 @@
 
 			$dado = $sql->fetch();
 
-			session_start();
+			if($dado['emailUsuario'] == "bieelvii@gmail.com" || $dado['emailUsuario'] == "edilsonFilho@gmail.com" || $dado['emailUsuario'] == "gubiRosin@gmail.com"){
+				
+				session_start();
 
-			$_SESSION['nomeUsuario'] = $dado['nomeUsuario'];
+				$_SESSION['emailUsuario'] = $dado['emailUsuario'];
 
-			header('Location: http://localhost/teste/admPage.php');
+				header('Location: http://localhost/teste/admPage.php');
+
+			} else {
+
+				session_start();
+
+				$_SESSION['emailUsuario'] = $dado['emailUsuario'];
+
+				header('Location: http://localhost/teste/userPage.php');
+
+			}
+
+			
 
 		} else {
 
