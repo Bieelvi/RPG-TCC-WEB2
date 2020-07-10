@@ -22,7 +22,7 @@
 			$dado = $sql->fetch();
 
 			if($dado['emailUsuario'] == "bieelvii@gmail.com" || $dado['emailUsuario'] == "edilsonFilho@gmail.com" || $dado['emailUsuario'] == "gubiRosin@gmail.com"){
-				
+
 				session_start();
 
 				$_SESSION['emailUsuario'] = $dado['emailUsuario'];
@@ -37,9 +37,7 @@
 
 				header('Location: http://localhost/teste/userPage.php');
 
-			}
-
-			
+			}			
 
 		} else {
 
