@@ -7,6 +7,11 @@
 		header('Location: http://localhost/teste/login.php');
 		exit;
 	}
+
+	if(!isset($_SESSION['emailUsuarioAdm'])){
+		header('Location: http://localhost/teste/login.php');
+		exit;
+	}
 ?>
 
 	<a href="sair.php">Sair</a>

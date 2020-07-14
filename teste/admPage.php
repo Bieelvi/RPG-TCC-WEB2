@@ -3,7 +3,7 @@
 <?php include("header.php"); ?>
 
 <?php 
-	if(!isset($_SESSION['emailUsuario'])){
+	if(!isset($_SESSION['emailUsuario']) || $_SESSION['emailUsuario'] != "teste"){
 		header('Location: http://localhost/teste/login.php');
 		exit;
 	} 
