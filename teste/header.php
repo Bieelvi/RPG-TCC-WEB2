@@ -3,9 +3,21 @@
 <head>
 	<script type="text/javascript" src="view/js/jquery.min.js"></script>
 	<script type="text/javascript" src="view/js/script.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+		   $(".Deletar").click( function(event) {
+		      var apagar = confirm('Deseja realmente excluir este registro?');
+		      if (apagar){
+			// aqui vai a instrução para apagar registro			
+		      }else{
+		         event.preventDefault();
+		      }	
+		   });
+		});
+	</script>
 	<link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Josefin+Sans:wght@500&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="view/css/style.css">
-	<link rel="stylesheet" href="view/css/cssresponsivo.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/cssresponsivo.css">
 	<title>Roll and Play GENG</title>
 </head>
 <body>

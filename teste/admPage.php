@@ -27,20 +27,20 @@
 		<?php 
 
 			$sqlSelecao = $conn->prepare("SELECT * FROM usuario ORDER BY codigoUsuario DESC");
-
 			$sqlSelecao->execute();
-
 			$resultado = $sqlSelecao->fetchAll(PDO::FETCH_ASSOC);
+
+			$cont = 1;
 
 			foreach($resultado as $cadaItem){ ?>
 				<tr>
-					<td><?php echo $cadaItem["codigoUsuario"]; ?></td>
+					<td><?php echo $cont++; ?></td>
 					<td><?php echo $cadaItem["nomeUsuario"]; ?></td>
 					<td><?php echo $cadaItem["emailUsuario"]; ?></td>
 					<td>
 						<a href="visualiza.php"><img src="image/lupa.png" width="30" height="30"></a>
 						<a href="atualiza.php"><img src="image/lapis.png" width="30" height="30"></a>
-						<a href="deleta.php"><img src="image/lixeira.png" width="30" height="30"></a>
+						<a class="Deletar" href="<?php echo "controller/deletaController.php?codigoUsuario={$cadaItem['codigoUsuario']}"; ?>"><img src="image/lixeira.png" width="30" height="30"></a>
 					</td>
 				</tr>			
 
