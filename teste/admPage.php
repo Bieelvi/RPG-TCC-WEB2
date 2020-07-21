@@ -2,14 +2,14 @@
 <?php include("model/ConexaoDataBase.php"); ?>
 <?php include("header.php"); ?>
 
-<?php 
-	if(!isset($_SESSION['emailUsuario']) || $_SESSION['emailUsuario'] != "teste"){
-		header('Location: http://localhost/teste/login.php');
+<?php
+	if(isset($_SESSION['emailUsuario'])){
+		header('Location: http://localhost/teste/index.php');
 		exit;
-	} 
+	}
 
 	if(!isset($_SESSION['emailUsuarioAdm'])){
-		header('Location: http://localhost/teste/login.php');
+		header('Location: http://localhost/teste/index.php');
 		exit;
 	}
 ?>

@@ -19,7 +19,6 @@
 
 			$dado = $sql->fetch();
 			session_start();
-			$_SESSION['emailUsuarioAdm'] = "teste";
 			$_SESSION['emailUsuario'] = $dado['emailUsuario'];
 			header('Location: http://localhost/teste/userPage.php');
 
@@ -34,7 +33,6 @@
 
 				$dadoAdm = $sqlAdm->fetch();
 				session_start();
-				$_SESSION['emailUsuario'] = "teste";
 				$_SESSION['emailUsuarioAdm'] = $dadoAdm['emailUsuario'];
 				header('Location: http://localhost/teste/admPage.php');
 

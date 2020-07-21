@@ -7,11 +7,13 @@
 		echo "Os e-mail não estão corretamente preenchidos!";
 	} else {
 
-		$sql = $conn->prepare("SELECT codigoUsuario FROM usuario WHERE nomeUsuario = ?");
+		$sql = $conn->prepare("SELECT codigoUsuario FROM usuario WHERE emailUsuario = ?");
 
 		$sql->bindValue(1, $_POST[('usuario')]);
 
-		$sql->execute();
+		if(!$sql->execute()){
+			echo "Erro com o cadastro!";
+		}
 
 		if($sql->rowCount() > 0){
 
