@@ -1,3 +1,7 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Roll and Play GENG</title>
 <?php include("header.php"); ?>
 
 <div class="SecaoPrimeira">

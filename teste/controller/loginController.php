@@ -1,46 +1,26 @@
 <?php 
-	include("../model/ConexaoDataBase.php");
+	require("../model/ConexaoDataBase.php");
 
-	if(empty($_POST[('senha')])){
-		echo "O senha não está corretamente preenchida!";
-	} elseif(empty($_POST[('email')])) {
-		echo "O e-mail não está corretamente preenchido!";
-	} else {
+	if(isset($_POST["senha"]) && isset($_POST["email"]) && $conn != "1"){
 
 		$email = filter_input(INPUT_POST,'email',FILTER_SANITIZE_EMAIL);
 		$senha = filter_input(INPUT_POST,'senha',FILTER_SANITIZE_SPECIAL_CHARS);
 	
-		$sql = $conn->prepare("SELECT emailUsuario FROM usuario WHERE senhaUsuario = ? AND emailUsuario = ?");
+		$sql = $conn->prepare("SELECT * FROM usuario WHERE senhaUsuario = ? AND emailUsuario = ?");
 		$sql->bindValue(1, md5($senha)); 
 		$sql->bindValue(2, $email);
 		$sql->execute();
 
-		if($sql->rowCount() > 0){
-
-			$dado = $sql->fetch();
+		if($sql->rowCount()){
+			$dado = $sql->fetchAll(PDO::FETCH_ASSOC)[0];
 			session_start();
-			$_SESSION['emailUsuario'] = $dado['emailUsuario'];
+			$_SESSION['nivelAdm'] = $dado["nomeUsuario"];
+			$_SESSION['usuarios'] = array($dado["nomeUsuario"], $dado["hierarquiaUsuario"]);
 			header('Location: http://localhost/teste/userPage.php');
-
 		} else {
-
-			$sqlAdm = $conn->prepare("SELECT emailUsuario FROM administrador WHERE senhaUsuario = ? AND emailUsuario = ?");
-			$sqlAdm->bindValue(1, $senha); 
-			$sqlAdm->bindValue(2, $email);
-			$sqlAdm->execute();
-
-			if($sqlAdm->rowCount() > 0) {
-
-				$dadoAdm = $sqlAdm->fetch();
-				session_start();
-				$_SESSION['emailUsuarioAdm'] = $dadoAdm['emailUsuario'];
-				header('Location: http://localhost/teste/admPage.php');
-
-			} else {
-
-				echo "Acesso Negado!";
-
-			}
+			header('Location: http://localhost/teste/login.php');
 		}
+	} else {
+		header('Location: http://localhost/teste/login.php');
 	}	
 ?>

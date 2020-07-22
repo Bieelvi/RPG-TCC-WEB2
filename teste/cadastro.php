@@ -1,4 +1,8 @@
-<?php include("header.php"); ?>
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Cadastro - Roll and Play GENG</title>
+		<?php include("header.php"); ?>
 
 	<div>
 		<h1 class="Titulo Center">CADASTRAR-SE</h1>	

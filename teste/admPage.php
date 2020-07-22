@@ -1,20 +1,16 @@
 <?php session_start(); ?>
 <?php include("model/ConexaoDataBase.php"); ?>
-<?php include("header.php"); ?>
-
 <?php
-	if(isset($_SESSION['emailUsuario'])){
+	if(!$_SESSION['nivelAdm']) {
 		header('Location: http://localhost/teste/index.php');
-		exit;
-	}
-
-	if(!isset($_SESSION['emailUsuarioAdm'])){
-		header('Location: http://localhost/teste/index.php');
-		exit;
 	}
 ?>
 
-	<a href="sair.php">Sair</a>
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ADM - Roll and Play GENG</title>
+		<?php include("header.php"); ?>
 	
 	<div class="Content">
 		<table class="TabelaSelecao">
@@ -29,7 +25,6 @@
 			$sqlSelecao = $conn->prepare("SELECT * FROM usuario ORDER BY codigoUsuario DESC");
 			$sqlSelecao->execute();
 			$resultado = $sqlSelecao->fetchAll(PDO::FETCH_ASSOC);
-
 			$cont = 1;
 
 			foreach($resultado as $cadaItem){ ?>
@@ -44,9 +39,9 @@
 					</td>
 				</tr>			
 
-			<?php 
+		<?php 
 			} 
-			?>
+		?>
 		</table>
 	</div>
 <?php include("footer.php"); ?>
