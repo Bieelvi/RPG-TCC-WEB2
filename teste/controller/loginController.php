@@ -14,7 +14,6 @@
 		if($sql->rowCount()){
 			$dado = $sql->fetchAll(PDO::FETCH_ASSOC)[0];
 			session_start();
-			$_SESSION['nivelAdm'] = $dado["nomeUsuario"];
 			$_SESSION['usuarios'] = array($dado["nomeUsuario"], $dado["hierarquiaUsuario"]);
 			header('Location: http://localhost/teste/userPage.php');
 		} else {

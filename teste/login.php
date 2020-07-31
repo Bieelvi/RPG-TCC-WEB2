@@ -12,11 +12,11 @@
 		<form name="formLogin" id="formLogin" action="controller/loginController.php" method="post">
 			<div class="CadastroFormulario">
 				<span>E-mail: <br></span>
-				<input type="text" name="email" id="email" required>
+				<input type="text" name="email" id="email" autocomplete="off" required>
 			</div>			
 			<div class="CadastroFormulario">
 				<span>Senha: <br></span>
-				<input type="password" name="senha" id="senha" required>
+				<input type="password" name="senha" id="senha" autocomplete="off" required>
 			</div>
 			<div class="CadastroFormulario">
 				<small>Ainda não possui uma conta? <a href="cadastro.php"><strong>Cadastre-se!</strong></a></small>
