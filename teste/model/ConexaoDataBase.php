@@ -1,5 +1,4 @@
 <?php 
-
 	$server = "143.106.241.3";
 	$usuario = "cl19458";
 	$senha = "cl*10022000";

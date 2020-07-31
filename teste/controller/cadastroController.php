@@ -14,35 +14,41 @@
 
 			if(!$sql->execute()){
 				echo "Erro no cadastro!";
-			}
-
-			if($sql->rowCount()){
-				echo "E-mail já cadastrado!";
 			} else {
-				$usuario = filter_input(INPUT_POST,'usuario',FILTER_SANITIZE_SPECIAL_CHARS);
-				$email = filter_input(INPUT_POST,'email',FILTER_SANITIZE_EMAIL);
-				$confEmail = filter_input(INPUT_POST,'confEmail',FILTER_SANITIZE_EMAIL);
-				$senha = filter_input(INPUT_POST,'senha',FILTER_SANITIZE_SPECIAL_CHARS);
-				$confSenha = filter_input(INPUT_POST,'confSenha',FILTER_SANITIZE_SPECIAL_CHARS);
+				if($sql->rowCount()){
+					echo "E-mail já cadastrado!"; ?>
 
-				$sql = $conn->prepare("INSERT INTO usuario (nomeUsuario, senhaUsuario, emailUsuario) VALUES (?, ?, ?)");
-
-				$sql->bindValue(1, $usuario, PDO::PARAM_STR);
-				$sql->bindValue(2, md5($senha), PDO::PARAM_STR);
-				$sql->bindValue(3,  $email, PDO::PARAM_STR);
-
-				if($sql->execute()){
-					echo "Cadastrado com sucesso!"; ?>
 					<script type='text/JavaScript'>
-					    setTimeout(function () {
-					        window.location.href = 'index.php'; 
-					    }, 5000); 
+						setTimeout(function () {
+						    window.location.reload();
+						}, 2000); 
 					</script>
-				<?php } else {
-					echo "Erro no cadastro!";
-				}
 
-			}	
+		<?php } else {
+					$usuario = filter_input(INPUT_POST,'usuario',FILTER_SANITIZE_SPECIAL_CHARS);
+					$email = filter_input(INPUT_POST,'email',FILTER_SANITIZE_EMAIL);
+					$confEmail = filter_input(INPUT_POST,'confEmail',FILTER_SANITIZE_EMAIL);
+					$senha = filter_input(INPUT_POST,'senha',FILTER_SANITIZE_SPECIAL_CHARS);
+					$confSenha = filter_input(INPUT_POST,'confSenha',FILTER_SANITIZE_SPECIAL_CHARS);
+
+					$sql = $conn->prepare("INSERT INTO usuario (nomeUsuario, senhaUsuario, emailUsuario) VALUES (?, ?, ?)");
+
+					$sql->bindValue(1, $usuario, PDO::PARAM_STR);
+					$sql->bindValue(2, md5($senha), PDO::PARAM_STR);
+					$sql->bindValue(3,  $email, PDO::PARAM_STR);
+
+					if($sql->execute()){
+						echo "Cadastrado com sucesso!"; ?>
+						<script type='text/JavaScript'>
+						    setTimeout(function () {
+						        window.location.href = 'index.php'; 
+						    }, 5000); 
+						</script>
+					<?php } else {
+						echo "Erro no cadastro!";
+						}
+					}
+				}	
 		}
 	} else {
 		echo "Por favor preencha todos os campos!";

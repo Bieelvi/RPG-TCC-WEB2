@@ -4,13 +4,13 @@
 
 	$codigoUsuario = filter_input(INPUT_GET,'codigoUsuario', FILTER_SANITIZE_NUMBER_INT);
 
-	$sqlDelete = $conn->prepare("DELETE FROM usuario WHERE codigoUsuario = ?");
+	$sqlDelete = $conn->prepare("DELETE FROM usuario WHERE codigoUsuario = ?; commit;");
 	$sqlDelete->bindValue(1, $codigoUsuario);
 
 	if($sqlDelete->execute()){
-		echo "Deletado com sucesso!";
+		header('Location: http://localhost/teste/admPage.php?acao=1');
 	} else {
-		echo "Erro ao deletar usuario";
+		header('Location: http://localhost/teste/admPage.php?acao=2');
 	}
 
 ?>

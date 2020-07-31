@@ -2,7 +2,7 @@
 	<script type="text/javascript" src="view/js/script.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-		   $(".Deletar").click( function(event) {
+		   $(".Deletar").click(function(event) {
 		      var apagar = confirm('Deseja realmente excluir este registro?');
 		      if (apagar){			
 		      }else{
@@ -24,19 +24,22 @@
 		</div>
 		<div class="Links">
 
-			<?php if(isset($_SESSION['nivelAdm'])){ ?>
-				<a href="userPage.php">Usuário</a>
-				<a href="admPage.php">Administrador</a>
-			<?php } else { ?>
-				<a href="userPage.php">Usuário</a>
-			<?php } ?>
+			<?php 
+			if(isset($_SESSION['usuarios'][0])) {
+				if(isset($_SESSION['usuarios'][1]) == 1){ ?>
+					<a href="userPage.php"><?php echo $_SESSION['usuarios'][0]; ?></a>
+					<a href="admPage.php">ADM</a>
+		<?php	} else { ?>
+					<a href="userPage.php"><?php echo $_SESSION['usuarios'][0]; ?></a>	
+	    <?php 	}
+	    	} ?>
 
 			<a href="#">O que é RPG?</a>
 			<a href="#">Como Jogar</a>
 			<a href="#">Quem Somos</a>
 			<a href="#">Contato</a>
 
-			<?php if(isset($_SESSION['nivelAdm'])){ ?>
+			<?php if(isset($_SESSION['usuarios'])){ ?>
 				<a href="sair.php">Sair</a>
 			<?php } else { ?>
 				<a href="login.php">Entrar</a>

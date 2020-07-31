@@ -16,4 +16,6 @@
 		<title><?php echo $nomeUsuario; ?> - Roll and Play GENG</title>
 		<?php include("header.php"); ?>	
 
+		
+
 <?php include("footer.php"); ?>

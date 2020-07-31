@@ -1,5 +1,4 @@
 $(function(){
-
 	$("#formCadastro").on('submit',function(event) {
 		event.preventDefault();
 		var dados=$(this).serialize();

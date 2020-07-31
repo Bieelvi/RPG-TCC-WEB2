@@ -1,7 +1,8 @@
 <?php session_start(); ?>
 <?php include("model/ConexaoDataBase.php"); ?>
 <?php
-	if(!$_SESSION['nivelAdm']) {
+	if($_SESSION['usuarios'][1] == 1) {
+	} else {
 		header('Location: http://localhost/teste/index.php');
 	}
 ?>
@@ -15,7 +16,7 @@
 	<div class="Content">
 		<table class="TabelaSelecao">
 			<tr>
-				<td>Codígo</td>
+				<td>Codigo</td>
 				<td>Usuário</td>
 				<td>E-mail</td>
 				<td>Ações</td>
@@ -41,6 +42,14 @@
 
 		<?php 
 			} 
+			if(isset($_GET['acao'])){
+				if($_GET['acao'] == 1){
+					echo "<script> alert('Deletado com sucesso!');</script>";
+				}
+				if($_GET['acao'] == 2){
+					echo "<script> alert('Erro ao deletar usuário!');</script>";
+				}
+			}			 
 		?>
 		</table>
 	</div>
