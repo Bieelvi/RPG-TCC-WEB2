@@ -1,7 +1,11 @@
 <?php session_start(); ?>
 <?php include("model/ConexaoDataBase.php"); ?>
 <?php
-	if($_SESSION['usuarios'][1] == 1) {
+	if(isset($_SESSION['usuarios'])) {
+		$hierarquia = $_SESSION['usuarios'][1];
+		if($hierarquia != 1){
+			header('Location: http://localhost/teste/index.php');
+		}
 	} else {
 		header('Location: http://localhost/teste/index.php');
 	}

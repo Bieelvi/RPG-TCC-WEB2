@@ -22,7 +22,7 @@
 				<small>Ainda não possui uma conta? <a href="cadastro.php"><strong>Cadastre-se!</strong></a></small>
 			</div>
 			<div class="CadastroFormulario">
-				<input type="submit" value="Cadastrar">
+				<input type="submit" value="Entrar">
 			</div>
 		</form>
 	</div>

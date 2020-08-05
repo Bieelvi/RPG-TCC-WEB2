@@ -30,12 +30,14 @@
 					$confEmail = filter_input(INPUT_POST,'confEmail',FILTER_SANITIZE_EMAIL);
 					$senha = filter_input(INPUT_POST,'senha',FILTER_SANITIZE_SPECIAL_CHARS);
 					$confSenha = filter_input(INPUT_POST,'confSenha',FILTER_SANITIZE_SPECIAL_CHARS);
+					$hierarquiaUsuario = 0;
 
-					$sql = $conn->prepare("INSERT INTO usuario (nomeUsuario, senhaUsuario, emailUsuario) VALUES (?, ?, ?)");
+					$sql = $conn->prepare("INSERT INTO usuario (nomeUsuario, senhaUsuario, emailUsuario, hierarquiaUsuario) VALUES (?, ?, ?, ?)");
 
 					$sql->bindValue(1, $usuario, PDO::PARAM_STR);
 					$sql->bindValue(2, md5($senha), PDO::PARAM_STR);
 					$sql->bindValue(3,  $email, PDO::PARAM_STR);
+					$sql->bindValue(4,  $hierarquiaUsuario);
 
 					if($sql->execute()){
 						echo "Cadastrado com sucesso!"; ?>

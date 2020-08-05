@@ -23,28 +23,29 @@
 			</a>
 		</div>
 		<div class="Links">
-
-			<?php 
-			if(isset($_SESSION['usuarios'][0])) {
-				if(isset($_SESSION['usuarios'][1]) == 1){ ?>
-					<a href="userPage.php"><?php echo $_SESSION['usuarios'][0]; ?></a>
-					<a href="admPage.php">ADM</a>
-		<?php	} else { ?>
-					<a href="userPage.php"><?php echo $_SESSION['usuarios'][0]; ?></a>	
-	    <?php 	}
-	    	} ?>
-
 			<a href="#">O que é RPG?</a>
 			<a href="#">Como Jogar</a>
-			<a href="#">Quem Somos</a>
-			<a href="#">Contato</a>
-
-			<?php if(isset($_SESSION['usuarios'])){ ?>
-				<a href="sair.php">Sair</a>
-			<?php } else { ?>
-				<a href="login.php">Entrar</a>
-			<?php } ?>
-
-			<a href="download.php" class="LinkBotao">Download</a>
+			<a href="download.php">Download</a>
+			<div class="dropdown">
+				Contato
+				<div class="dropdown-content">
+					<a href="#">Quem Somos</a>
+					<a href="#">Fale Conosco</a>
+				</div>				
+			</div>
+			<div class="dropdown">
+				<button class="LinkBotao">
+				<?php if(isset($_SESSION['usuarios'])) {
+						echo $_SESSION['usuarios'][0];
+					} else { ?>
+							<a href="login.php">Entrar</a>
+			<?php   }	?>	
+				</button>
+				<div class="dropdown-content">
+			  <?php if(isset($_SESSION['usuarios'])){ ?> <a href="userPage.php">Perfil</a> <?php } ?>		
+			  <?php if(isset($_SESSION['usuarios']) && $_SESSION['usuarios'][1] == 1){ ?> <a href="admPage.php">Administrador</a> <?php } ?>		
+			  <?php if(isset($_SESSION['usuarios'])){ ?> <a href="sair.php">Sair</a> <?php } ?>
+				</div>
+			</div>	
 		</div>
 	</div>
