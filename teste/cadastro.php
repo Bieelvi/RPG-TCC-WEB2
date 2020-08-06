@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -15,7 +16,7 @@
 	<div class="Formulario">
 		<form name="formCadastro" id="formCadastro" action="controller/cadastroController.php" method="post">
 			<div class="CadastroFormulario">
-				<span>Usuário: <br></span>
+				<span>Usúario: <br></span>
 				<input type="text" name="usuario" id="usuario" autocomplete="off" required>
 			</div>
 			<div class="CadastroFormulario">
