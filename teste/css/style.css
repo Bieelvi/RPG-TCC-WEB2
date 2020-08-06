@@ -26,20 +26,17 @@
 .CadastroFormulario{float: left; width: 60%; margin: 10px 20% 10px 20%;}
 	.CadastroFormulario span{font-family:'Josefin Sans', sans-serif;}
 	.CadastroFormulario input[type='text'], input[type='email'], input[type='password']{float: left; width: 100%; height: 40px; border: 2px solid #41B13B; border-radius: 5px; background: #D8E2D5}
-    .CadastroFormulario input[type='submit']{display: inline-block; width: 20%; height: 40px; font-size: 17px; color:#FFF; font-weight: bold; text-align: center; border:0; border-radius: 15px; cursor:pointer; background: #41B13B; font-family: 'Josefin Sans', sans-serif;}
-    .CadastroFormulario a{color: #41B13B; text-decoration: none;}
-    .CadastroFormulario a:hover{text-decoration: underline;}
+  .CadastroFormulario input[type='submit']{display: inline-block; width: 20%; height: 40px; font-size: 17px; color:#FFF; font-weight: bold; text-align: center; border:0; border-radius: 15px; cursor:pointer; background: #41B13B; font-family: 'Josefin Sans', sans-serif;}
+  .CadastroFormulario a{color: #41B13B; text-decoration: none;}
+  .CadastroFormulario a:hover{text-decoration: underline;}
 
 /* Inicio do css da pagina modoJogo.php */
 .CadastroFormularioSala{float: left; width: 70%; margin: 10px 20% 10px 20%;}
-  .CadastroFormularioSala span legend{font-family:'Josefin Sans', sans-serif;}
+  .CadastroFormularioSala span{font-family:'Josefin Sans', sans-serif;}
   .CadastroFormularioSala input[type='text']{float: left; width: 100%; height: 40px; border: 2px solid #41B13B; border-radius: 5px; background: #D8E2D5}
-    .CadastroFormularioSala input[type='submit']{display: inline-block; width: 20%; height: 40px; font-size: 17px; color:#FFF; font-weight: bold; text-align: center; border:0; border-radius: 15px; cursor:pointer; background: #41B13B; font-family: 'Josefin Sans', sans-serif;}
-    .CadastroFormularioSala a{color: #41B13B; text-decoration: none;}
-    .CadastroFormularioSala a:hover{text-decoration: underline;}
-
-   
-
+  .CadastroFormularioSala input[type='submit']{display: inline-block; width: 20%; height: 40px; font-size: 17px; color:#FFF; font-weight: bold; text-align: center; border:0; border-radius: 15px; cursor:pointer; background: #41B13B; font-family: 'Josefin Sans', sans-serif;}
+  .CadastroFormularioSala a{color: #41B13B; text-decoration: none;}
+  .CadastroFormularioSala a:hover{text-decoration: underline;}  
 /* Fim do css da pagina modoJogo.php */        
 
 .TituloLoginCadastro{float: left; width: 20%; margin: 20px 20% 10px 20%;}
@@ -49,7 +46,6 @@
 	.TabelaSelecao tr:nth-child(2n -1){background: #D8E2D5;}
 	.TabelaSelecao tr:first-child{background: #000; color: #fff; font-weight: bold; font-size: 20px;}
 	.TabelaSelecao td{width: 20%}
-
 
 .dropbtn{background-color: #4CAF50; color: white; padding: 16px; font-size: 16px; border: none; text-decoration: none;}
 

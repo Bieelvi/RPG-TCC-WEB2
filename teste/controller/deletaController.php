@@ -1,6 +1,7 @@
-<?php session_start(); ?>
-<?php include("../model/ConexaoDataBase.php"); ?>
-<?php
+<?php 
+	session_start();
+	include("../model/ConexaoDataBase.php");
+
 
 	$codigoUsuario = filter_input(INPUT_GET,'codigoUsuario', FILTER_SANITIZE_NUMBER_INT);
 

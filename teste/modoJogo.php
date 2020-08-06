@@ -25,18 +25,22 @@
 							<p class="Titulo">MESTRE</p>
 						</div>	
 						<div class="CadastroFormularioSala">
+							<label>USUÁRIO</label>
+							<input type="text" name="UsuarioSala" id="UsuarioSala" size="48%" class="mb-2" disabled value="<?php echo $nomeUsuario; ?>">
+						</div>
+						<div class="CadastroFormularioSala">
 							<label>NOME DA SALA</label>
 							<input type="text" name="nomeSala" id="nomeSala" size="48%" class="mb-2" placeholder="Crie o nome da sala..." required="">
 						</div>
 						<div class="CadastroFormularioSala">
+							<label>SENHA DA SALA</label>
+							<input type="text" name="senhaSala" id="senhaSala" size="48%" placeholder="Copie o código e mande para seus jogadores...">
+						</div>
+						<div class="CadastroFormularioSala">
 							<label>JOGADORES</label>
 							<input type="text" name="QuantidadeJogadores" id="QuantidadeJogadores" size="48%" class="mb-2" placeholder="Digite a quantidade de jogadores...">
-						</div>
-						<div class="CadastroFormularioSala">
-							<label>CÓDIGO DA SALA</label>
-							<input type="text" name="codigoSala" id="codigoSala" size="48%" placeholder="Copie o código e mande para seus jogadores...">
-						</div>
-						<div class="CadastroFormularioSala">
+						</div>						
+						<!-- <div class="CadastroFormularioSala">
 							<fieldset required>
 								<input type="radio" name="presOnPres" id="presOnPres">
 								<label>PRESENCIAL</label>
@@ -47,7 +51,7 @@
 						<div class="CadastroFormularioSala">	
 							<label>CARREGAR MAPA</label>
 							<input type="file" name="mapaAntigo" id="mapaAntigo" class="mb-2">
-						</div>						
+						</div> -->					
 						<div class="CadastroFormularioSala">
 							<input type="submit" value="Criar">
 						</div>			
@@ -59,18 +63,22 @@
 					<form action="" method="POST">
 						<div class="CadastroFormularioSala">	
 							<p class="Titulo">JOGADOR</p>
+						</div>
+						<div class="CadastroFormularioSala">
+							<label>USUÁRIO</label>
+							<input type="text" size="48%" class="mb-2" disabled value="<?php echo $nomeUsuario; ?>">
 						</div>	
 						<div class="CadastroFormularioSala">
 							<label>NOME DO JOGADOR</label>						
-							<input type="text" name="nomeJogador" id="nomeJogador" size="48%" class="mb-2" placeholder="Digite o nome do seu usuario..." required="">
+							<input type="text" name="nomeJogador" id="nomeJogador" size="48%" class="mb-2" placeholder="Digite o nome do seu usuario..." required>
+						</div>
+						<div class="CadastroFormularioSala">
+							<label>NOME DA SALA</label>
+							<input type="text" name="nomeSala" id="nomeSala" size="48%" class="mb-2" placeholder="Digite o nome da sala..." required>
 						</div>
 						<div class="CadastroFormularioSala">	
-							<label>CÓDIGO DA SALA</label>						
-							<input type="text" name="colocaCodigo" id="colocaCodigo" size="48%" class="mb-2" placeholder="Cole aqui o código da sala..." required="">
-						</div>
-						<div class="CadastroFormularioSala">	
-							<label>CARREGAR FICHA</label>						
-							<input type="file" name="CarregarFicha" id="CarregarFicha" class="mb-2">
+							<label>SENHA DA SALA</label>						
+							<input type="text" name="senhaSala" id="senhaSala" size="48%" class="mb-2" placeholder="Digite aqui a senha da sala..." required>
 						</div>
 						<div class="CadastroFormularioSala">
 							<input type="submit" value="Entrar">

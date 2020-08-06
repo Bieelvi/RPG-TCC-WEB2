@@ -8,7 +8,7 @@
 		$conn = new PDO('mysql:host='.$server.';dbname='.$banco, $usuario, $senha);
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			
-	} catch (PDOException $erro) {
+	} catch (PDOException $erro){
 		echo "Erro ao tentar conectar com os banco de dados: {$erro->getMessage()}";
 		$conn = "1";
 	}

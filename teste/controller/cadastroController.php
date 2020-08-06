@@ -44,7 +44,7 @@
 						<script type='text/JavaScript'>
 						    setTimeout(function () {
 						        window.location.href = 'index.php'; 
-						    }, 5000); 
+						    }, 2000); 
 						</script>
 					<?php } else {
 						echo "Erro no cadastro!";

@@ -1,6 +1,7 @@
-<?php session_start(); ?>
-<?php include("model/ConexaoDataBase.php"); ?>
-<?php
+<?php 
+	session_start();	
+    include("model/ConexaoDataBase.php");
+
 	if(isset($_SESSION['usuarios'])) {
 		$hierarquia = $_SESSION['usuarios'][1];
 		if($hierarquia != 1){
@@ -30,6 +31,7 @@
 			$sqlSelecao = $conn->prepare("SELECT * FROM usuario ORDER BY codigoUsuario DESC");
 			$sqlSelecao->execute();
 			$resultado = $sqlSelecao->fetchAll(PDO::FETCH_ASSOC);
+			
 			$cont = 1;
 
 			foreach($resultado as $cadaItem){ ?>

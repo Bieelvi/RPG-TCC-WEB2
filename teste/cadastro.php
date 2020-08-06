@@ -41,4 +41,23 @@
 		</form>
 	</div>
 
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#formCadastro").on('submit',function(event) {
+			event.preventDefault();
+			var dados=$(this).serialize();
+					  
+			$.ajax ({
+			  	url: 'controller/cadastroController.php',
+			    type: 'post',
+			    dataType: 'html',
+			    data: dados,
+			    success:function(dados){
+			    	$('.Retorno').show().html(dados);
+			   	}
+		  	})
+		});
+	});
+</script>
+
 <?php include("footer.php"); ?>
