@@ -21,26 +21,26 @@
 			<div class="col-md-6">
 				<div class="container">
 					<form action="" method="POST">
-						<div class="CadastroFormularioSala">	
+						<div class="CadastroSala">	
 							<p class="Titulo">MESTRE</p>
 						</div>	
-						<div class="CadastroFormularioSala">
+						<div class="CadastroSala">
 							<label>USUÁRIO</label>
 							<input type="text" name="UsuarioSala" id="UsuarioSala" size="48%" class="mb-2" disabled value="<?php echo $nomeUsuario; ?>">
 						</div>
-						<div class="CadastroFormularioSala">
+						<div class="CadastroSala">
 							<label>NOME DA SALA</label>
-							<input type="text" name="nomeSala" id="nomeSala" size="48%" class="mb-2" placeholder="Crie o nome da sala..." required="">
+							<input type="text" name="nomeSala" id="nomeSala" size="48%" class="mb-2" placeholder="Nome da sala..." required="">
 						</div>
-						<div class="CadastroFormularioSala">
+						<div class="CadastroSala">
 							<label>SENHA DA SALA</label>
-							<input type="text" name="senhaSala" id="senhaSala" size="48%" placeholder="Copie o código e mande para seus jogadores...">
+							<input type="text" name="senhaSala" id="senhaSala" size="48%" placeholder="Senha...">
 						</div>
-						<div class="CadastroFormularioSala">
+						<div class="CadastroSala">
 							<label>JOGADORES</label>
-							<input type="text" name="QuantidadeJogadores" id="QuantidadeJogadores" size="48%" class="mb-2" placeholder="Digite a quantidade de jogadores...">
+							<input type="text" name="QuantidadeJogadores" id="QuantidadeJogadores" size="48%" class="mb-2" placeholder="Quantidade de jogadores...">
 						</div>						
-						<!-- <div class="CadastroFormularioSala">
+						<!-- <div class="CadastroSala">
 							<fieldset required>
 								<input type="radio" name="presOnPres" id="presOnPres">
 								<label>PRESENCIAL</label>
@@ -48,11 +48,11 @@
 								<label>ONLINE</label>	
 							</fieldset>
 						</div>
-						<div class="CadastroFormularioSala">	
+						<div class="CadastroSala">	
 							<label>CARREGAR MAPA</label>
 							<input type="file" name="mapaAntigo" id="mapaAntigo" class="mb-2">
 						</div> -->					
-						<div class="CadastroFormularioSala">
+						<div class="CadastroSala">
 							<input type="submit" value="Criar">
 						</div>			
 					</form>
@@ -60,27 +60,27 @@
 			</div>
 			<div class="col-md-6">
 				<div class="container">
-					<form action="" method="POST">
-						<div class="CadastroFormularioSala">	
+					<form action="controller/modoJogoJogadorController.php" method="POST">
+						<div class="CadastroSala">	
 							<p class="Titulo">JOGADOR</p>
 						</div>
-						<div class="CadastroFormularioSala">
+						<div class="CadastroSala">
 							<label>USUÁRIO</label>
 							<input type="text" size="48%" class="mb-2" disabled value="<?php echo $nomeUsuario; ?>">
 						</div>	
-						<div class="CadastroFormularioSala">
-							<label>NOME DO JOGADOR</label>						
-							<input type="text" name="nomeJogador" id="nomeJogador" size="48%" class="mb-2" placeholder="Digite o nome do seu usuario..." required>
+						<div class="CadastroSala">
+							<label>NOME DO PERSONAGEM</label>						
+							<input type="text" name="nomeJogador" id="nomeJogador" size="48%" class="mb-2" placeholder="Nome do seu usuario..." required>
 						</div>
-						<div class="CadastroFormularioSala">
+						<div class="CadastroSala">
 							<label>NOME DA SALA</label>
-							<input type="text" name="nomeSala" id="nomeSala" size="48%" class="mb-2" placeholder="Digite o nome da sala..." required>
+							<input type="text" name="nomeSala" id="nomeSala" size="48%" class="mb-2" placeholder="Nome da sala..." required>
 						</div>
-						<div class="CadastroFormularioSala">	
+						<div class="CadastroSala">	
 							<label>SENHA DA SALA</label>						
-							<input type="text" name="senhaSala" id="senhaSala" size="48%" class="mb-2" placeholder="Digite aqui a senha da sala..." required>
+							<input type="text" name="senhaSala" id="senhaSala" size="48%" class="mb-2" placeholder="Senha..." required>
 						</div>
-						<div class="CadastroFormularioSala">
+						<div class="CadastroSala">
 							<input type="submit" value="Entrar">
 						</div>			
 					</form>

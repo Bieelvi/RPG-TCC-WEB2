@@ -7,7 +7,7 @@
 		$senha = filter_input(INPUT_POST,'senha',FILTER_SANITIZE_SPECIAL_CHARS);
 	
 		$sql = $conn->prepare("SELECT * FROM usuario WHERE senhaUsuario = ? AND emailUsuario = ?");
-		$sql->bindValue(1, md5($senha)); 
+		$sql->bindValue(1, $senha); 
 		$sql->bindValue(2, $email);
 		
 		$sql->execute();

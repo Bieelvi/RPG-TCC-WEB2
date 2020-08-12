@@ -16,8 +16,5 @@
 		<title><?php echo $nomeUsuario; ?> - Roll and Play GENG</title>
 <?php include("header.php"); ?>	
 	<div class="content">
-		<a href="modoJogo.php">
-			<span class="Jogar">Jogar</span>
-		</a>
 	</div>	
 <?php include("footer.php"); ?>

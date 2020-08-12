@@ -35,9 +35,9 @@
 					$sql = $conn->prepare("INSERT INTO usuario (nomeUsuario, senhaUsuario, emailUsuario, hierarquiaUsuario) VALUES (?, ?, ?, ?)");
 
 					$sql->bindValue(1, $usuario, PDO::PARAM_STR);
-					$sql->bindValue(2, md5($senha), PDO::PARAM_STR);
-					$sql->bindValue(3,  $email, PDO::PARAM_STR);
-					$sql->bindValue(4,  $hierarquiaUsuario);
+					$sql->bindValue(2, $senha, PDO::PARAM_STR);
+					$sql->bindValue(3, $email, PDO::PARAM_STR);
+					$sql->bindValue(4, $hierarquiaUsuario);
 
 					if($sql->execute()){
 						echo "Cadastrado com sucesso!"; ?>
