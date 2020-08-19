@@ -1,0 +1,27 @@
+* {margin: 0; padding: 0;}
+
+/* Inicio do css da pagina header.php */
+.ImageSlogan{margin-left: 100px;}
+
+.Links{float: right; margin-right: 100px; font-family: 'Josefin Sans', sans-serif;}
+	.Links a{padding: 10px; margin: 0; text-decoration: none;}
+	.LinkBotao {padding: 10px; font-size: 17px; color:#FFF; font-weight: bold; text-align: center; border:0; border-radius: 15px; cursor:pointer; background: #41B13B; font-family: 'Josefin Sans', sans-serif;}
+
+.dropbtn{background-color: #4CAF50; color: white; padding: 16px; font-size: 16px; border: none; text-decoration: none;}
+
+.dropdown{padding-right: 10px; position: relative; display: inline-block; text-decoration: none;}
+
+.dropdown-content{display: none; position: absolute; background-color: #f1f1f1; min-width: 160px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; text-decoration: none;}
+  .dropdown-content a{color: black; padding: 12px 16px; text-decoration: none; display: block; text-decoration: none;  }
+  .dropdown-content a:hover{background-color: #ddd;}
+
+.dropdown:hover .dropdown-content{display: block;}
+
+.dropdown:hover .dropbtn{background-color: #3e8e41;}
+
+.Teste{background-color: #fff; padding: 20px;}
+
+.grid{display: grid;} 
+
+.grid-template-areasUm{grid-template-areas: "a";} 
+/* Inicio do css da pagina header.php */

@@ -1,4 +1,6 @@
 <?php 
+	session_start();
+
 	require("../model/ConexaoDataBase.php");
 
 	if(isset($_POST["senha"]) && isset($_POST["email"]) && $conn != "1"){
@@ -14,8 +16,7 @@
 
 		if($sql->rowCount()){
 			$dado = $sql->fetchAll(PDO::FETCH_ASSOC)[0];
-			session_start();
-			$_SESSION['usuarios'] = array($dado["nomeUsuario"], $dado["hierarquiaUsuario"]);
+			$_SESSION['usuarios'] = array($dado["nomeUsuario"], $dado["hierarquiaUsuario"], $dado["codigoUsuario"]);
 			header('Location: http://localhost/teste/userPage.php');
 		} else {
 			header('Location: http://localhost/teste/login.php');

@@ -13,30 +13,45 @@
 <html lang="pt-br">
 	<head>
 		<title><?php echo $nomeUsuario; ?> - Roll and Play GENG</title>
+		<?php include("header.php"); ?>
 
-	<style>
-		.Um{grid-area: a;}
+		<title>Teste</title>
+</head>
+<body>
+	<div style="position: absolute; width: 200px; background-color: lightblue; padding: 10px; margin: 5px;">
+		<form action="controller/fichaController.php" method="POST">
+			<span>Força</span><br>
+			<input type="number" name="forcaPersonagem" id="forcaPersonagem" value="<?php echo $_SESSION['forcaPersonagem']; ?>"><br><br>
+			<span>Modificador</span><br>
+			<input type="text" value="<?php echo $_SESSION['modForcaPersonagem']; ?>" disabled><br><br>
 
-		.Teste{background-color: red; padding: 15px; margin: 5px;}
+			<span>Destreza</span><br>		
+			<input type="number" name="destrezaPersonagem" id="destrezaPersonagem" value="<?php echo $_SESSION['destrezaPersonagem']; ?>"><br><br>
+			<span>Modificador</span><br>
+			<input type="text" value="<?php echo $_SESSION['modDestrezaPersonagem']; ?>" disabled><br><br>
 
-		.grid{display: grid;} 
+			<span>Constituição</span><br>
+			<input type="number" name="constituicaoPersonagem" id="constituicaoPersonagem" value="<?php echo $_SESSION['constituicaoPersonagem']; ?>"><br><br>
+			<span>Modificador</span><br>
+			<input type="text" value="<?php echo $_SESSION['modConstituicaoPersonagem']; ?>" disabled><br><br>
 
-		.grid-template-areasUm{
-			grid-template-areas: 
-			"a b c d" 
-			"a e f g"
-		;
-		}
-	</style>
+			<span>Inteligência</span><br>
+			<input type="number" name="inteligenciaPersonagem" id="inteligenciaPersonagem" value="<?php echo $_SESSION['inteligenciaPersonagem']; ?>"><br><br>
+			<span>Modificador</span><br>
+			<input type="text" value="<?php echo $_SESSION['modInteligenciaPersonagem']; ?>" disabled><br><br>
 
-	<section class="grid grid-template-areasUm">
-		<div class="Teste Um">1</div>
-		<div class="Teste Dois">2</div>
-		<div class="Teste Tres">3</div>
-		<div class="Teste Quatro">4</div>
-		<div class="Teste Cinco">5</div>
-		<div class="Teste Seis">6</div>
-		<div class="Teste Sete">7</div>
-	</section>
+			<span>Sabedoria</span><br>
+			<input type="number" name="sabedoriaPersonagem" id="sabedoriaPersonagem" value="<?php echo $_SESSION['sabedoriaPersonagem']; ?>"><br><br>
+			<span>Modificador</span><br>
+			<input type="text" value="<?php echo $_SESSION['modSabedoriaPersonagem']; ?>" disabled><br><br>
+
+			<span>Carisma</span><br>
+			<input type="number" name="carismaPersonagem" id="carismaPersonagem" value="<?php echo $_SESSION['carismaPersonagem']; ?>"><br><br>
+			<span>Modificador</span><br>
+			<input type="text" value="<?php echo $_SESSION['modCarismaPersonagem']; ?>" disabled><br><br>
+
+			<button type="submit">Calcular</button>
+		</form>	
+	</div>
 
 <?php include("footer.php"); ?>
