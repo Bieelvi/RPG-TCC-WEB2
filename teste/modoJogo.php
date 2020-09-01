@@ -20,25 +20,29 @@
 		<div class="row">
 			<div class="col-md-6">
 				<div class="container">
-					<form action="" method="POST">
+					<form action="controller/modoJogoMestreController.php" method="POST">
 						<div class="CadastroSala">	
 							<p class="Titulo">MESTRE</p>
 						</div>	
 						<div class="CadastroSala">
 							<label>USUÁRIO</label>
-							<input type="text" name="UsuarioSala" id="UsuarioSala" size="48%" class="mb-2" disabled value="<?php echo $nomeUsuario; ?>">
+							<input type="text" name="usuarioSala" id="usuarioSala" size="48%" class="mb-2" disabled value="<?php echo $nomeUsuario; ?>">
+						</div>
+						<div class="CadastroSala">
+							<label>NOME DO MESTRE</label>
+							<input type="text" name="nomeMestre" id="nomeMestre" size="48%" class="mb-2" placeholder="Nome do mestre..." required>
 						</div>
 						<div class="CadastroSala">
 							<label>NOME DA SALA</label>
-							<input type="text" name="nomeSala" id="nomeSala" size="48%" class="mb-2" placeholder="Nome da sala..." required="">
+							<input type="text" name="nomeSala" id="nomeSala" size="48%" class="mb-2" placeholder="Nome da sala..." required>
 						</div>
 						<div class="CadastroSala">
 							<label>SENHA DA SALA</label>
-							<input type="text" name="senhaSala" id="senhaSala" size="48%" placeholder="Senha...">
+							<input type="password" name="senhaSala" id="senhaSala" size="48%" placeholder="Senha...">
 						</div>
 						<div class="CadastroSala">
 							<label>JOGADORES</label>
-							<input type="text" name="QuantidadeJogadores" id="QuantidadeJogadores" size="48%" class="mb-2" placeholder="Quantidade de jogadores...">
+							<input type="text" name="qntJogadores" id="qntJogadores" size="48%" class="mb-2" placeholder="Quantidade de jogadores...">
 						</div>						
 						<!-- <div class="CadastroSala">
 							<fieldset required>
@@ -70,7 +74,7 @@
 						</div>	
 						<div class="CadastroSala">
 							<label>NOME DO PERSONAGEM</label>						
-							<input type="text" name="nomeJogador" id="nomeJogador" size="48%" class="mb-2" placeholder="Nome do seu usuario..." required>
+							<input type="text" name="nomeJogador" id="nomeJogador" size="48%" class="mb-2" placeholder="Nome do seu personagem..." required>
 						</div>
 						<div class="CadastroSala">
 							<label>NOME DA SALA</label>
@@ -78,7 +82,7 @@
 						</div>
 						<div class="CadastroSala">	
 							<label>SENHA DA SALA</label>						
-							<input type="text" name="senhaSala" id="senhaSala" size="48%" class="mb-2" placeholder="Senha..." required>
+							<input type="password" name="senhaSala" id="senhaSala" size="48%" class="mb-2" placeholder="Senha..." required>
 						</div>
 						<div class="CadastroSala">
 							<input type="submit" value="Entrar">
