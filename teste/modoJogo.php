@@ -16,15 +16,15 @@
 		<title><?php echo $nomeUsuario; ?> - Roll and Play GENG</title>
 <?php include("header.php"); ?>	
 
-	<Div class="Retorno">
+	<div class="Retorno">
 		
-	</Div>
+	</div>
 
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
 				<div class="container">
-					<form action="controller/criaSalaController.php" method="POST">
+					<form action="controller/modoJogoMestreController.php" method="POST">
 						<div class="CadastroSala">	
 							<p class="Titulo">CRIAR UMA SALA</p>
 						</div>	

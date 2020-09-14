@@ -9,8 +9,7 @@
 .CenterTitulo{text-align: center; font-family: 'Berkshire Swash', cursive; font-size: 32px; margin: 10px; color: #41B13B;}
 
 /* Inicio do css da pagina index.php */
-.SecaoPrimeira{float: left; width: 100%; height: 700px;}
-	.SecaoPrimeira img{float: left; width: 100%; height: 700px; background: #000; opacity: 0.9;}
+.ImageFundo{width: 100%; height: 650px; background-image: url("image/backgroundPrimeiro.jpg"); background-repeat: no-repeat; background-size: contain; background-size: 100% 100%;}
 
 .BotaoJogar{position: absolute; margin-top: 325px; width: 100%; height: 50px;} 
 

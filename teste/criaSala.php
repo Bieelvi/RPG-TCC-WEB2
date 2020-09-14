@@ -13,64 +13,23 @@
 <html lang="pt-br">
 	<head>
 		<title><?php echo $nomeUsuario; ?> - Roll and Play GENG</title>
-<?php include("header.php"); ?>	
-			
-	<form action="" method="POST">
-		<div style="float: left; width: 150px; margin-left: 10px;">
-			<span>Jogador UM</span><br>
-			<select>		
-				<option>Escolha...</option>
-				<?php
-					$sqlSelectOption = $conn->prepare("SELECT nomeJogador FROM jogador");
-					$sqlSelectOption->execute();					
-					$resultado = $sqlSelectOption->fetchAll(PDO::FETCH_ASSOC);
-
-					foreach ($resultado as $key) { ?>
-						<option><?php echo $key['nomeJogador']; ?></option>
-			  <?php } ?>
-			</select>
+<?php include("header.php"); ?>			
+	
+	<form action="controller/criaSalaController.php" enctype="multipart/form-data" method="post">
+		<div>	
+			Online: <input type="radio" name="sala" id="sala" value="Online" checked /><br />
+			Presencial: <input type="radio" name="sala" id="sala" value="Presencial" /><br />
 		</div>
-		<div style="float: left; width: 150px; margin-left: 10px;">
-			<span>Jogador DOIS</span><br>
-			<select>		
-				<option>Escolha...</option>
-				<?php
-					$sqlSelectOption = $conn->prepare("SELECT nomeJogador FROM jogador");
-					$sqlSelectOption->execute();					
-					$resultado = $sqlSelectOption->fetchAll(PDO::FETCH_ASSOC);
-
-					foreach ($resultado as $key) { ?>
-						<option><?php echo $key['nomeJogador']; ?></option>
-			  <?php } ?>
-			</select>
+		<div>
+			<span>Imagens</span><br>
+			<input type="file" alt="Submit" name="foto" id="foto" width="48" height="48">
 		</div>
-		<div style="float: left; width: 150px; margin-left: 10px;">
-			<span>Jogador TRÊS</span><br>
-			<select>		
-				<option>Escolha...</option>
-				<?php
-					$sqlSelectOption = $conn->prepare("SELECT nomeJogador FROM jogador");
-					$sqlSelectOption->execute();					
-					$resultado = $sqlSelectOption->fetchAll(PDO::FETCH_ASSOC);
-
-					foreach ($resultado as $key) { ?>
-						<option><?php echo $key['nomeJogador']; ?></option>
-			  <?php } ?>
-			</select>
+		<div>
+			<span>Musícas</span><br>
+			<input type="file" alt="Submit" name="musica" width="48" height="48">
 		</div>
-		<div style="float: left; width: 150px; margin-left: 10px;">
-			<span>Jogador QUATRO</span><br>
-			<select>		
-				<option>Escolha...</option>
-				<?php
-					$sqlSelectOption = $conn->prepare("SELECT nomeJogador FROM jogador");
-					$sqlSelectOption->execute();					
-					$resultado = $sqlSelectOption->fetchAll(PDO::FETCH_ASSOC);
-
-					foreach ($resultado as $key) { ?>
-						<option><?php echo $key['nomeJogador']; ?></option>
-			  <?php } ?>
-			</select>
+		<div>
+			<input type="submit" name="" value="Entrar">
 		</div>
 	</form>
 
