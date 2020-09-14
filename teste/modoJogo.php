@@ -16,46 +16,34 @@
 		<title><?php echo $nomeUsuario; ?> - Roll and Play GENG</title>
 <?php include("header.php"); ?>	
 
+	<Div class="Retorno">
+		
+	</Div>
+
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
 				<div class="container">
-					<form action="controller/modoJogoMestreController.php" method="POST">
+					<form action="controller/criaSalaController.php" method="POST">
 						<div class="CadastroSala">	
-							<p class="Titulo">MESTRE</p>
+							<p class="Titulo">CRIAR UMA SALA</p>
 						</div>	
 						<div class="CadastroSala">
 							<label>USUÁRIO</label>
-							<input type="text" name="usuarioSala" id="usuarioSala" size="48%" class="mb-2" disabled value="<?php echo $nomeUsuario; ?>">
+							<input type="text" size="48%" class="mb-2" disabled value="<?php echo $nomeUsuario; ?>">
 						</div>
 						<div class="CadastroSala">
-							<label>NOME DO MESTRE</label>
+							<label>MESTRE</label>
 							<input type="text" name="nomeMestre" id="nomeMestre" size="48%" class="mb-2" placeholder="Nome do mestre..." required>
 						</div>
 						<div class="CadastroSala">
-							<label>NOME DA SALA</label>
+							<label>SALA</label>
 							<input type="text" name="nomeSala" id="nomeSala" size="48%" class="mb-2" placeholder="Nome da sala..." required>
 						</div>
 						<div class="CadastroSala">
-							<label>SENHA DA SALA</label>
-							<input type="password" name="senhaSala" id="senhaSala" size="48%" placeholder="Senha...">
-						</div>
-						<div class="CadastroSala">
-							<label>JOGADORES</label>
-							<input type="text" name="qntJogadores" id="qntJogadores" size="48%" class="mb-2" placeholder="Quantidade de jogadores...">
-						</div>						
-						<!-- <div class="CadastroSala">
-							<fieldset required>
-								<input type="radio" name="presOnPres" id="presOnPres">
-								<label>PRESENCIAL</label>
-								<input type="radio" name="presOnPres" id="presOnPres">
-								<label>ONLINE</label>	
-							</fieldset>
-						</div>
-						<div class="CadastroSala">	
-							<label>CARREGAR MAPA</label>
-							<input type="file" name="mapaAntigo" id="mapaAntigo" class="mb-2">
-						</div> -->					
+							<label>SENHA</label>
+							<input type="password" name="senhaSala" id="senhaSala" size="48%" placeholder="Senha..." required>
+						</div>			
 						<div class="CadastroSala">
 							<input type="submit" value="Criar">
 						</div>			
@@ -64,28 +52,20 @@
 			</div>
 			<div class="col-md-6">
 				<div class="container">
-					<form action="controller/modoJogoJogadorController.php" method="POST">
+					<form action="controller/criaJogadorController.php" method="POST">
 						<div class="CadastroSala">	
-							<p class="Titulo">JOGADOR</p>
+							<p class="Titulo">CRIAR UM PERSONAGEM</p>
 						</div>
 						<div class="CadastroSala">
 							<label>USUÁRIO</label>
 							<input type="text" size="48%" class="mb-2" disabled value="<?php echo $nomeUsuario; ?>">
 						</div>	
 						<div class="CadastroSala">
-							<label>NOME DO PERSONAGEM</label>						
+							<label>PERSONAGEM</label>						
 							<input type="text" name="nomeJogador" id="nomeJogador" size="48%" class="mb-2" placeholder="Nome do seu personagem..." required>
 						</div>
 						<div class="CadastroSala">
-							<label>NOME DA SALA</label>
-							<input type="text" name="nomeSala" id="nomeSala" size="48%" class="mb-2" placeholder="Nome da sala..." required>
-						</div>
-						<div class="CadastroSala">	
-							<label>SENHA DA SALA</label>						
-							<input type="password" name="senhaSala" id="senhaSala" size="48%" class="mb-2" placeholder="Senha..." required>
-						</div>
-						<div class="CadastroSala">
-							<input type="submit" value="Entrar">
+							<input type="submit" value="Criar">
 						</div>			
 					</form>
 				</div>

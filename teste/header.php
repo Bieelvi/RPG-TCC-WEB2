@@ -26,14 +26,14 @@
 				</a>
 
 			<div class="Links">
-				<a href="#">O que é RPG?</a>
+				<a href="rpg.php">O que é RPG?</a>
 				<a href="#">Como Jogar</a>
 				<a href="download.php">Download</a>
 				
 				<div class="dropdown">
 					Contato
 					<div class="dropdown-content">
-						<a href="#">Quem Somos</a>
+						<a href="quemsomos.php">Quem Somos</a>
 						<a href="#">Fale Conosco</a>
 					</div>				
 				</div>

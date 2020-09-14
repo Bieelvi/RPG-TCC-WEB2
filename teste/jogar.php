@@ -36,35 +36,7 @@
 			});
 		</script>
 	</div>
-
-	<style>
-		.flex{
-			display: flex;			
-		}
-
-		.colunas{
-			width: 500px;
-			padding: 20px;
-			margin: 10px;
-		}
-
-		h1{
-			font-weight: 1.2rem;
-			text-align: center;
-		}
-
-		.titulo{
-			text-align: center;
-		}
-
-		.CadastroFicha{float: left; width: 60%; margin: 10px 20% 10px 20%;}
-  			.CadastroFicha span{font-family:'Josefin Sans', sans-serif;}
-  			.CadastroFicha input[type='text'], input[type="number"]{float: left; width: 100%; height: 40px; border: 2px solid #41B13B; border-radius: 5px; background: #D8E2D5}
-  			.CadastroFicha input[type='submit']{display: inline-block; width: 20%; height: 40px; font-size: 17px; color:#FFF; font-weight: bold; text-align: center; border:0; border-radius: 15px; cursor:pointer; background: #41B13B; font-family: 'Josefin Sans', sans-serif;}
-			.CadastroFicha a{color: #41B13B; text-decoration: none;}
-			.CadastroFicha a:hover{text-decoration: underline;} 
-	</style>
-
+	
 	<div>
 		<h1>FICHA</h1>
 	</div>
