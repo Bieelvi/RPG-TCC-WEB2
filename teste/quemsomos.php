@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-	<head>
-		<title>O que é RPG? - Roll and Play GENG</title>
-		<?php include("header.php"); ?>
-</head>
-<body style="background-color: #F8F8FF;">
-	<div><img src="image/bgQuemSomos.png" width="1200" height="900" style="position: fixed; top: 100px; left: 0; opacity: 0.2;"></div>
+<head>
+	<title>O que é RPG? - Roll and Play GENG</title>
+	<?php include("header.php"); ?>
+
+	<div>
+		<img src="image/bgQuemSomos.png" width="100%" height="100%" style="position: fixed; top: 100px; left: 0; opacity: 0.2;">
+	</div>
+
+	<div class="CenterTitutoUm">
+		<h1>Sobre nos</h1>
+	</div>
+
 	<div class="container" style="margin-bottom: 100px;">
 		<div class="row">
 			<div class="col-md-4">
@@ -18,7 +24,7 @@
 						<hr style="border-width: 2px; border-color: black;">
 					</div>
 					<div>
-						<span style="font-family:'Josefin Sans', sans-serif;">Sou Gabriel Victor Raymundo, estudo no Colégio Técnico Unicamp Limeira, SP. Estou no último ano do curso, e como o trabalho de conclusão de curso, preciso realizar um projeto desenvolvendo nas plataformas Web, Mobile e Desktop. O TCC está sendo realizado por um grupo de três membros: Eu, Edilson e Gabriel - Sim! Outro Gabriel haha - basicamente o nosso projeto consiste em criar uma plataforma que auxilia os jogadores de RPG - Rolling Playing Game - a jogar</span>
+						<span style="font-family:'Josefin Sans', sans-serif;">Sou Gabriel Victor Raymundo, estudo no Colégio Técnico Unicamp Limeira, SP. Estou no último ano do curso, e como o trabalho de conclusão de curso, preciso realizar um projeto desenvolvendo nas plataformas Web, Mobile e Desktop. O TCC está sendo realizado por um grupo de três membros: Eu, Edilson e Gabriel - Sim! Outro Gabriel haha - basicamente o nosso projeto consiste em criar uma plataforma que auxilia os jogadores de RPG - Rolling Playing Game - a jogarem RPG virtualmente, só que existe a opção se der jogado presencialmente.</span>
 					</div>
 				</div>
 			</div>

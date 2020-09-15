@@ -1,10 +1,19 @@
-*{margin: 0; padding: 0; box-sizing: border-box;}
+*{margin: 0; padding: 0;}
+
+body{background-color: #F8F8FF;}
 
 .Content{float: left; width: 100%; padding: 15px; background: lightgray;}
 
-.Secao{margin: 5% 10% 0 10%; width: 80%; background: #D8E2D5;}
+.Secao{margin-left: 5%; margin-right: 5%; width: 90%;}
 
 .Center{text-align: center;}
+
+.SecaoContato{margin-left: 5%; margin-right: 5%; width: 90%;}
+  .SecaoContato div{margin-top: 50px;}
+  .SecaoContato h2{font-family: 'Berkshire Swash', cursive; font-size: 30px; margin: 10px;}
+  .SecaoContato span{font-family:'Josefin Sans', sans-serif; margin-left: 3%; color: #41B13B;}
+
+.CenterTitutoUm{text-align: center; font-family: 'Berkshire Swash', cursive; font-size: 50px; margin: 10px; color: #41B13B;}
 
 .CenterTitulo{text-align: center; font-family: 'Berkshire Swash', cursive; font-size: 32px; margin: 10px; color: #41B13B;}
 
@@ -18,8 +27,6 @@
 /* Inicio do css da pagina index.php */
 
 /* Inicio do css da pagina index.php */
-.Ficha{}
-
 .InfFicha{float: left; width: 100%; margin-bottom: 5px;}
   .InfFicha input[type='text']{float: left; width: 90%; height: 40px; border: 2px solid #41B13B; border-radius: 5px; background: #D8E2D5;}
   .InfFicha input[type='number']{float: left; width: 15%; height: 40px; border: 2px solid #41B13B; border-radius: 5px; background: #D8E2D5;}
@@ -35,12 +42,15 @@
 .Titulo{font-family: 'Berkshire Swash', cursive; font-size: 50px;}
 
 .Retorno{display: none; float: left; width: 70%; border: 2px solid #41B13B; background: #D8E2D5; text-align: center; padding: 15px; margin: 20px 15% 10px 15%;}
+.RetornoDois{display: none; float: left; width: 70%; border: 2px solid #41B13B; background: #D8E2D5; text-align: center; padding: 15px; margin: 20px 15% 10px 15%;}
+.RetornoTres{display: none; float: left; width: 70%; border: 2px solid #41B13B; background: #D8E2D5; text-align: center; padding: 15px; margin: 20px 15% 10px 15%;}
+
 
 .Formulario{float: left; width: 70%; height: 500px; padding: 20px; margin: 60px 15%;}
 
 .CadastroFormulario{float: left; width: 60%; margin: 10px 20% 10px 20%;}
 	.CadastroFormulario span{font-family:'Josefin Sans', sans-serif;}
-	.CadastroFormulario input[type='text'], input[type='email'], input[type='password']{float: left; width: 100%; height: 40px; border: 2px solid #41B13B; border-radius: 5px; background: #D8E2D5}
+	.CadastroFormulario input[type='text'], input[type='email'], input[type='password']{float: left; width: 100%; height: 40px; border: 2px solid #41B13B; border-radius: 5px;}
   .CadastroFormulario input[type='submit']{display: inline-block; width: 20%; height: 40px; font-size: 17px; color:#FFF; font-weight: bold; text-align: center; border:0; border-radius: 15px; cursor:pointer; background: #41B13B; font-family: 'Josefin Sans', sans-serif;}
   .CadastroFormulario a{color: #41B13B; text-decoration: none;}
   .CadastroFormulario a:hover{text-decoration: underline;}

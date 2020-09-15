@@ -5,12 +5,29 @@
 		<title>Cadastro - Roll and Play GENG</title>
 		<?php include("header.php"); ?>
 
-	<div>
-		<h1 class="Titulo Center">CADASTRAR-SE</h1>	
+	<div class="CenterTitutoUm">
+		<h1>Cadastre-se</h1>
 	</div>
 
 	<div class="Retorno">
-		
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#formCadastro").on('submit',function(event) {
+					event.preventDefault();
+					var dados=$(this).serialize();
+							  
+					$.ajax ({
+					  	url: 'controller/cadastroController.php',
+					    type: 'post',
+					    dataType: 'html',
+					    data: dados,
+					    success:function(dados){
+					    	$('.Retorno').show().html(dados);
+					   	}
+				  	})
+				});
+			});
+		</script>
 	</div>
 
 	<div class="Formulario">
@@ -40,24 +57,5 @@
 			</div>
 		</form>
 	</div>
-
-<script type="text/javascript">
-	$(document).ready(function(){
-		$("#formCadastro").on('submit',function(event) {
-			event.preventDefault();
-			var dados=$(this).serialize();
-					  
-			$.ajax ({
-			  	url: 'controller/cadastroController.php',
-			    type: 'post',
-			    dataType: 'html',
-			    data: dados,
-			    success:function(dados){
-			    	$('.Retorno').show().html(dados);
-			   	}
-		  	})
-		});
-	});
-</script>
-
+	
 <?php include("footer.php"); ?>

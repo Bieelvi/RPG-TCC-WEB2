@@ -19,9 +19,7 @@
 
 .dropdown:hover .dropbtn{background-color: #3e8e41;}
 
-.Teste{background-color: #fff; padding: 20px;}
+.Item{grid-area: menu; padding: 20px;}
 
-.grid{display: grid;} 
-
-.grid-template-areasUm{grid-template-areas: "a";} 
+.GridContainer{display: grid; background-color: #ffff; grid-template-areas: 'menu';} 
 /* Inicio do css da pagina header.php */

@@ -4,8 +4,8 @@
 		<title>Login - Roll and Play GENG</title>
 <?php include("header.php"); ?>
 
-	<div>
-		<h1 class="Titulo Center">ENTRAR</h1>	
+	<div class="CenterTitutoUm">
+		<h1>Entrar</h1>
 	</div>
 
 	<div class="Formulario">

@@ -1,14 +1,12 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Roll and Play GENG</title>
-	<?php include("header.php"); ?>
+<?php include("header.php"); ?>
 
-	<style>
-		.ImageFundo{width: 100%; height: 650px; background-image: url("image/backgroundPrimeiro.jpg"); background-repeat: no-repeat; background-size: contain; background-size: 100% 100%;}
-	</style>
-
-	<div class="ImageFundo">
+	<div>
+		<img src="image/bgIndex.jpg" width="100%" height="850" style="position: absolute; top: 100px; left: 0; opacity: 0.8;">
 		<div class="BotaoJogar JogarIndex">
 			<button><a href="modoJogo.php">Jogar</a></button>
 		</div>

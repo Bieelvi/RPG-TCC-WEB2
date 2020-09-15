@@ -13,28 +13,27 @@
 	</script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Josefin+Sans:wght@500&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/cssGridLayout.css">	
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/cssGridLayout.css">
+	<link rel="stylesheet" type="text/css" href="css/cssFooter.css">	
 </head>
 <body>
 
-	<section class="grid grid-template-areasUm">
-		<div class="Teste Um">
-
-				<a class="ImageSlogan" href="index.php">
-					<img width="150" height="50" src="image/sloganPrincipal.png">
-				</a>
-
+	<section class="GridContainer">
+		<div class="Item">
+			<a class="ImageSlogan" href="index.php">
+				<img width="150" height="50" src="image/sloganPrincipal.png">
+			</a>
 			<div class="Links">
 				<a href="rpg.php">O que é RPG?</a>
-				<a href="#">Como Jogar</a>
+				<a href="comojogar.php">Como Jogar</a>
 				<a href="download.php">Download</a>
 				
 				<div class="dropdown">
 					Contato
 					<div class="dropdown-content">
 						<a href="quemsomos.php">Quem Somos</a>
-						<a href="#">Fale Conosco</a>
+						<a href="contato.php">Fale Conosco</a>
 					</div>				
 				</div>
 				<div class="dropdown">
