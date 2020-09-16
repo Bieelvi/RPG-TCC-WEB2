@@ -19,12 +19,17 @@
 </head>
 <body>
 
+	<style>
+		.Link > a:visited, a:link, a:hover, a:active{color: black;}
+		.LinkBotao > a:visited, a:link, a:hover, a:active{color: #FFFF};
+	</style>
+
 	<section class="GridContainer">
 		<div class="Item">
 			<a class="ImageSlogan" href="index.php">
 				<img width="150" height="50" src="image/sloganPrincipal.png">
 			</a>
-			<div class="Links">
+			<div class="Links Link">
 				<a href="rpg.php">O que é RPG?</a>
 				<a href="comojogar.php">Como Jogar</a>
 				<a href="download.php">Download</a>

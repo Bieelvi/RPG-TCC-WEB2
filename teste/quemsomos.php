@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-	<title>O que é RPG? - Roll and Play GENG</title>
+	<title>Sobre Nós - Roll and Play GENG</title>
 	<?php include("header.php"); ?>
 
 	<div>
 		<img src="image/bgQuemSomos.png" width="100%" height="100%" style="position: fixed; top: 100px; left: 0; opacity: 0.2;">
 	</div>
-
 	<div class="CenterTitutoUm">
-		<h1>Sobre nos</h1>
+		<h1>Sobre nós</h1>
 	</div>
-
 	<div class="container" style="margin-bottom: 100px;">
 		<div class="row">
 			<div class="col-md-4">

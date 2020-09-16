@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Contato - Roll and Play GENG</title>
+	<title>Como Jogar - Roll and Play GENG</title>
 	<?php include("header.php"); ?>
 
 	<div>
@@ -11,3 +11,5 @@
 	<div class="CenterTitutoUm">
 		<h1>Como Jogar</h1>
 	</div>
+
+<?php include("footer.php"); ?>	

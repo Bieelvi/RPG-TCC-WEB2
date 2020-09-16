@@ -8,17 +8,18 @@ body{background-color: #F8F8FF;}
 
 .Center{text-align: center;}
 
-.SecaoContato{margin-left: 5%; margin-right: 5%; width: 90%;}
+.SecaoContato{margin-left: 5%; margin-right: 5%; width: 90%; margin-bottom: 50px;}
   .SecaoContato div{margin-top: 50px;}
   .SecaoContato h2{font-family: 'Berkshire Swash', cursive; font-size: 30px; margin: 10px;}
   .SecaoContato span{font-family:'Josefin Sans', sans-serif; margin-left: 3%; color: #41B13B;}
 
 .CenterTitutoUm{text-align: center; font-family: 'Berkshire Swash', cursive; font-size: 50px; margin: 10px; color: #41B13B;}
+  .CenterTitutoUm > h1{text-align: center; font-family: 'Berkshire Swash', cursive; font-size: 50px; margin: 10px; color: ##ffff;}
 
 .CenterTitulo{text-align: center; font-family: 'Berkshire Swash', cursive; font-size: 32px; margin: 10px; color: #41B13B;}
 
 /* Inicio do css da pagina index.php */
-.ImageFundo{width: 100%; height: 650px; background-image: url("image/backgroundPrimeiro.jpg"); background-repeat: no-repeat; background-size: contain; background-size: 100% 100%;}
+.ImageFundo{width: 100%; height: 650px; background-image: url("image/bgIndex.jpg"); background-repeat: no-repeat; background-size: contain; background-size: 100% 100%;}
 
 .BotaoJogar{position: absolute; margin-top: 325px; width: 100%; height: 50px;} 
 
@@ -46,9 +47,9 @@ body{background-color: #F8F8FF;}
 .RetornoTres{display: none; float: left; width: 70%; border: 2px solid #41B13B; background: #D8E2D5; text-align: center; padding: 15px; margin: 20px 15% 10px 15%;}
 
 
-.Formulario{float: left; width: 70%; height: 500px; padding: 20px; margin: 60px 15%;}
+.Formulario{width: 100%; height: 500px;}
 
-.CadastroFormulario{float: left; width: 60%; margin: 10px 20% 10px 20%;}
+.CadastroFormulario{float: left; width: 40%; margin: 10px 30% 10px 30%;}
 	.CadastroFormulario span{font-family:'Josefin Sans', sans-serif;}
 	.CadastroFormulario input[type='text'], input[type='email'], input[type='password']{float: left; width: 100%; height: 40px; border: 2px solid #41B13B; border-radius: 5px;}
   .CadastroFormulario input[type='submit']{display: inline-block; width: 20%; height: 40px; font-size: 17px; color:#FFF; font-weight: bold; text-align: center; border:0; border-radius: 15px; cursor:pointer; background: #41B13B; font-family: 'Josefin Sans', sans-serif;}

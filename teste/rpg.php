@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Contato - Roll and Play GENG</title>
+	<title>O que é RPG - Roll and Play GENG</title>
 	<?php include("header.php"); ?>
 
 	<div>
@@ -11,3 +11,5 @@
 	<div class="CenterTitutoUm">
 		<h1>O que é RPG?</h1>
 	</div>
+
+<?php include("footer.php"); ?>	

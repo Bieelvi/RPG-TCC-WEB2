@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
 	<title>Contato - Roll and Play GENG</title>
 	<?php include("header.php"); ?>
@@ -11,6 +11,7 @@
 	<div class="CenterTitutoUm">
 		<h1>Fale Conosco</h1>
 	</div>
+
 	<section class="SecaoContato">	
 		<div>
 			<h2>GABRIEL VICTOR RAYMUNDO</h2>
@@ -35,4 +36,4 @@
 		</div>
 	</section>
 
-	<?php include("footer.php"); ?>
+<?php include("footer.php"); ?>

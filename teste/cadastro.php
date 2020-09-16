@@ -6,7 +6,7 @@
 		<?php include("header.php"); ?>
 
 	<div class="CenterTitutoUm">
-		<h1>Cadastre-se</h1>
+		<h1>Cadastrar-se</h1>
 	</div>
 
 	<div class="Retorno">
