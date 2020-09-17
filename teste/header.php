@@ -18,12 +18,6 @@
 	<link rel="stylesheet" type="text/css" href="css/cssFooter.css">	
 </head>
 <body>
-
-	<style>
-		.Link > a:visited, a:link, a:hover, a:active{color: black;}
-		.LinkBotao > a:visited, a:link, a:hover, a:active{color: #FFFF};
-	</style>
-
 	<section class="GridContainer">
 		<div class="Item">
 			<a class="ImageSlogan" href="index.php">

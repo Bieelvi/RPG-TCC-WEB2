@@ -1,1 +1,10 @@
-footer{position: relative; background-color: #248232; width: 100%; left: 0; bottom: 0;}
+footer{position: relative; background-color: #248232; width: 100%; left: 0; bottom: 0; margin-top: 50px;}
+
+.SpacingFooter{margin-bottom: 10px; text-align: center; padding-top: 20px;}
+
+.Spacing > div{margin: 10px;}
+
+.Link > a:visited, a:link, a:hover, a:active{color: black;}
+
+.Credits{text-align: center;}
+	.Credits > small{font-weight: bold;}

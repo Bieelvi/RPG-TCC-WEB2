@@ -18,7 +18,7 @@
 		<title>ADM - Roll and Play GENG</title>
 		<?php include("header.php"); ?>
 	
-	<div class="Content">
+	<div style="width: 100%; margin-bottom: 50px; margin-top: 50px;">
 		<table class="TabelaSelecao">
 			<tr>
 				<td>Codigo</td>

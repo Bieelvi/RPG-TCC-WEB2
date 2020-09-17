@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +9,7 @@
 		<img src="" width="100%" height="" style="position: absolute; top: 100px; left: 0; opacity: 0.2;">
 	</div>
 
-	<div class="CenterTitutoUm">
+	<div class="CenterTitulo">
 		<h1>Downloads</h1>
 	</div>
 

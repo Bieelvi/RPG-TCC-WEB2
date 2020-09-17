@@ -2,11 +2,11 @@
 	include("../model/ConexaoDataBase.php");
 
 	if(isset($_POST['usuario']) && isset($_POST['email']) && isset($_POST['confEmail']) && isset($_POST['senha']) && isset($_POST['confSenha'])){
-		if($_POST[('senha')] != $_POST[('confSenha')]){
+		if($_POST[('senha')] != $_POST[('confSenha')])
 			echo "Os senhas não estão corretamente preenchidas!";
-		} elseif($_POST[('email')] != $_POST[('confEmail')]) {
+		elseif($_POST[('email')] != $_POST[('confEmail')])
 			echo "Os e-mail não estão corretamente preenchidos!";
-		} else {
+		else {
 			$email = filter_input(INPUT_POST,'email',FILTER_SANITIZE_EMAIL);
 			
 			$sql = $conn->prepare("SELECT codigoUsuario FROM usuario WHERE emailUsuario = ?");
@@ -34,9 +34,9 @@
 
 					$sql = $conn->prepare("INSERT INTO usuario (nomeUsuario, senhaUsuario, emailUsuario, hierarquiaUsuario) VALUES (?, ?, ?, ?)");
 
-					$sql->bindValue(1, $usuario, PDO::PARAM_STR);
-					$sql->bindValue(2, $senha, PDO::PARAM_STR);
-					$sql->bindValue(3, $email, PDO::PARAM_STR);
+					$sql->bindValue(1, $usuario);
+					$sql->bindValue(2, $senha);
+					$sql->bindValue(3, $email);
 					$sql->bindValue(4, $hierarquiaUsuario);
 
 					if($sql->execute()){
@@ -52,7 +52,6 @@
 					}
 				}	
 		}
-	} else {
+	} else
 		echo "Por favor preencha todos os campos!";
-	}
 ?>

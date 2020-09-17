@@ -1,30 +1,35 @@
 *{margin: 0; padding: 0;}
 
-body{background-color: #F8F8FF;}
+hr{border-width: 2px; border-color: black;}
+
+span{text-align: center; font-family:'Josefin Sans', sans-serif; font-size: 1.3em; text-align: center;}
+
+.ImgIndex{padding: 15px;}
+  .ImgIndex > img{border-radius: 15px; border-style: solid; border-width: 3px;}
+
+.CenterImg{padding-right: 45%; padding-left: 45%; padding-top: 5%;}
+
+.ImageFundo{width: 100%; height: 900px; background-repeat: no-repeat; background-size: contain; background-size: 100% 100%;}
 
 .Content{float: left; width: 100%; padding: 15px; background: lightgray;}
 
 .Secao{margin-left: 5%; margin-right: 5%; width: 90%;}
 
-.Center{text-align: center;}
-
-.SecaoContato{margin-left: 5%; margin-right: 5%; width: 90%; margin-bottom: 50px;}
+.SecaoContato{margin-left: 5%; margin-right: 5%; width: 90%;}
   .SecaoContato div{margin-top: 50px;}
   .SecaoContato h2{font-family: 'Berkshire Swash', cursive; font-size: 30px; margin: 10px;}
   .SecaoContato span{font-family:'Josefin Sans', sans-serif; margin-left: 3%; color: #41B13B;}
 
-.CenterTitutoUm{text-align: center; font-family: 'Berkshire Swash', cursive; font-size: 50px; margin: 10px; color: #41B13B;}
-  .CenterTitutoUm > h1{text-align: center; font-family: 'Berkshire Swash', cursive; font-size: 50px; margin: 10px; color: ##ffff;}
+.CenterTituloIndex{text-align: center; font-family: 'Berkshire Swash', cursive; font-size: 50px; margin: 10px; color: #41B13B; padding-top: 15%; text-shadow: 10px 10px 15px #41B13B;}
+  .CenterTituloIndex > h1{color: #ffff; font-weight: bold;}
 
 .CenterTitulo{text-align: center; font-family: 'Berkshire Swash', cursive; font-size: 32px; margin: 10px; color: #41B13B;}
 
 /* Inicio do css da pagina index.php */
-.ImageFundo{width: 100%; height: 650px; background-image: url("image/bgIndex.jpg"); background-repeat: no-repeat; background-size: contain; background-size: 100% 100%;}
-
 .BotaoJogar{position: absolute; margin-top: 325px; width: 100%; height: 50px;} 
 
-.JogarIndex button{display: inline-block; width: 10%; height: 40px; font-size: 17px; color:#FFF; font-weight: bold; text-align: center; border:0; border-radius: 15px; cursor:pointer; background: #41B13B; font-family: 'Josefin Sans', sans-serif;}
-  .JogarIndex button:hover{background: red; text-decoration: none;} 
+.JogarIndex button{display: inline-block; width: 15%; height: 50px; font-size: 25px; color:#FFF; font-weight: bold; text-align: center; border:0; border-radius: 15px; cursor:pointer; background: #41B13B; font-family: 'Josefin Sans', sans-serif; box-shadow: 5px 5px 20px #ffff;}
+    .JogarIndex button:hover{background: #ffff; text-decoration: none; color: #41B13B; box-shadow: 5px 5px 20px #41B13B;} 
 /* Inicio do css da pagina index.php */
 
 /* Inicio do css da pagina index.php */
@@ -47,11 +52,11 @@ body{background-color: #F8F8FF;}
 .RetornoTres{display: none; float: left; width: 70%; border: 2px solid #41B13B; background: #D8E2D5; text-align: center; padding: 15px; margin: 20px 15% 10px 15%;}
 
 
-.Formulario{width: 100%; height: 500px;}
+.Formulario{width: 100%; height: 500px; margin-bottom: 100px;}
 
 .CadastroFormulario{float: left; width: 40%; margin: 10px 30% 10px 30%;}
 	.CadastroFormulario span{font-family:'Josefin Sans', sans-serif;}
-	.CadastroFormulario input[type='text'], input[type='email'], input[type='password']{float: left; width: 100%; height: 40px; border: 2px solid #41B13B; border-radius: 5px;}
+	.CadastroFormulario input[type='text'], input[type='password']{float: left; width: 100%; height: 40px; border: 2px solid #41B13B; border-radius: 5px; background: #D8E2D5}
   .CadastroFormulario input[type='submit']{display: inline-block; width: 20%; height: 40px; font-size: 17px; color:#FFF; font-weight: bold; text-align: center; border:0; border-radius: 15px; cursor:pointer; background: #41B13B; font-family: 'Josefin Sans', sans-serif;}
   .CadastroFormulario a{color: #41B13B; text-decoration: none;}
   .CadastroFormulario a:hover{text-decoration: underline;}
@@ -60,7 +65,7 @@ body{background-color: #F8F8FF;}
 .CadastroSala{float: left; width: 70%; margin: 10px 20% 10px 20%;}
   .CadastroSala span{font-family:'Josefin Sans', sans-serif;}
   .CadastroSala input[type='text']{float: left; width: 100%; height: 40px; border: 2px solid #41B13B; border-radius: 5px; background: #D8E2D5}
-  .CadastroSala input[type='submit']{display: inline-block; width: 20%; height: 40px; font-size: 17px; color:#FFF; font-weight: bold; text-align: center; border:0; border-radius: 15px; cursor:pointer; background: #41B13B; font-family: 'Josefin Sans', sans-serif;}
+  .CadastroSala input[type='submit'], input[type='password']{display: inline-block; width: 20%; height: 40px; font-size: 17px; color:#FFF; font-weight: bold; text-align: center; border:0; border-radius: 15px; cursor:pointer; background: #41B13B; font-family: 'Josefin Sans', sans-serif;}
   .CadastroSala a{color: #41B13B; text-decoration: none;}
   .CadastroSala a:hover{text-decoration: underline;}  
 /* Fim do css da pagina modoJogo.php */        
@@ -68,6 +73,7 @@ body{background-color: #F8F8FF;}
 .TituloLoginCadastro{float: left; width: 20%; margin: 20px 20% 10px 20%;}
 	.TituloLoginCadastro span{float: left; width: 100%; height: 40px;}
 
+/*.TabelaSelecao{width: 100%; text-align: center;}*/
 .TabelaSelecao{width: 100%; text-align: center;}
 	.TabelaSelecao tr:nth-child(2n -1){background: #D8E2D5;}
 	.TabelaSelecao tr:first-child{background: #000; color: #fff; font-weight: bold; font-size: 20px;}
@@ -78,14 +84,14 @@ body{background-color: #F8F8FF;}
 
 .colunas{width: 500px; padding: 20px; margin: 10px;}
 
-h1{font-weight: 1.2rem; text-align: center;}
-
-.titulo{text-align: center;}
-
 .CadastroFicha{float: left; width: 60%; margin: 10px 20% 10px 20%;}
   .CadastroFicha span{font-family:'Josefin Sans', sans-serif;}
-  .CadastroFicha input[type='text'], input[type="number"]{float: left; width: 100%; height: 40px; border: 2px solid #41B13B; border-radius: 5px; background: #D8E2D5}
+  .CadastroFicha input[type='text'], input[type="number"], input[type="password"]{float: left; width: 100%; height: 40px; border: 2px solid #41B13B; border-radius: 5px; background: #D8E2D5}
   .CadastroFicha input[type='submit']{display: inline-block; width: 20%; height: 40px; font-size: 17px; color:#FFF; font-weight: bold; text-align: center; border:0; border-radius: 15px; cursor:pointer; background: #41B13B; font-family: 'Josefin Sans', sans-serif;}
   .CadastroFicha a{color: #41B13B; text-decoration: none;}
   .CadastroFicha a:hover{text-decoration: underline;}   
 /* Inicio do css da pagina jogar.php */  
+
+.Link > a:visited, a:link, a:hover, a:active{color: black;}
+
+.LinkBotao > a:visited, a:link, a:hover, a:active{color: #FFFF};
