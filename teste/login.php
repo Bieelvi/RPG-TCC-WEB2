@@ -4,7 +4,7 @@
 		<title>Login - Roll and Play GENG</title>
 	<?php include("header.php"); ?>
 
-	<div class="ImageFundo" style="background-image: url('image/bgLogin.png');">
+	<div class="ImageFundo" style="background-image: url('image/bgLoginTeste.png');">
 		<div class="CenterTitulo">
 			<h1>Entrar</h1>
 		</div>
@@ -20,9 +20,9 @@
 					<input type="password" name="senha" id="senha" autocomplete="off" required>
 				</div>
 				<div class="CadastroFormulario">
-					<a href="cadastro.php">
-						<small>Ainda não possui uma conta?<strong>Cadastre-se!</strong></small>
-					</a>
+					
+						<small>Ainda não possui uma conta? <a href="cadastro.php"><strong>Cadastre-se!</strong></a></small>
+					
 				</div>
 				<div class="CadastroFormulario">
 					<input type="submit" value="Entrar">

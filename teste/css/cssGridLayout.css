@@ -3,10 +3,6 @@
 /* Inicio do css da pagina header.php */
 .ImageSlogan{margin-left: 100px;}
 
-.Links{float: right; margin-right: 100px; font-family: 'Josefin Sans', sans-serif;}
-	.Links a{padding: 10px; margin: 0; text-decoration: none;}
-	.LinkBotao {padding: 10px; font-size: 17px; color:#FFF; font-weight: bold; text-align: center; border:0; border-radius: 15px; cursor:pointer; background: #41B13B; font-family: 'Josefin Sans', sans-serif;}
-
 .dropbtn{background-color: #4CAF50; color: white; padding: 16px; font-size: 16px; border: none; text-decoration: none;}
 
 .dropdown{padding-right: 10px; position: relative; display: inline-block; text-decoration: none;}

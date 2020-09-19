@@ -28,8 +28,8 @@
 				<a href="comojogar.php">Como Jogar</a>
 				<a href="download.php">Download</a>
 				
-				<div class="dropdown">
-					Contato
+				<div class="dropdown Link">
+					<a href="#">Contato</a>
 					<div class="dropdown-content">
 						<a href="quemsomos.php">Quem Somos</a>
 						<a href="contato.php">Fale Conosco</a>

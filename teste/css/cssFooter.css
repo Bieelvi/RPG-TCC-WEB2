@@ -4,7 +4,8 @@ footer{position: relative; background-color: #248232; width: 100%; left: 0; bott
 
 .Spacing > div{margin: 10px;}
 
-.Link > a:visited, a:link, a:hover, a:active{color: black;}
+.Link > a:visited, a:link, a:hover, a:active{color: black; text-decoration: none;}
+	.Link > a{font-weight: bold; text-shadow: 5px 5px 5px #FFFF;}
 
 .Credits{text-align: center;}
 	.Credits > small{font-weight: bold;}

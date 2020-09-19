@@ -5,7 +5,7 @@
 	<title>Contato - Roll and Play GENG</title>
 	<?php include("header.php"); ?>
 
-	<div class="ImageFundo" style="background-image: url('image/bgContato.png');">
+	<div class="ImageFundo" style="background-image: url('image/bgContatoTeste.png');">
 		<div class="CenterTitulo">
 			<h1>Fale Conosco</h1>
 		</div>
@@ -13,24 +13,24 @@
 		<section class="SecaoContato">	
 			<div>
 				<h2>GABRIEL VICTOR RAYMUNDO</h2>
-				<span>Facebook </span><br>
-				<span>Instagram </span><br>
-				<span>Linkedin </span><br>
-				<span>Email </span><br>
-				<span>Whatsapp </span><br>
+				<a href="https://www.facebook.com/gabs.2000.2013" target="_blank"><span>Facebook </span><br></a>
+				<a href="https://www.instagram.com/gahraymundo/" target="_blank"><span>Instagram </span><br></a>
+				<a href="https://www.linkedin.com/in/gabriel-raymundo-476046192/" target="_blank"><span>Linkedin </span><br></a>
+				<a href="#"><span>Email </span><br></a>
+				<a href="#"><span>Whatsapp </span><br></a>
 			</div>
 			<div>
 				<h2>EDILSON CLAUDIO SILVESTRINI FILHO</h2>	
-				<span>Email </span><br>
-				<span>Whatsapp </span><br>
+				<a href="#"><span>Email </span><br></a>
+				<a href="#"><span>Whatsapp </span><br></a>
 			</div>
 			<div>
 				<h2>GABRIEL VENDRAME ROSIN</h2>	
-				<span>Facebook </span><br>		
-				<span>Instagram </span><br>
-				<span>Linkedin </span><br>
-				<span>Email </span><br>
-				<span>Whatsapp </span><br>
+				<a href="https://www.facebook.com/profile.php?id=100010808978647" target="_blank"><span>Facebook </span><br></a>		
+				<a href="https://www.instagram.com/gubiwells/" target="_blank"><span>Instagram </span><br></a>
+				<a href="#"><span>Linkedin </span><br></a>
+				<a href="#"><span>Email </span><br></a>
+				<a href="#"><span>Whatsapp </span><br></a>
 			</div>
 		</section>
 	</div>	

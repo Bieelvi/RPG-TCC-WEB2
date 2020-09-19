@@ -5,7 +5,7 @@
 	<title>Roll and Play GENG</title>
 	<?php include("header.php"); ?>
 
-	<div class="ImageFundo JogarIndex" style="background-image: url('image/bgIndex.jpg');">
+	<div class="ImageFundo JogarIndex" style="background-image: url('image/bgIndexTeste.png');">
 		<div class="CenterTituloIndex">
 			<h1>Roll and Play GENG</h1>
 			<a href="modoJogo.php"><button>Jogar</button></a>
@@ -27,7 +27,7 @@
 					<div>
 						<hr>
 					</div>
-					<div>
+					<div class="SpanEstilizado" align="center">
 						<span>O jogo consiste em auxiliar os jogadores de RPG a jogadorem Online ou Presencial. Para saber como jogar o jogo, bastar acessar o link abaixo</span>
 					</div>
 				</div>
@@ -57,7 +57,7 @@
 					<div>
 						<hr>
 					</div>
-					<div>
+					<div class="SpanEstilizado" align="center">
 						<span>O Roll and Play GENG é um projeto desenvolvido por um grupo de amigos que juntos fazem um curso Técnico de Informática.</span>
 						<span>O projeto é resultado de trabalho de conclusão de curso.</span>
 					</div>
@@ -76,7 +76,7 @@
 					<div>
 						<hr>
 					</div>
-					<div>
+					<div class="SpanEstilizado" align="center">
 						<span>Jogue RPG com seus amigos o Roll and Play GENG. Baixe o aplicativo mobile ou programa desktop.</span>
 					</div>
 				</div>
@@ -94,7 +94,7 @@
 					<div>
 						<hr>
 					</div>
-					<div>
+					<div class="SpanEstilizado" align="center">
 						<span>RPG é um tipo de jogo em que os jogadores assumen papeís de personagens e criam narrativas colaborativamente. Os jogadores podem improvisar livremente.</span>
 					</div>
 				</div>

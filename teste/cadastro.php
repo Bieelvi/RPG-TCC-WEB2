@@ -26,7 +26,7 @@
 			</script>
 		</div>
 
-	<div class="ImageFundo" style="background-image: url('image/bgCadastro.png');">
+	<div class="ImageFundo" style="background-image: url('image/bgCadastroTeste.png');">
 		<div class="CenterTitulo">
 			<h1>Cadastrar-se</h1>
 		</div>	
