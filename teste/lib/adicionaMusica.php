@@ -9,18 +9,31 @@
 		header('Location: http://localhost/teste/login.php');
 
 	$enviar = filter_input(INPUT_POST,'adicionar');
+	$verificador = 2;
 
 	if($enviar){
-		$arquivo = isset($_FILES['musica']) ? $_FILES['musica'] : false;
-		$caminho = "../view/musica";
+		foreach($_FILES['musica']['name'] as $ind => $valor){
+		    if(empty($valor)){
+		        echo "Índice $ind está vazio";
+		    } else {
+		    	$arquivo = $_FILES['musica'];
+		        $caminho = "../view/musica";
 
-		for($i = 0; $i < count($arquivo['name']); $i++){
-			$destino = $caminho."/".$arquivo['name'][$i];
+				for($i = 0; $i < count($arquivo['name']); $i++){
+					$destino = $caminho."/".$arquivo['name'][$i];
 
-			if(move_uploaded_file($arquivo['tmp_name'][$i], $destino)){
-            echo "Upload realizado com sucesso<br>"; 
-	        } else {
-	            echo "Erro ao realizar upload";
-	        }        
+				    $_SESSION['musicas'][$i] = array($arquivo['tmp_name'][$i], $destino);
+
+				    $verificador = 1;
+			       }
+		    }
 		}
-	} else echo "Erro";
+
+		if($verificador == 1){
+			$_SESSION['verificador'] = 1;
+			header('Location: http://localhost/teste/criaSala.php');
+        } else if($verificador == 2){
+			$_SESSION['verificador'] = 2;
+			header('Location: http://localhost/teste/criaSala.php');
+		}
+	}

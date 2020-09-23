@@ -2,8 +2,6 @@
 
 hr{border-width: 2px; border-color: black;}
 
-
-
 .SpanEstilizado > span{font-family: 'Josefin Sans', sans-serif; font-size: 1.3em; text-align: center;}
 
 .ImgIndex{padding: 15px;}
@@ -66,9 +64,9 @@ hr{border-width: 2px; border-color: black;}
 .CadastroSala{float: left; width: 70%; margin: 10px 20% 10px 20%;}
   .CadastroSala span{font-family:'Josefin Sans', sans-serif;}
   .CadastroSala input[type='text']{float: left; width: 100%; height: 40px; border: 2px solid #41B13B; border-radius: 5px; background: #D8E2D5}
-  .CadastroSala input[type='submit'], input[type='password']{display: inline-block; width: 20%; height: 40px; font-size: 17px; color:#FFF; font-weight: bold; text-align: center; border:0; border-radius: 15px; cursor:pointer; background: #41B13B; font-family: 'Josefin Sans', sans-serif;}
+  .CadastroSala input[type='submit'], input[type='password']{display: inline-block; width: 20%; height: 40px; font-size: 17px; border:0; border-radius: 15px; cursor:pointer; background: #41B13B; font-family: 'Josefin Sans', sans-serif;}
   .CadastroSala a{color: #41B13B; text-decoration: none;}
-  .CadastroSala a:hover{text-decoration: underline;}  
+  .CadastroSala a:hover{text-decoration: underline;}
 /* Fim do css da pagina modoJogo.php */        
 
 .TituloLoginCadastro{float: left; width: 20%; margin: 20px 20% 10px 20%;}
@@ -80,9 +78,7 @@ hr{border-width: 2px; border-color: black;}
 	.TabelaSelecao tr:first-child{background: #000; color: #fff; font-weight: bold; font-size: 20px;}
 	.TabelaSelecao td{width: 20%}
 
-/* Inicio do css da pagina jogar.php */ 
-.flex{display: flex;}
-
+/* Inicio do css da pagina jogar.php */
 .colunas{width: 500px; padding: 20px; margin: 10px;}
 
 .CadastroFicha{float: left; width: 60%; margin: 10px 20% 10px 20%;}
@@ -92,12 +88,3 @@ hr{border-width: 2px; border-color: black;}
   .CadastroFicha a{color: #41B13B; text-decoration: none;}
   .CadastroFicha a:hover{text-decoration: underline;}   
 /* Inicio do css da pagina jogar.php */  
-
-.Link > a:visited, a:link, a:hover, a:active{color: black; }
-
-.LinkBotao > a:visited, a:link, a:hover, a:active{color: #FFFF};
-
-.Links{float: right; margin-right: 100px; font-family: 'Josefin Sans', sans-serif; text-decoration: none;}
-  .Links a{padding: 10px; margin: 0; text-decoration: none;}
-
-.LinkBotao {padding: 10px; font-size: 17px; font-weight: bold; text-align: center; border:0; border-radius: 15px; cursor:pointer; background: #41B13B; font-family: 'Josefin Sans', sans-serif;}

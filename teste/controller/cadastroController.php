@@ -9,7 +9,7 @@
 		else {
 			$email = filter_input(INPUT_POST,'email',FILTER_SANITIZE_EMAIL);
 			
-			$sql = $conn->prepare("SELECT codigoUsuario FROM usuario WHERE emailUsuario = ?");
+			$sql = $conn->prepare("SELECT codigo_usuario FROM usuario WHERE email_usuario = ?");
 			$sql->bindValue(1, $email);
 
 			if(!$sql->execute()){
@@ -32,11 +32,11 @@
 					$confSenha = filter_input(INPUT_POST,'confSenha',FILTER_SANITIZE_SPECIAL_CHARS);
 					$hierarquiaUsuario = 0;
 
-					$sql = $conn->prepare("INSERT INTO usuario (nomeUsuario, senhaUsuario, emailUsuario, hierarquiaUsuario) VALUES (?, ?, ?, ?)");
+					$sql = $conn->prepare("INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario, hierarquia) VALUES (?, ?, ?, ?)");
 
 					$sql->bindValue(1, $usuario);
-					$sql->bindValue(2, $senha);
-					$sql->bindValue(3, $email);
+					$sql->bindValue(2, $email);
+					$sql->bindValue(3, $senha);
 					$sql->bindValue(4, $hierarquiaUsuario);
 
 					if($sql->execute()){

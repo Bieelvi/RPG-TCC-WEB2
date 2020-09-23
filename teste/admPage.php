@@ -4,12 +4,12 @@
 
 	if(isset($_SESSION['usuarios'])) {
 		$hierarquia = $_SESSION['usuarios'][1];
-		if($hierarquia != 1){
+		if($hierarquia != 1)
 			header('Location: http://localhost/teste/index.php');
 		}
-	} else {
+	else
 		header('Location: http://localhost/teste/index.php');
-	}
+	
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +28,7 @@
 			</tr>
 		<?php 
 
-			$sqlSelecao = $conn->prepare("SELECT * FROM usuario ORDER BY codigoUsuario DESC");
+			$sqlSelecao = $conn->prepare("SELECT * FROM usuario ORDER BY codigo_usuario DESC");
 			$sqlSelecao->execute();
 			$resultado = $sqlSelecao->fetchAll(PDO::FETCH_ASSOC);
 			
@@ -37,8 +37,8 @@
 			foreach($resultado as $cadaItem){ ?>
 				<tr>
 					<td><?php echo $cont++; ?></td>
-					<td><?php echo $cadaItem["nomeUsuario"]; ?></td>
-					<td><?php echo $cadaItem["emailUsuario"]; ?></td>
+					<td><?php echo $cadaItem["nome_usuario"]; ?></td>
+					<td><?php echo $cadaItem["email_usuario"]; ?></td>
 					<td>
 						<a href="visualiza.php"><img src="image/lupa.png" width="30" height="30"></a>
 						<a href="atualiza.php"><img src="image/lapis.png" width="30" height="30"></a>

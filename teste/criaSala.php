@@ -3,11 +3,24 @@
 
 	include("model/ConexaoDataBase.php");
 
-	if(isset($_SESSION['usuarios']) && is_array($_SESSION['infSala'])){
+	if(isset($_SESSION['usuarios']) && is_array($_SESSION['infSala']))
 		$nomeUsuario = $_SESSION['usuarios'][0];
-	} else {
+	else
 		header('Location: http://localhost/teste/login.php');
-	}
+
+	if(isset($_SESSION['verificador'])){
+		$verificador = $_SESSION['verificador'];
+		if($verificador == 1){
+			echo "<script> alert('Adicionado com sucesso!');</script>";	
+			unset($_SESSION['verificador']);
+			$verificador = 0;
+		} else if($verificador == 2){
+			echo "<script> alert('Erro ao adicionar imagem/musíca!');</script>";
+			unset($_SESSION['verificador']);
+			$verificador = 0;
+		}
+	} else
+		unset($_SESSION['verificador']);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

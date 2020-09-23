@@ -24,7 +24,7 @@
 		<div class="row">
 			<div class="col-md-6">
 				<div class="container">
-					<form action="controller/modoJogoMestreController.php" method="POST">
+					<form action="lib/criaSala.php" method="POST">
 						<div class="CadastroSala">	
 							<p class="Titulo">CRIAR UMA SALA</p>
 						</div>	
@@ -52,7 +52,7 @@
 			</div>
 			<div class="col-md-6">
 				<div class="container">
-					<form action="controller/criaJogadorController.php" method="POST">
+					<form action="lib/criaJogador.php" method="POST">
 						<div class="CadastroSala">	
 							<p class="Titulo">CRIAR UM PERSONAGEM</p>
 						</div>

@@ -18,37 +18,47 @@
 	<link rel="stylesheet" type="text/css" href="css/cssFooter.css">	
 </head>
 <body>
-	<section class="GridContainer">
-		<div class="Item">
-			<a class="ImageSlogan" href="index.php">
-				<img width="150" height="50" src="image/sloganPrincipal.png">
-			</a>
-			<div class="Links Link">
-				<a href="rpg.php">O que é RPG?</a>
-				<a href="comojogar.php">Como Jogar</a>
-				<a href="download.php">Download</a>
-				
-				<div class="dropdown Link">
-					<a href="#">Contato</a>
-					<div class="dropdown-content">
-						<a href="quemsomos.php">Quem Somos</a>
-						<a href="contato.php">Fale Conosco</a>
-					</div>				
-				</div>
-				<div class="dropdown">
-					<button class="LinkBotao">
+
+	<header class="Header">
+		<a class="ImageSlogan" href="index.php">
+			<img width="150" height="50" src="image/sloganPrincipal.png">
+		</a>
+		<nav>
+			<ul class="Menu Links">
+				<li class="Link">
+					<a href="rpg.php">O que é RPG?</a>
+				</li>
+				<li class="Link">
+					<a href="comojogar.php">Como Jogar</a>
+				</li>
+				<li class="Link">
+					<a href="download.php">Download</a>
+				</li>
+				<li>
+					<div class="dropdown Link">
+						<a href="#">Contato</a>
+						<div class="dropdown-content Link">
+							<a href="quemsomos.php">Quem Somos</a>
+							<a href="contato.php">Fale Conosco</a>
+						</div>	
+					</div>					
+				</li>
+				<li>
+					<div class="dropdown">
+						<button class="LinkBotao">
 					<?php if(isset($_SESSION['usuarios'])) {
 							echo $_SESSION['usuarios'][0];
 						} else { ?>
 								<a href="login.php">Entrar</a>
-				<?php   }	?>	
-					</button>
-					<div class="dropdown-content">
-				  <?php if(isset($_SESSION['usuarios'])){ ?> <a href="userPage.php">Perfil</a> <?php } ?>		
-				  <?php if(isset($_SESSION['usuarios']) && $_SESSION['usuarios'][1] == 1){ ?> <a href="admPage.php">Administrador</a> <?php } ?>		
-				  <?php if(isset($_SESSION['usuarios'])){ ?> <a href="sair.php">Sair</a> <?php } ?>
-					</div>
-				</div>	
-			</div>
-		</div>
-	</section>
+				  <?php } ?>	
+						</button>
+						<div class="dropdown-content Link">
+							 <?php if(isset($_SESSION['usuarios'])){ ?> <a href="userPage.php">Perfil</a> <?php } ?>
+							 <?php if(isset($_SESSION['usuarios']) && $_SESSION['usuarios'][1] == 1){ ?> <a href="admPage.php">Administrador</a> <?php } ?>		
+							<?php if(isset($_SESSION['usuarios'])){ ?> <a href="sair.php">Sair</a> <?php } ?>
+						</div>
+					</div>					
+				</li>	
+			</ul>
+		</nav>
+	</header>

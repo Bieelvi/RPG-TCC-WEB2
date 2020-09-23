@@ -8,7 +8,7 @@
 		$email = filter_input(INPUT_POST,'email',FILTER_SANITIZE_EMAIL);
 		$senha = filter_input(INPUT_POST,'senha',FILTER_SANITIZE_SPECIAL_CHARS);
 	
-		$sql = $conn->prepare("SELECT * FROM usuario WHERE senhaUsuario = ? AND emailUsuario = ?");
+		$sql = $conn->prepare("SELECT * FROM usuario WHERE senha_usuario = ? AND email_usuario = ?");
 		$sql->bindValue(1, $senha); 
 		$sql->bindValue(2, $email);
 		
@@ -16,7 +16,7 @@
 
 		if($sql->rowCount()){
 			$dado = $sql->fetchAll(PDO::FETCH_ASSOC)[0];
-			$_SESSION['usuarios'] = array($dado["nomeUsuario"], $dado["hierarquiaUsuario"], $dado["codigoUsuario"]);
+			$_SESSION['usuarios'] = array($dado["nome_usuario"], $dado["hierarquia"], $dado["codigo_usuario"]);
 			header('Location: http://localhost/teste/userPage.php');
 		} else {
 			header('Location: http://localhost/teste/login.php');
