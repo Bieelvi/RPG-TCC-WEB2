@@ -9,7 +9,20 @@ hr{border-width: 2px; border-color: black;}
 
 .CenterImg{padding-right: 45%; padding-left: 45%; padding-top: 5%;}
 
+.ImageFundoFicha{width: 500px; height: 380px; background-repeat: no-repeat; background-size: 100% 100%;}
+
 .ImageFundo{width: 100%; height: 900px; background-repeat: no-repeat; background-size: contain; background-size: 100% 100%;}
+
+.SelectEstilizado select{width: 150px; padding: 10px; border: 2px solid #41B13B; border-radius: 5px; background: #D8E2D5}
+
+.TextareaEstilizado textarea{border: 2px solid #41B13B; border-radius: 5px; background: #D8E2D5}
+
+.CadastroFicha{float: left; width: 40%; margin: 10px 30% 10px 30%;}
+  .CadastroFicha span{font-family: 'Josefin Sans', sans-serif;}
+  .CadastroFicha input[type='text'], input[type="number"], input[type="password"]{float: left; width: 100%; height: 40px; border: 2px solid #41B13B; border-radius: 5px; background: #D8E2D5}
+  .CadastroFicha input[type='submit']{display: inline-block; width: 100%; height: 40px; font-size: 17px; color:#FFF; font-weight: bold; text-align: center; border:0; border-radius: 15px; cursor:pointer; background: #41B13B; font-family: 'Josefin Sans', sans-serif;}
+  .CadastroFicha a{color: #41B13B; text-decoration: none;}
+  .CadastroFicha a:hover{text-decoration: underline;} 
 
 .Content{float: left; width: 100%; padding: 15px; background: lightgray;}
 
@@ -24,6 +37,8 @@ hr{border-width: 2px; border-color: black;}
   .CenterTituloIndex > h1{color: #ffff; font-weight: bold;}
 
 .CenterTitulo{text-align: center; font-family: 'Berkshire Swash', cursive; font-size: 32px; margin: 10px; color: #41B13B;}
+
+.CenterTituloFicha{text-align: center; font-family: 'Berkshire Swash', cursive; font-size: 20px; color: #41B13B; margin: 20px 0 20px 0;}
 
 /* Inicio do css da pagina index.php */
 .BotaoJogar{position: absolute; margin-top: 325px; width: 100%; height: 50px;} 
@@ -63,8 +78,8 @@ hr{border-width: 2px; border-color: black;}
 /* Inicio do css da pagina modoJogo.php */
 .CadastroSala{float: left; width: 70%; margin: 10px 20% 10px 20%;}
   .CadastroSala span{font-family:'Josefin Sans', sans-serif;}
-  .CadastroSala input[type='text']{float: left; width: 100%; height: 40px; border: 2px solid #41B13B; border-radius: 5px; background: #D8E2D5}
-  .CadastroSala input[type='submit'], input[type='password']{display: inline-block; width: 20%; height: 40px; font-size: 17px; border:0; border-radius: 15px; cursor:pointer; background: #41B13B; font-family: 'Josefin Sans', sans-serif;}
+  .CadastroSala input[type='text'], input[type='password']{float: left; width: 100%; height: 40px; border: 2px solid #41B13B; border-radius: 5px; background: #D8E2D5}
+  .CadastroSala input[type='submit']{display: inline-block; width: 20%; height: 40px; font-size: 17px; border:0; border-radius: 15px; background: #41B13B; font-family: 'Josefin Sans', sans-serif;}
   .CadastroSala a{color: #41B13B; text-decoration: none;}
   .CadastroSala a:hover{text-decoration: underline;}
 /* Fim do css da pagina modoJogo.php */        
@@ -79,12 +94,5 @@ hr{border-width: 2px; border-color: black;}
 	.TabelaSelecao td{width: 20%}
 
 /* Inicio do css da pagina jogar.php */
-.colunas{width: 500px; padding: 20px; margin: 10px;}
-
-.CadastroFicha{float: left; width: 60%; margin: 10px 20% 10px 20%;}
-  .CadastroFicha span{font-family: 'Josefin Sans', sans-serif;}
-  .CadastroFicha input[type='text'], input[type="number"], input[type="password"]{float: left; width: 100%; height: 40px; border: 2px solid #41B13B; border-radius: 5px; background: #D8E2D5}
-  .CadastroFicha input[type='submit']{display: inline-block; width: 20%; height: 40px; font-size: 17px; color:#FFF; font-weight: bold; text-align: center; border:0; border-radius: 15px; cursor:pointer; background: #41B13B; font-family: 'Josefin Sans', sans-serif;}
-  .CadastroFicha a{color: #41B13B; text-decoration: none;}
-  .CadastroFicha a:hover{text-decoration: underline;}   
+.colunas{width: 500px; padding: 20px; margin: 10px;}  
 /* Inicio do css da pagina jogar.php */  

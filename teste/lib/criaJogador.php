@@ -19,7 +19,7 @@
 		} else { ?>
 			<script type='text/JavaScript'>
 				setTimeout(function () {
-				   window.location.href = '../modoJogo.php'; 
+				   window.location.href = '../criaFicha.php'; 
 				}, 2); 
 			</script> <?php 
 		}

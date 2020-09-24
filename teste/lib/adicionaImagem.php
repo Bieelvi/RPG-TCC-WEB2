@@ -36,16 +36,8 @@
 			            echo "Erro ao realizar upload<br";
 			        } 
 
-				    
+				 
 			       }
 		    }
 		}
-
-		/*if($verificador == 1){
-			$_SESSION['verificador'] = 1;
-			header('Location: http://localhost/teste/criaSala.php');
-        } else if($verificador == 2){
-			$_SESSION['verificador'] = 2;
-			header('Location: http://localhost/teste/criaSala.php');
-		}*/
 	}

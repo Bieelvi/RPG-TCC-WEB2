@@ -20,9 +20,11 @@
 <body>
 
 	<header class="Header">
-		<a class="ImageSlogan" href="index.php">
-			<img width="150" height="50" src="image/sloganPrincipal.png">
-		</a>
+		<div class="ImageSlogan">
+			<a href="index.php">
+				<img width="150" height="50" src="image/sloganPrincipal.png">
+			</a>
+		</div>
 		<nav>
 			<ul class="Menu Links">
 				<li class="Link">
