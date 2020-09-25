@@ -12,4 +12,3 @@
 		echo "Erro ao tentar conectar com os banco de dados: {$erro->getMessage()}";
 		$conn = "1";
 	}
-?>

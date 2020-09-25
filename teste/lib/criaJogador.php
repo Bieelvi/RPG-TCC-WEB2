@@ -9,6 +9,7 @@
 		header('Location: http://localhost/teste/login.php');
 
 	if(isset($_POST['nomeJogador'])){
+		$_SESSION['nomePersonagem'] = $_POST['nomeJogador'];
 		$_SESSION['infJogador'] = array($_POST['nomeJogador'], $nomeUsuario); 
 		$sqlInsertJogador = $conn->prepare("INSERT INTO jogador (codigo_usuario, nome_jogador) VALUES (?, ?)");
 		$sqlInsertJogador->bindValue(2, $_POST['nomeJogador']);

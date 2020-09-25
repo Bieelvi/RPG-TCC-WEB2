@@ -12,6 +12,7 @@
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="view/js/scripts.js"></script>
 
 <!DOCTYPE html>
 <html>
@@ -42,27 +43,59 @@
 								</div>
 								<div class="CadastroFicha">
 									<span>Nome do Jogador<br></span>
-									<input type="number" name="forcaPersonagem" id="forcaPersonagem">
+									<input type="text" value="<?php echo $_SESSION['nomePersonagem']; ?>" disabled>
 								</div>
 								
 								<div class="CadastroFicha">
 									<span>Vida</span><br>		
-									<input type="number" name="destrezaPersonagem" id="destrezaPersonagem">
+									<input type="number" id="vida" disabled>
 								</div>
 
 								<div class="CadastroFicha">
 									<span>Classe</span><br>
-									<input type="number" name="constituicaoPersonagem" id="constituicaoPersonagem">
+									<select>
+										<option>Escolha</option>
+										<?php 
+											$sqlClasse = $conn->prepare("SELECT nomeClasse FROM classe");
+											$sqlClasse->execute();
+											$dado = $sqlClasse->fetchAll(); ?>
+
+											<?php foreach ($dado as $valor) { ?>
+												<option> <?php echo $valor['nomeClasse']; ?> </option>
+									  <?php }
+										?>
+									</select>	
 								</div>
 
 								<div class="CadastroFicha">
 									<span>Raça</span><br>
-									<input type="number" name="inteligenciaPersonagem" id="inteligenciaPersonagem">
+									<select>
+										<option>Escolha</option>
+										<?php 
+											$sqlRaca = $conn->prepare("SELECT nomeRaca FROM raca");
+											$sqlRaca->execute();
+											$dado = $sqlRaca->fetchAll(); ?>
+
+											<?php foreach ($dado as $valor) { ?>
+												<option> <?php echo $valor['nomeRaca']; ?> </option>
+									  <?php }
+										?>
+									</select>
 								</div>
 								
 								<div class="CadastroFicha">
 									<span>Alinhamento</span><br>
-									<input type="number" name="sabedoriaPersonagem" id="sabedoriaPersonagem">
+									<select>
+										<option>Escolha</option>
+										<option>Lawful Good</option>
+										<option>Neutral Good</option>
+										<option>Chaotic Good</option>
+										<option>Lawful Neutral</option>
+										<option>Neutral</option>
+										<option>Lawful Evil</option>
+										<option>Neutral Evil</option>
+										<option>Chaotic Evil</option>
+									</select>
 								</div>
 
 								<div class="CadastroFicha">
@@ -123,32 +156,32 @@
 								</div>
 					    		<div class="CadastroFicha">
 									<span>Força <br></span>
-									<input type="number" name="forcaPersonagem" id="forcaPersonagem">
+									<input class="FonteInterna" onblur="calculaForca()" type="number" id="atrForca">
 								</div>
 								
 								<div class="CadastroFicha">
 									<span>Destreza</span><br>		
-									<input type="number" name="destrezaPersonagem" id="destrezaPersonagem">
+									<input class="FonteInterna" onblur="calculaDestreza()" type="number" id="atrDestreza">
 								</div>
 
 								<div class="CadastroFicha">
 									<span>Constituição</span><br>
-									<input type="number" name="constituicaoPersonagem" id="constituicaoPersonagem">
+									<input class="FonteInterna" onblur="calculaConstituicao()" type="number" id="atrConstituicao">
 								</div>
 
 								<div class="CadastroFicha">
 									<span>Inteligência</span><br>
-									<input type="number" name="inteligenciaPersonagem" id="inteligenciaPersonagem">
+									<input class="FonteInterna" onblur="calculaInteligencia()" type="number" id="atrInteligencia">
 								</div>
 								
 								<div class="CadastroFicha">
 									<span>Sabedoria</span><br>
-									<input type="number" name="sabedoriaPersonagem" id="sabedoriaPersonagem">
+									<input class="FonteInterna" onblur="calculaSabedoria()" type="number" id="atrSabedoria">
 								</div>
 
 								<div class="CadastroFicha">
 									<span>Carisma</span><br>
-									<input type="number" name="carismaPersonagem" id="carismaPersonagem">
+									<input class="FonteInterna" onblur="calculaCarisma()" type="number" id="atrCarisma">
 								</div>
 							</div>
 						</div>
@@ -158,33 +191,33 @@
 									<span>MODIFICADOR</span>
 								</div>
 				    			<div class="CadastroFicha">
-									<span>Inspiração<br></span>
-									<input type="number" name="forcaPersonagem" id="forcaPersonagem">
+									<span>Força<br></span>
+									<input class="FonteInterna" disabled type="number" id="modForca" value="">
 								</div>
 								
 								<div class="CadastroFicha">
-									<span>Bonús de Proficiência</span><br>		
-									<input type="number" name="destrezaPersonagem" id="destrezaPersonagem">
+									<span>Destreza</span><br>		
+									<input class="FonteInterna" disabled type="number" id="modDestreza" value="">
 								</div>
 
 								<div class="CadastroFicha">
-									<span>Classe de Armadura</span><br>
-									<input type="number" name="constituicaoPersonagem" id="constituicaoPersonagem">
+									<span>Constituição</span><br>
+									<input class="FonteInterna" disabled type="number" id="modConstituicao" value="">
 								</div>
 
 								<div class="CadastroFicha">
-									<span>Iniciativa</span><br>
-									<input type="number" name="inteligenciaPersonagem" id="inteligenciaPersonagem">
+									<span>Inteligência</span><br>
+									<input class="FonteInterna" disabled type="number" id="modInteligencia" value="">
 								</div>
 								
 								<div class="CadastroFicha">
-									<span>Deslocamento</span><br>
-									<input type="number" name="sabedoriaPersonagem" id="sabedoriaPersonagem">
+									<span>Sabedoria</span><br>
+									<input class="FonteInterna" disabled type="number" id="modSabedoria" value="">
 								</div>
 
 								<div class="CadastroFicha">
-									<span>Sabedoria (Passiva)</span><br>
-									<input type="number" name="carismaPersonagem" id="carismaPersonagem">
+									<span>Carisma</span><br>
+									<input class="FonteInterna" disabled type="number" id="modCarisma" value="">
 								</div>
 							</div>
 						</div>
