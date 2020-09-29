@@ -12,7 +12,8 @@
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="view/js/scripts.js"></script>
+	<script type="text/javascript" src="view/js/bonus.js"></script>
+	<script type="text/javascript" src="view/js/atrMod.js"></script>
 
 <!DOCTYPE html>
 <html>
@@ -38,54 +39,53 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="container">
+
 								<div class="CenterTitulo">
 									<span>INFORMAÇÕES</span>
 								</div>
+
 								<div class="CadastroFicha">
 									<span>Nome do Jogador<br></span>
-									<input type="text" value="<?php echo $_SESSION['nomePersonagem']; ?>" disabled>
+									<input class="FonteInterna" type="text" value="<?php echo $_SESSION['nomePersonagem']; ?>" disabled>
 								</div>
 								
 								<div class="CadastroFicha">
 									<span>Vida</span><br>		
-									<input type="number" id="vida" disabled>
+									<input class="FonteInterna" type="number" nome="vida">
 								</div>
 
 								<div class="CadastroFicha">
 									<span>Classe</span><br>
-									<select>
-										<option>Escolha</option>
-										<?php 
+									<select class="FonteInterna" onblur="pegaClasse()" id="classe">
+										<option>Escolha</option> <?php 
 											$sqlClasse = $conn->prepare("SELECT nomeClasse FROM classe");
 											$sqlClasse->execute();
-											$dado = $sqlClasse->fetchAll(); ?>
-
-											<?php foreach ($dado as $valor) { ?>
+											$dado = $sqlClasse->fetchAll();
+											foreach ($dado as $valor) { ?>
 												<option> <?php echo $valor['nomeClasse']; ?> </option>
-									  <?php }
-										?>
-									</select>	
+									  <?php } ?>
+									</select>
+									<input type="hidden" name="chooseClasse" value="">	
 								</div>
 
 								<div class="CadastroFicha">
 									<span>Raça</span><br>
-									<select>
+									<select class="FonteInterna" onblur="pegaRaca()" id="raca">
 										<option>Escolha</option>
 										<?php 
 											$sqlRaca = $conn->prepare("SELECT nomeRaca FROM raca");
 											$sqlRaca->execute();
-											$dado = $sqlRaca->fetchAll(); ?>
-
-											<?php foreach ($dado as $valor) { ?>
+											$dado = $sqlRaca->fetchAll();
+											foreach ($dado as $valor) { ?>
 												<option> <?php echo $valor['nomeRaca']; ?> </option>
-									  <?php }
-										?>
+									  <?php } ?>
 									</select>
+									<input type="hidden" name="chooseRaca" value="">
 								</div>
 								
 								<div class="CadastroFicha">
 									<span>Alinhamento</span><br>
-									<select>
+									<select class="FonteInterna" onblur="pegaAlinhamento()" id="alinhamento">
 										<option>Escolha</option>
 										<option>Lawful Good</option>
 										<option>Neutral Good</option>
@@ -96,11 +96,17 @@
 										<option>Neutral Evil</option>
 										<option>Chaotic Evil</option>
 									</select>
+									<input type="hidden" name="chooseAlinhamento" value="">
 								</div>
 
 								<div class="CadastroFicha">
 									<span>Antecedente</span><br>
-									<input type="number" name="carismaPersonagem" id="carismaPersonagem">
+									<input class="FonteInterna" type="text" name="antecedente">
+								</div>
+
+								<div class="CadastroFicha">
+									<span>Nível<br></span>
+									<input class="FonteInterna" type="number" name="nivel">
 								</div>
 							</div>
 						</div>
@@ -111,32 +117,32 @@
 								</div>
 				    			<div class="CadastroFicha">
 									<span>Inspiração<br></span>
-									<input type="number" name="forcaPersonagem" id="forcaPersonagem">
+									<input class="FonteInterna" type="number" name="inspiracao">
 								</div>
 								
 								<div class="CadastroFicha">
 									<span>Bonús de Proficiência</span><br>		
-									<input type="number" name="destrezaPersonagem" id="destrezaPersonagem">
+									<input class="FonteInterna" type="number" name="bonusProficiencia" value="">
 								</div>
 
 								<div class="CadastroFicha">
 									<span>Classe de Armadura</span><br>
-									<input type="number" name="constituicaoPersonagem" id="constituicaoPersonagem">
+									<input class="FonteInterna" type="number" name="classeArm">
 								</div>
 
 								<div class="CadastroFicha">
 									<span>Iniciativa</span><br>
-									<input type="number" name="inteligenciaPersonagem" id="inteligenciaPersonagem">
+									<input class="FonteInterna" type="number" name="iniciativa">
 								</div>
 								
 								<div class="CadastroFicha">
 									<span>Deslocamento</span><br>
-									<input type="number" name="sabedoriaPersonagem" id="sabedoriaPersonagem">
+									<input class="FonteInterna" type="number" name="deslocamento">
 								</div>
 
 								<div class="CadastroFicha">
 									<span>Sabedoria (Passiva)</span><br>
-									<input type="number" name="carismaPersonagem" id="carismaPersonagem">
+									<input class="FonteInterna" type="number" name="sabedoriaPassiva">
 								</div>
 							</div>
 						</div>
@@ -151,38 +157,47 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="container">
+
 								<div class="CenterTitulo">
 									<span>ATRIBUTOS</span>
 								</div>
+
 					    		<div class="CadastroFicha">
 									<span>Força <br></span>
-									<input class="FonteInterna" onblur="calculaForca()" type="number" id="atrForca">
+									<input class="FonteInterna" onblur="calculaForca()" type="number" id="atrForca" required>
+									<input type="hidden" name="forca" required>
 								</div>
 								
 								<div class="CadastroFicha">
 									<span>Destreza</span><br>		
-									<input class="FonteInterna" onblur="calculaDestreza()" type="number" id="atrDestreza">
+									<input class="FonteInterna" onblur="calculaDestreza()" type="number" id="atrDestreza" required>
+									<input type="hidden" name="destreza" required>
 								</div>
 
 								<div class="CadastroFicha">
 									<span>Constituição</span><br>
-									<input class="FonteInterna" onblur="calculaConstituicao()" type="number" id="atrConstituicao">
+									<input class="FonteInterna" onblur="calculaConstituicao()" type="number" id="atrConstituicao" required>
+									<input type="hidden" name="constituicao" required>
 								</div>
 
 								<div class="CadastroFicha">
 									<span>Inteligência</span><br>
-									<input class="FonteInterna" onblur="calculaInteligencia()" type="number" id="atrInteligencia">
+									<input class="FonteInterna" onblur="calculaInteligencia()" type="number" id="atrInteligencia" required>
+									<input type="hidden" name="inteligencia" required>
 								</div>
 								
 								<div class="CadastroFicha">
 									<span>Sabedoria</span><br>
-									<input class="FonteInterna" onblur="calculaSabedoria()" type="number" id="atrSabedoria">
+									<input class="FonteInterna" onblur="calculaSabedoria()" type="number" id="atrSabedoria" required>
+									<input type="hidden" name="sabedoria" required>
 								</div>
 
 								<div class="CadastroFicha">
 									<span>Carisma</span><br>
-									<input class="FonteInterna" onblur="calculaCarisma()" type="number" id="atrCarisma">
+									<input class="FonteInterna" onblur="calculaCarisma()" type="number" id="atrCarisma" required>
+									<input type="hidden" name="carisma" required>
 								</div>
+
 							</div>
 						</div>
 						<div class="col-md-6">
@@ -233,7 +248,7 @@
 	    		<div class="CenterTitulo">
 					<span>PERÍCIAS</span>
 				</div>
-				<div class="SelectEstilizado" style="display: flex; justify-content: space-between; margin: 0 400px 0 400px;">
+				<div class="SelectEstilizado" style="display: flex; justify-content: space-around;">
 					<div>
 						<select>
 							<option>Perícia 1</option>
@@ -376,7 +391,7 @@
 	    		<div class="CenterTitulo" style="margin-top: 100px;">
 					<span>SALVAGUARDAS</span>
 				</div>
-				<div class="SelectEstilizado" style="display: flex; justify-content: space-between; margin: 0 750px 0 750px;">
+				<div class="SelectEstilizado" style="display: flex; justify-content: space-around;">
 					<div>
 						<select>
 							<option>Salvaguarda 1</option>
