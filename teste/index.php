@@ -7,7 +7,7 @@
 
 	<div class="ImageFundo JogarIndex" style="background-image: url('image/bgIndexTeste.png');">
 		<div class="CenterTituloIndex">
-			<h1>Roll and Play GENG</h1>
+			<h1>Roll and Play <br>GENG</h1>
 			<a href="modoJogo.php"><button>Jogar</button></a>
 		</div>
 	</div>

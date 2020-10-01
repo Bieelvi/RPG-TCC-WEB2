@@ -3,11 +3,12 @@
 
 	include("model/ConexaoDataBase.php");
 
-	if(isset($_SESSION['usuarios']) && is_array($_SESSION['usuarios'])){
+	if(isset($_SESSION['usuarios']) && is_array($_SESSION['usuarios']))
 		$nomeUsuario = $_SESSION['usuarios'][0];
-	} else {
+	else
 		header('Location: http://localhost/teste/login.php');
-	}
+
+	$_SESSION['pericias'] = array("Acrobacia (Des)", "Arcanismo (Int)", "Atletismo (For)", "Atuação (Car)", "Enganação (Car)", "Furtividade (Des)", "História (Int)", "Intimidação (Car)", "Intuição (Sab)", "Investigação (Int)", "Lidar com Animais (Sab)", "Medicina (Sab)", "Natureza (Int)", "Percepção (Sab)", "Persuasão (Car)", "Prestidigitação (Des)", "Religião (Int)", "Sobrevivência (Sab)");
 ?>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
@@ -29,7 +30,6 @@
 	    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 	    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
 	    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-	    <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
 	  </ol>
 	  <div class="carousel-inner">
 	    <div class="carousel-item active">
@@ -45,7 +45,7 @@
 								</div>
 
 								<div class="CadastroFicha">
-									<span>Nome do Jogador<br></span>
+									<span>Nome do Personagem<br></span>
 									<input class="FonteInterna" type="text" value="<?php echo $_SESSION['nomePersonagem']; ?>" disabled>
 								</div>
 								
@@ -106,7 +106,7 @@
 
 								<div class="CadastroFicha">
 									<span>Nível<br></span>
-									<input class="FonteInterna" type="number" name="nivel">
+									<input class="FonteInterna" onblur="calculaProficiencia()" type="number" id="nivel">
 								</div>
 							</div>
 						</div>
@@ -122,7 +122,8 @@
 								
 								<div class="CadastroFicha">
 									<span>Bonús de Proficiência</span><br>		
-									<input class="FonteInterna" type="number" name="bonusProficiencia" value="">
+									<input class="FonteInterna" type="number" id="bonusProficiencia" value="">
+									<input type="hidden" name="bonusProficiencia">
 								</div>
 
 								<div class="CadastroFicha">
@@ -142,7 +143,8 @@
 
 								<div class="CadastroFicha">
 									<span>Sabedoria (Passiva)</span><br>
-									<input class="FonteInterna" type="number" name="sabedoriaPassiva">
+									<input class="FonteInterna" type="number" name="sabedoriaPassiva" disabled>
+									<input type="hidden" name="sabPassiva">
 								</div>
 							</div>
 						</div>
@@ -244,224 +246,139 @@
 		  	</div>
 	    </div>
 	    <div class="carousel-item">
-	    	<div style="margin-bottom:-50px;">
-	    		<div class="CenterTitulo">
-					<span>PERÍCIAS</span>
-				</div>
-				<div class="SelectEstilizado" style="display: flex; justify-content: space-around;">
-					<div>
-						<select>
-							<option>Perícia 1</option>
-							<option>Acrobacia (Des)</option>
-							<option>Arcanismo (Int)</option>
-							<option>Atletismo (For)</option>
-							<option>Atuação (Car)</option>
-							<option>Enganação (Car)</option>
-							<option>Furtividade (Des)</option>
-							<option>História (Int)</option>
-							<option>Intimidação (Car)</option>
-							<option>Intuição (Sab)</option>
-							<option>Investigação (Int)</option>
-							<option>Lidar com Animais</option>
-							<option>Medicina (Sab)</option>
-							<option>Natureza (Int)</option>
-							<option>Percepção (Sab)</option>
-							<option>Persuasão (Car)</option>
-							<option>Prestidigitação (Des)</option>
-							<option>Religião (Int)</option>
-							<option>Sobrevivência (Sab)</option>
-						</select>
-					</div>
-					<div>
-						<select>
-							<option>Perícia 2</option>
-							<option>Acrobacia (Des)</option>
-							<option>Arcanismo (Int)</option>
-							<option>Atletismo (For)</option>
-							<option>Atuação (Car)</option>
-							<option>Enganação (Car)</option>
-							<option>Furtividade (Des)</option>
-							<option>História (Int)</option>
-							<option>Intimidação (Car)</option>
-							<option>Intuição (Sab)</option>
-							<option>Investigação (Int)</option>
-							<option>Lidar com Animais</option>
-							<option>Medicina (Sab)</option>
-							<option>Natureza (Int)</option>
-							<option>Percepção (Sab)</option>
-							<option>Persuasão (Car)</option>
-							<option>Prestidigitação (Des)</option>
-							<option>Religião (Int)</option>
-							<option>Sobrevivência (Sab)</option>
-						</select>
-					</div>
-					<div>
-						<select>
-							<option>Perícia 3</option>
-							<option>Acrobacia (Des)</option>
-							<option>Arcanismo (Int)</option>
-							<option>Atletismo (For)</option>
-							<option>Atuação (Car)</option>
-							<option>Enganação (Car)</option>
-							<option>Furtividade (Des)</option>
-							<option>História (Int)</option>
-							<option>Intimidação (Car)</option>
-							<option>Intuição (Sab)</option>
-							<option>Investigação (Int)</option>
-							<option>Lidar com Animais</option>
-							<option>Medicina (Sab)</option>
-							<option>Natureza (Int)</option>
-							<option>Percepção (Sab)</option>
-							<option>Persuasão (Car)</option>
-							<option>Prestidigitação (Des)</option>
-							<option>Religião (Int)</option>
-							<option>Sobrevivência (Sab)</option>
-						</select>
-					</div>
-					<div>
-						<select>
-							<option>Perícia 4</option>
-							<option>Acrobacia (Des)</option>
-							<option>Arcanismo (Int)</option>
-							<option>Atletismo (For)</option>
-							<option>Atuação (Car)</option>
-							<option>Enganação (Car)</option>
-							<option>Furtividade (Des)</option>
-							<option>História (Int)</option>
-							<option>Intimidação (Car)</option>
-							<option>Intuição (Sab)</option>
-							<option>Investigação (Int)</option>
-							<option>Lidar com Animais</option>
-							<option>Medicina (Sab)</option>
-							<option>Natureza (Int)</option>
-							<option>Percepção (Sab)</option>
-							<option>Persuasão (Car)</option>
-							<option>Prestidigitação (Des)</option>
-							<option>Religião (Int)</option>
-							<option>Sobrevivência (Sab)</option>
-						</select>
-					</div>
-					<div>
-						<select>
-							<option>Perícia 5</option>
-							<option>Acrobacia (Des)</option>
-							<option>Arcanismo (Int)</option>
-							<option>Atletismo (For)</option>
-							<option>Atuação (Car)</option>
-							<option>Enganação (Car)</option>
-							<option>Furtividade (Des)</option>
-							<option>História (Int)</option>
-							<option>Intimidação (Car)</option>
-							<option>Intuição (Sab)</option>
-							<option>Investigação (Int)</option>
-							<option>Lidar com Animais</option>
-							<option>Medicina (Sab)</option>
-							<option>Natureza (Int)</option>
-							<option>Percepção (Sab)</option>
-							<option>Persuasão (Car)</option>
-							<option>Prestidigitação (Des)</option>
-							<option>Religião (Int)</option>
-							<option>Sobrevivência (Sab)</option>
-						</select>
-					</div>
-					<div>
-						<select>
-							<option>Perícia 6</option>
-							<option>Acrobacia (Des)</option>
-							<option>Arcanismo (Int)</option>
-							<option>Atletismo (For)</option>
-							<option>Atuação (Car)</option>
-							<option>Enganação (Car)</option>
-							<option>Furtividade (Des)</option>
-							<option>História (Int)</option>
-							<option>Intimidação (Car)</option>
-							<option>Intuição (Sab)</option>
-							<option>Investigação (Int)</option>
-							<option>Lidar com Animais</option>
-							<option>Medicina (Sab)</option>
-							<option>Natureza (Int)</option>
-							<option>Percepção (Sab)</option>
-							<option>Persuasão (Car)</option>
-							<option>Prestidigitação (Des)</option>
-							<option>Religião (Int)</option>
-							<option>Sobrevivência (Sab)</option>
-						</select>
-					</div>
-				</div>
-	    		<div class="CenterTitulo" style="margin-top: 100px;">
-					<span>SALVAGUARDAS</span>
-				</div>
-				<div class="SelectEstilizado" style="display: flex; justify-content: space-around;">
-					<div>
-						<select>
-							<option>Salvaguarda 1</option>
-							<option>Força</option>
-							<option>Destreza</option>
-							<option>Constituição</option>
-							<option>Inteligência</option>
-							<option>Sabedoria</option>
-							<option>Carisma</option>
-						</select>
-					</div>
-					<div>
-						<select>
-							<option>Salvaguarda 2</option>
-							<option>Força</option>
-							<option>Destreza</option>
-							<option>Constituição</option>
-							<option>Inteligência</option>
-							<option>Sabedoria</option>
-							<option>Carisma</option>
-						</select>
-					</div>
-				</div>
-	    	</div>
-		    <div class="ImageFundoFicha" style="background-image: url('image/bgGnomo.jpg');"></div>
-	    </div>
-	    <div class="carousel-item">
-	    	<div style="margin-bottom: -200px;" class="TextareaEstilizado">
 	    		<div class="container">
 					<div class="row">
 						<div class="col-md-4">
 							<div class="container">
-								<div style="margin-top: 30px;">
-				    				<span class="CenterTituloFicha">TRAÇOS DE PERSONALIDADE</span><br>
-				    				<textarea rows="10" cols="40"></textarea>
-				    			</div>
-				    			<div style="margin-top: 30px;">
-				    				<span class="CenterTituloFicha">IDEAIS</span><br>
-				    				<textarea rows="10" cols="40"></textarea>
-				    			</div>
+								<div class="CenterTitulo">
+									<span>PERÍCIAS</span>
+								</div>	
+								<div class="CadastroFicha">
+									<input type="radio" name="acrobacia" value="acrobacia">
+									<label for="">Acrobacia (Des)</label><br>
+								</div>
+								<div class="CadastroFicha">
+									<input type="radio" name="arcanismo" value="arcanismo">
+									<label for="">Arcanismo (Int)</label><br>
+								</div>
+								<div class="CadastroFicha">
+									<input type="radio" name="atletismo" value="atletismo">
+									<label for="">Atletismo (For)</label><br>
+								</div>
+								<div class="CadastroFicha">
+									<input type="radio" name="atuacao" value="atuacao">
+									<label for="">Atuação (Car)</label><br>
+								</div>
+								<div class="CadastroFicha">
+									<input type="radio" name="enganacao" value="enganacao">
+									<label for="">Enganação (Car)</label><br>
+								</div>
+								<div class="CadastroFicha">
+									<input type="radio" name="furtividade" value="furtividade">
+									<label for="">Furtividade (Des)</label><br>
+								</div>	
+								<div class="CadastroFicha">
+									<input type="radio" name="historia" value="historia">
+									<label for="">História (Int)</label><br>
+								</div>	
+								<div class="CadastroFicha">
+									<input type="radio" name="intimidacao" value="intimidacao">
+									<label for="">Intimidação (Car)</label><br>
+								</div>	
+								<div class="CadastroFicha">
+									<input type="radio" name="intuicao" value="intuicao">
+									<label for="">Intuição (Sab)</label><br>
+								</div>	
+								<div class="CadastroFicha">
+									<input type="radio" name="investigacao" value="investigacao">
+									<label for="">Investigação (Int)</label><br>
+								</div>
+								<div class="CadastroFicha">
+									<input type="radio" name="lidaComAnimais" value="lidaComAnimais">
+									<label for="">Lidar com Animais (Sab)</label><br>
+								</div>	
+								<div class="CadastroFicha">
+									<input type="radio" name="medicina" value="medicina">
+									<label for="">Medicina (Sab)</label><br>
+								</div>	
+								<div class="CadastroFicha">
+									<input type="radio" name="natureza" value="natureza">
+									<label for="">Natureza (Int)</label><br>
+								</div>	
+								<div class="CadastroFicha">
+									<input type="radio" name="percepcao" value="percepcao">
+									<label for="">Percepção (Sab)</label><br>
+								</div>	
+								<div class="CadastroFicha">
+									<input type="radio" name="persuasao" value="persuasao">
+									<label for="">Persuasão (Car)</label><br>
+								</div>	
+								<div class="CadastroFicha">
+									<input type="radio" name="prestidigitacao" value="prestidigitacao">
+									<label for="">Prestidigitação (Des)</label><br>
+								</div>	
+								<div class="CadastroFicha">
+									<input type="radio" name="religiao" value="religiao">
+									<label for="">Religião (Int)</label><br>
+								</div>	
+								<div class="CadastroFicha">
+									<input type="radio" name="sobrevivencia" value="sobrevivencia">	
+									<label for="">Sobrevivência (Sab)</label><br>
+								</div>
 							</div>
 						</div>
 						<div class="col-md-4">
 							<div class="container">
-								<div style="margin-top: 30px;">
-				    				<span class="CenterTituloFicha">VÍNCULOS</span><br>
-				    				<textarea rows="10" cols="40"></textarea>
-				    			</div>    			
-				    			<div style="margin-top: 30px;">
-				    				<span class="CenterTituloFicha">FRAQUEZAS</span><br>
-				    				<textarea rows="10" cols="40"></textarea>
-				    			</div>
+								<div class="CenterTitulo">
+									<span>SALVAGUARDAS</span>
+								</div>
+				    			<div class="CadastroFicha">
+									<input type="radio" name="forca" value="forca">
+									<label for="">Força</label><br>
+								</div>
+								<div class="CadastroFicha">
+									<input type="radio" name="destreza" value="destreza">
+									<label for="">Destreza</label><br>
+								</div>
+								<div class="CadastroFicha">
+									<input type="radio" name="constituicao" value="constituicao">
+									<label for="">Constituição</label><br>
+								</div>
+								<div class="CadastroFicha">
+									<input type="radio" name="inteligencia" value="inteligencia">
+									<label for="">Inteligência</label><br>
+								</div>
+								<div class="CadastroFicha">
+									<input type="radio" name="sabedoria" value="sabedoria">
+									<label for="">Sabedoria</label><br>
+								</div>
+								<div class="CadastroFicha">
+									<input type="radio" name="carisma" value="carisma">
+									<label for="">Carisma</label><br>
+								</div>	
 							</div>
 						</div>
 						<div class="col-md-4">
 							<div class="container">
-				    			<div style="margin-top: 30px;">
-				    				<span class="CenterTituloFicha">CACTERISTÍCAS & TALENTOS</span><br>
-				    				<textarea rows="10" cols="40"></textarea>
-				    			</div>   			
-				    			<div style="margin-top: 30px;">
-				    				<span class="CenterTituloFicha">OUTROS & IDIOMAS</span><br>
-				    				<textarea rows="10" cols="40"></textarea>
+								<div class="CenterTitulo">
+									<span>DINHEIRO</span>
+								</div>
+								<div>
+				    				<span class="CenterTituloFicha">Ouro</span><br>
+				    				<input type="number" name="">
+				    				<span class="CenterTituloFicha">Prata</span><br>
+				    				<input type="number" name="">
+				    				<span class="CenterTituloFicha">Platina</span><br>
+				    				<input type="number" name="">
+				    				<span class="CenterTituloFicha">Total</span><br>
+				    				<input type="number" name="" disabled>
 				    			</div>
 							</div>
 						</div>
+
 					</div>
 				</div>
-	    	</div>
-		    <div class="ImageFundoFicha" style="background-image: url('image/bgOrc.png');"></div>
+		    <div class="ImageFundoFicha" style="background-image: url('image/bgGnomo.jpg');"></div>
 	    </div>
 	    <div class="carousel-item">
 	    	<div style="margin-bottom: -100px;" class="TextareaEstilizado">
@@ -471,15 +388,15 @@
 							<div class="container">
 								<div style="margin-top: 30px;">
 				    				<span class="CenterTituloFicha">EQUIPAMENTOS</span><br>
-				    				<textarea rows="10" cols="40"></textarea>
+				    				<textarea rows="10" cols="40" name="equipamento"></textarea>
 				    			</div>
 							</div>
 						</div>
 						<div class="col-md-4">
 							<div class="container">
 								<div style="margin-top: 30px;">
-				    				<span class="CenterTituloFicha">DINHEIRO</span><br>
-				    				<textarea rows="10" cols="40"></textarea>
+				    				<span class="CenterTituloFicha">CACTERISTÍCAS & TALENTOS</span><br>
+				    				<textarea rows="10" cols="40" name="ataqueConjuracao"></textarea>
 				    			</div>
 				    			<div style="margin-top: 90px;">
 				    				<div class="CadastroFicha">
@@ -491,8 +408,8 @@
 						<div class="col-md-4">
 							<div class="container">
 				    			<div style="margin-top: 30px;">
-				    				<span class="CenterTituloFicha">ATAQUES & CONJURAÇÕES</span><br>
-				    				<textarea rows="10" cols="40"></textarea>
+				    				<span class="CenterTituloFicha">HISTÓRIA</span><br>
+				    				<textarea rows="10" cols="40" name="ataqueConjuracao"></textarea>
 				    			</div>
 							</div>
 						</div>

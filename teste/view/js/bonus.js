@@ -9,6 +9,7 @@ function calculaProficiencia() {
 		alert("Digite um valor entre 1 e 20");
 	} else {
 		document.querySelector("[id='bonusProficiencia']").value = returnBonus;
+		document.querySelector("[name='bonusProficiencia']").value = returnBonus;
 	}
 }
 

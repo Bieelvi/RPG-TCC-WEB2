@@ -69,7 +69,12 @@ function calculaSabedoria(){
 		alert("Digite um valor entre 1 e 30");
 	} else {
 		document.querySelector("[id='modSabedoria']").value = returnMod;
-		document.querySelector("[name='sabedoria']").value = mod;		
+		document.querySelector("[name='sabedoria']").value = mod;
+
+		var sabedoriaPassiva = returnMod + 10;
+
+		document.querySelector("[name='sabedoriaPassiva']").value = sabedoriaPassiva;
+		document.querySelector("[name='sabPassiva']").value = sabedoriaPassiva;
 	}
 }
 

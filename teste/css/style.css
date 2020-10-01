@@ -19,8 +19,10 @@ hr{border-width: 2px; border-color: black;}
 
 .CadastroFicha{float: left; width: 40%; margin: 10px 30% 10px 30%;}
   .CadastroFicha span{font-family: 'Josefin Sans', sans-serif;}
+  .CadastroFicha label{font-family: 'Josefin Sans', sans-serif; font-size: 15px;}
   .CadastroFicha input[type='text'], input[type="number"], input[type="password"]{float: left; width: 100%; height: 40px; border: 2px solid #41B13B; border-radius: 5px; background: #D8E2D5}
   .CadastroFicha input[type='submit']{display: inline-block; width: 100%; height: 40px; font-size: 17px; color:#FFF; font-weight: bold; text-align: center; border:0; border-radius: 15px; cursor:pointer; background: #41B13B; font-family: 'Josefin Sans', sans-serif;}
+  .CadastroFicha input[type='radio']{border: 2px solid #41B13B; border-radius: 5px;}
   .CadastroFicha a{color: #41B13B; text-decoration: none;}
   .CadastroFicha a:hover{text-decoration: underline;} 
   .CadastroFicha select{float: left; width: 100%; height: 40px; border: 2px solid #41B13B; border-radius: 5px; background: #D8E2D5}
