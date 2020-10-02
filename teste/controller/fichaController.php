@@ -113,68 +113,9 @@
 	if($sqlCodigo->rowCount() >= 5)
 		echo "Nao pode add mais de CINCO fichas!";
 	else {
-		$sqlAddAtr = $conn->prepare("INSERT INTO ficha (
-			nome, 
-			classe, 
-			raca, 
-			classeArm, 
-			vida, 
-			desloc,
-
-			forca,
-			destreza,
-			constituicao,
-			inteligencia, 
-			sabedoria,
-			carisma,
-
-			sabedoriaPassiva,
-			nivel, 
-			tendencia,
-			nomeJoga,
-			pontosXP,
-			inspiracao,
-			bonusProficiencia,
-			ouro,
-			prata,
-			platina,
-			historiaPersonagem,
-			equipamentos,
-			caracteristicas,
-
-			acrobacia,
-			arcanismo,
-			atletismo,
-			atuacao,
-			enganacao,
-			furtividade,
-			historia,
-			intimidacao,
-			intuicao,
-			investigacao,
-			lidarComAnimais,
-			medicina,
-			natureza,
-			percepcao,
-			persuasao,
-			prestidigitacao,
-			religiao,
-			sobrevivencia,
-
-			forcaPrest,
-			destrezaPrest,
-			constituicaoPrest,
-			inteligenciaPrest,
-			sabedoriaPrest,
-			carismaPrest,
-
-			vida1,
-			vida2,
-			vida3,
-			morte1,
-			morte2,
-			morte3
-		) VALUES (?,?,?,?,?,?, ?,?,?,?,?,?, ?,?,?,?,?,?,?,?,?,?,?,?,?, ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, ?,?,?,?,?,?, ?,?,?,?,?,?)");
+		$sqlAddAtr = $conn->prepare("INSERT INTO ficha (nome, classe, raca, classeArm, vida, desloc, forca, destreza, constituicao, inteligencia, sabedoria, carisma, sabedoriaPassiva, nivel, tendencia, nomeJoga, pontosXP, inspiracao, bonusProficiencia, ouro, prata, platina, historiaPersonagem, equipamentos, caracteristicas, acrobacia, arcanismo, 	atletismo, atuacao, enganacao, furtividade, historia, intimidacao, intuicao, investigacao, lidarComAnimais, medicina,
+			natureza, percepcao, persuasao, prestidigitacao, religiao, sobrevivencia, forcaPrest, destrezaPrest, constituicaoPrest, inteligenciaPrest, sabedoriaPrest, carismaPrest, vida1, vida2, vida3, morte1, morte2, morte3
+		) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 		$sqlAddAtr->bindValue(1, $infInicial[0]); /*nome*/
 		$sqlAddAtr->bindValue(2, $infInicial[1]); /*classe*/
 		$sqlAddAtr->bindValue(3, $infInicial[2]); /*raca*/
@@ -236,8 +177,20 @@
 		$sqlAddAtr->bindValue(54, 0); /*morte2*/
 		$sqlAddAtr->bindValue(55, 0); /*morte3*/
 
-		if($sqlAddAtr->execute()){
-			echo "add";
-		} else
-			echo "Não adicionado 1";
+		/*$sqlAtribuiFicha = $conn->prepare("SELECT codigo_ficha FROM ficha WHERE nomeJoga = ? AND nome = ?");
+		$sqlAtribuiFicha->bindValue(1, $nomeJogador);
+		$sqlAtribuiFicha->bindValue(2, $infInicial[0]);
+
+		if($sqlAtribuiFicha->execute()){
+			$dadoCodFicha = $sqlAtribuiFicha->fetchAll(PDO::FETCH_ASSOC);
+			if($sqlAtribuiFicha->rowCount()){
+				if($sqlAddAtr->execute()){
+					$sqlInsertFichaJogador = $conn->prepare("UPDATE jogador SET codigo_ficha = ? WHERE codigo_usuario = ?");
+				}
+				else
+					echo "Não adicionado 1";
+			}
+		}
+		else
+			echo "Erro ao coletar infomações do jogador";		*/	
 	}
