@@ -1,3 +1,23 @@
+function pegaDeslocamento() {
+	var raca = document.getElementById("raca");
+
+    var chooseRaca = raca.options[raca.selectedIndex].text;
+
+    var deslocamento;
+
+    if(chooseRaca == "Anao") deslocamento = 7.5;
+    if(chooseRaca == "Draconato") deslocamento = 9;
+    if(chooseRaca == "Elfo") deslocamento = 9;
+    if(chooseRaca == "Gnomo") deslocamento = 7.5;
+    if(chooseRaca == "Halfling") deslocamento = 7.5;
+    if(chooseRaca == "Humano") deslocamento = 9;
+    if(chooseRaca == "Meio Orc") deslocamento = 9;
+    if(chooseRaca == "Meio Elfo") deslocamento = 9;
+    if(chooseRaca == "Tiefling") deslocamento = 9;
+
+    document.querySelector("[name='deslocamento']").value = deslocamento;
+}
+
 function calculaProficiencia() {
 	var nivel = document.getElementById("nivel").value;
 
@@ -38,8 +58,6 @@ function pegaClasse() {
     var chooseClasse = classe.options[classe.selectedIndex].text;
 
     document.querySelector("[name='chooseClasse']").value = chooseClasse;
-
-    return chooseClasse;
 }
 
 function pegaRaca() {
@@ -49,7 +67,7 @@ function pegaRaca() {
 
     document.querySelector("[name='chooseRaca']").value = chooseRaca;
 
-    return chooseRaca;
+    pegaDeslocamento();
 }
 
 function pegaAlinhamento() {

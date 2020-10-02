@@ -51,7 +51,7 @@
 								
 								<div class="CadastroFicha">
 									<span>Vida</span><br>		
-									<input class="FonteInterna" type="number" nome="vida">
+									<input class="FonteInterna" type="number" name="vida">
 								</div>
 
 								<div class="CadastroFicha">
@@ -73,9 +73,10 @@
 									<select class="FonteInterna" onblur="pegaRaca()" id="raca">
 										<option>Escolha</option>
 										<?php 
-											$sqlRaca = $conn->prepare("SELECT nomeRaca FROM raca");
+											$sqlRaca = $conn->prepare("SELECT nomeRaca, deslocamentoPersonagemRaca FROM raca");
 											$sqlRaca->execute();
 											$dado = $sqlRaca->fetchAll();
+											$_SESSION['racaBancoDados'] = array($dado['nomeRaca'], $dado['deslocamentoPersonagemRaca']);
 											foreach ($dado as $valor) { ?>
 												<option> <?php echo $valor['nomeRaca']; ?> </option>
 									  <?php } ?>
@@ -106,7 +107,7 @@
 
 								<div class="CadastroFicha">
 									<span>Nível<br></span>
-									<input class="FonteInterna" onblur="calculaProficiencia()" type="number" id="nivel">
+									<input class="FonteInterna" onblur="calculaProficiencia()" type="number" id="nivel" name="nivel">
 								</div>
 							</div>
 						</div>
@@ -122,7 +123,7 @@
 								
 								<div class="CadastroFicha">
 									<span>Bonús de Proficiência</span><br>		
-									<input class="FonteInterna" type="number" id="bonusProficiencia" value="">
+									<input class="FonteInterna" type="number" id="bonusProficiencia" value="" disabled>
 									<input type="hidden" name="bonusProficiencia">
 								</div>
 
@@ -138,7 +139,8 @@
 								
 								<div class="CadastroFicha">
 									<span>Deslocamento</span><br>
-									<input class="FonteInterna" type="number" name="deslocamento">
+									<input class="FonteInterna" type="number" id="deslocamento" value="" disabled>
+									<input type="hidden" name="deslocamento">
 								</div>
 
 								<div class="CadastroFicha">
@@ -365,11 +367,11 @@
 								</div>
 								<div>
 				    				<span class="CenterTituloFicha">Ouro</span><br>
-				    				<input type="number" name="">
+				    				<input type="number" name="ouro">
 				    				<span class="CenterTituloFicha">Prata</span><br>
-				    				<input type="number" name="">
+				    				<input type="number" name="prata">
 				    				<span class="CenterTituloFicha">Platina</span><br>
-				    				<input type="number" name="">
+				    				<input type="number" name="platina">
 				    				<span class="CenterTituloFicha">Total</span><br>
 				    				<input type="number" name="" disabled>
 				    			</div>
@@ -409,7 +411,7 @@
 							<div class="container">
 				    			<div style="margin-top: 30px;">
 				    				<span class="CenterTituloFicha">HISTÓRIA</span><br>
-				    				<textarea rows="10" cols="40" name="ataqueConjuracao"></textarea>
+				    				<textarea rows="10" cols="40" name="historiaPersonagem"></textarea>
 				    			</div>
 							</div>
 						</div>
