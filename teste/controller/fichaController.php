@@ -4,6 +4,11 @@
 	include('../model/Ficha.php');
 	include('../model/ConexaoDataBase.php');
 
+	if(isset($_SESSION['usuarios']) && is_array($_SESSION['usuarios']))
+		$nomeUsuario = $_SESSION['usuarios'][0];
+	else
+		header('Location: http://localhost/teste/login.php');
+
 	/*Pega infomacoes finais*/
 	$ouro = isset($_POST['ouro']) ? $_POST['ouro'] : 0;
 	$prata = isset($_POST['prata']) ? $_POST['prata'] : 0;
@@ -177,20 +182,28 @@
 		$sqlAddAtr->bindValue(54, 0); /*morte2*/
 		$sqlAddAtr->bindValue(55, 0); /*morte3*/
 
-		/*$sqlAtribuiFicha = $conn->prepare("SELECT codigo_ficha FROM ficha WHERE nomeJoga = ? AND nome = ?");
-		$sqlAtribuiFicha->bindValue(1, $nomeJogador);
-		$sqlAtribuiFicha->bindValue(2, $infInicial[0]);
+		if($sqlAddAtr->execute()){
+			echo "funcionou";
+			$sqlPegaCodigoFicha = $conn->prepare("SELECT codigo_ficha FROM ficha WHERE nomeJoga = ? AND nome = ?");
+			$sqlPegaCodigoFicha->bindValue(1, $nomeJogador);
+			$sqlPegaCodigoFicha->bindValue(2, $infInicial[0]);
+			$sqlPegaCodigoFicha->execute();
 
-		if($sqlAtribuiFicha->execute()){
-			$dadoCodFicha = $sqlAtribuiFicha->fetchAll(PDO::FETCH_ASSOC);
-			if($sqlAtribuiFicha->rowCount()){
-				if($sqlAddAtr->execute()){
-					$sqlInsertFichaJogador = $conn->prepare("UPDATE jogador SET codigo_ficha = ? WHERE codigo_usuario = ?");
+			if($sqlPegaCodigoFicha->rowCount()){
+				$dadoCodFicha = $sqlPegaCodigoFicha->fetchAll(PDO::FETCH_ASSOC)[0];
+				echo $dadoCodFicha['codigo_ficha'];
+				$sqlInsertFichaJogador = $conn->prepare("UPDATE jogador SET codigo_ficha = ? WHERE codigo_usuario = ? AND nome_jogador = ?");
+				$sqlInsertFichaJogador->bindValue(1, $dadoCodFicha['codigo_ficha']);
+				$sqlInsertFichaJogador->bindValue(2, $codigoUsuario);
+				$sqlInsertFichaJogador->bindValue(3, $infInicial[0]);
+				if($sqlInsertFichaJogador->execute()){
+					echo "Inserido a ficha ao jogador";
+					header('Location: http://localhost/teste/modoJogo.php');
 				}
 				else
-					echo "Não adicionado 1";
-			}
+					echo "nao funcionou";
+
+			} else 
+				echo "erro algo obter o codigo da ficha";
 		}
-		else
-			echo "Erro ao coletar infomações do jogador";		*/	
 	}
