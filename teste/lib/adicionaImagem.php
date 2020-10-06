@@ -9,8 +9,7 @@
 		header('Location: http://localhost/teste/login.php');
 
 	$enviar = filter_input(INPUT_POST,'acrescentar');
-	$verificador = 2;
-
+	
 	if($enviar){
 		foreach($_FILES['imagem']['name'] as $ind => $valor){
 		    if(empty($valor)){

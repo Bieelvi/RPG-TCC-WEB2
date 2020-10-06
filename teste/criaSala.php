@@ -26,28 +26,43 @@
 <html lang="pt-br">
 	<head>
 		<title><?php echo $nomeUsuario; ?> - Roll and Play GENG</title>
-<?php include("header.php"); ?>		
-	
-	<form name="formCadastro" id="formCadastro" action="controller/criaSalaController.php" enctype="multipart/form-data" method="post">
-		<div>	
-			Online: <input type="radio" name="sala" id="sala" value="Online" checked /><br />
-			Presencial: <input type="radio" name="sala" id="sala" value="Presencial" /><br />
+<?php include("header.php"); ?>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<form name="formCadastro" action="controller/criaSalaController.php" enctype="multipart/form-data" method="post">
+					<div class="CenterTitulo">
+						<span>SALA...</span><br>
+					</div>
+					<div>	
+						Online: <input type="radio" name="sala" id="sala" value="Online" checked /><br />
+						Presencial: <input type="radio" name="sala" id="sala" value="Presencial" /><br />
+					</div>
+					<div>
+						<input type="submit" name="" value="Entrar">
+					</div>
+				</form>
+			</div>
+			<div class="col-md-4">
+				<form name="formCadastroFoto" action="lib/adicionaImagem.php" enctype="multipart/form-data" method="post">
+					<div class="CenterTitulo">
+						<span>IMAGENS</span><br>
+					</div>
+					<input type="file" name="imagem[]" multiple>
+					<input type="submit" name="acrescentar" value="Adicionar">
+				</form>			
+			</div>
+			<div class="col-md-4">	
+				<form name="formCadastroMusica" action="lib/adicionaMusica.php" enctype="multipart/form-data" method="post">
+					<div class="CenterTitulo">
+						<span>MÚSICAS</span><br>
+					</div>
+					<input type="file" name="musica[]" multiple>
+					<input type="submit" name="adicionar" value="Adicionar">
+				</form>
+			</div>	
 		</div>
-		<div>
-			<input type="submit" name="" value="Entrar">
-		</div>
-	</form>
+	</div>
 
-	<form name="formCadastroFoto" id="formCadastroFoto" action="lib/adicionaImagem.php" enctype="multipart/form-data" method="post">
-		<span>Imagens</span><br>
-		<input type="file" name="imagem[]" multiple>
-		<input type="submit" name="acrescentar" value="Adicionar">
-	</form>
-
-	<form name="formCadastroMusica" id="formCadastroMusica" action="lib/adicionaMusica.php" enctype="multipart/form-data" method="post">
-		<span>Musícas</span><br>
-		<input type="file" name="musica[]" multiple>
-		<input type="submit" name="adicionar" value="Adicionar">
-	</form>
 
 <?php include("footer.php"); ?>

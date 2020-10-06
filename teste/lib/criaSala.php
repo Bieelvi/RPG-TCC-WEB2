@@ -18,7 +18,15 @@
 	$sqlMestre->bindValue(2, $nomeMestre);
 
 	if($sqlMestre->execute()){
-		$_SESSION['infSala'] = array($nomeSala, $senhaSala, $nomeMestre, $codigoUsuario);
+		$sqlPegaCodigoMestre = $conn->prepare("SELECT codigo_mestre FROM mestre WHERE codigo_usuario = ?");
+		$sqlPegaCodigoMestre->bindValue(1, $codigoUsuario);
+		if($sqlPegaCodigoMestre->execute()){
+			if($sqlPegaCodigoMestre->rowCount()){
+				$dado = $sqlPegaCodigoMestre->fetchAll(PDO::FETCH_ASSOC)[0];
+				$_SESSION['infSala'] = array($nomeSala, $senhaSala, $nomeMestre, $codigoUsuario, $dado['codigo_mestre']);
+			}
+			
+		}
 
 		header('Location: http://localhost/teste/criaSala.php');
 	}

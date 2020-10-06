@@ -20,9 +20,9 @@
 		
 	</div>
 
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-4">
 				<div class="container">
 					<form action="lib/criaSala.php" method="POST">
 						<div class="CadastroSala">	
@@ -50,7 +50,7 @@
 					</form>
 				</div>
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-4">
 				<div class="container">
 					<form action="lib/criaJogador.php" method="POST">
 						<div class="CadastroSala">	
@@ -66,6 +66,30 @@
 						</div>
 						<div class="CadastroSala">
 							<input type="submit" value="Criar">
+						</div>			
+					</form>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="container">
+					<form action="lib/conectaSala.php" method="POST">
+						<div class="CadastroSala">	
+							<p class="Titulo">ENTRAR NUMA SALA</p>
+						</div>
+						<div class="CadastroSala">
+							<label>USUÁRIO</label>
+							<input type="text" size="48%" class="mb-2" disabled value="<?php echo $nomeUsuario; ?>">
+						</div>	
+						<div class="CadastroSala">
+							<label>SALA</label>
+							<input type="text" name="nomeSalaCriada" size="48%" class="mb-2" placeholder="Sala..." required>
+						</div>	
+						<div class="CadastroSala">
+							<label>SENHA</label>						
+							<input type="text" name="senhaSalaCriada" size="48%" class="mb-2" placeholder="Senha..." required>
+						</div>
+						<div class="CadastroSala">
+							<input type="submit" value="Entrar">
 						</div>			
 					</form>
 				</div>

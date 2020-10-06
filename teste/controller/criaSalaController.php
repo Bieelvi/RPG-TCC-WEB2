@@ -8,34 +8,26 @@
 	else
 		header('Location: http://localhost/teste/login.php');
 
-	if($_POST['sala'] == 'Online')
-		$opSala = 1;
-	else if($_POST['sala'] == 'Presencial')
-		$opSala = 2;
-
-	for($i = 0; $i < count($_SESSION['imagens']); $i++){
-		print_r($_SESSION['imagens'][$i]); echo "<br>";
-
-		$imagensArray = $_SESSION['imagens'][$i];
-
-		$arquivo = $imagensArray[0];
-		$destino = $imagensArray[1];
-
-		echo $arquivo;
-
-		echo "<br><br>";
-
-		echo $destino;
-
-		/*if(move_uploaded_file($arquivo, $destino)){
-            echo "Upload realizado com sucesso<br>"; 
-	   	} else {
-	        echo "Erro ao realizar upload";
-	    } */   
-
-		echo "<br>";
-
-
-
-		
-	}	  	
+	if($_POST['sala'] == 'Online'){
+		$sqlInsertSalaOnline = $conn->prepare("INSERT INTO sala_online (codigo_mestre, nome_sala_online, senha_sala_online) VALUES (?, ?, ?)");
+		$sqlInsertSalaOnline->bindValue(1, $_SESSION['infSala'][4]);
+		$sqlInsertSalaOnline->bindValue(2, $_SESSION['infSala'][1]);
+		$sqlInsertSalaOnline->bindValue(3, $_SESSION['infSala'][2]);
+		if($sqlInsertSalaOnline->execute()){
+			echo "Add com sucesso!";
+		} else {
+			echo "Erro";
+		}
+	}
+	else if($_POST['sala'] == 'Presencial'){
+		$sqlInsertSalaPresencial = $conn->prepare("INSERT INTO sala_presencial (codigo_mestre, nome_sala_presencial, senha_sala_presencial) VALUES (?, ?, ?)");
+		$sqlInsertSalaPresencial->bindValue(1, $_SESSION['infSala'][4]);
+		$sqlInsertSalaPresencial->bindValue(2, $_SESSION['infSala'][1]);
+		$sqlInsertSalaPresencial->bindValue(3, $_SESSION['infSala'][2]);
+		if($sqlInsertSalaPresencial->execute()){
+			echo "Add com sucesso!";
+		} else {
+			echo "Erro";
+		}
+	}
+	  	

@@ -10,8 +10,7 @@
 	
 		$sql = $conn->prepare("SELECT * FROM usuario WHERE senha_usuario = ? AND email_usuario = ?");
 		$sql->bindValue(1, $senha); 
-		$sql->bindValue(2, $email);
-		
+		$sql->bindValue(2, $email);		
 		$sql->execute();
 
 		if($sql->rowCount()){
