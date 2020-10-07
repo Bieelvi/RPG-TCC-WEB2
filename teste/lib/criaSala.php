@@ -25,6 +25,12 @@
 			if($sqlPegaCodigoMestre->rowCount()){
 				$dado = $sqlPegaCodigoMestre->fetchAll(PDO::FETCH_ASSOC)[0];
 				$_SESSION['infSala'] = array($nomeSala, $senhaSala, $nomeMestre, $codigoUsuario, $dado['codigo_mestre']);
+
+				$diretorioImagem = '../upload/imagem/' . $dado['codigo_mestre'] . '/';
+				mkdir($diretorioImagem, 0755);
+
+				$diretorioMusica = '../upload/musica/' . $dado['codigo_mestre'] . '/';
+				mkdir($diretorioMusica, 0755);
 			}
 			
 		}

@@ -13,46 +13,66 @@
 	$enviarMusica = filter_input(INPUT_POST,'addMusica');
 
 	if($enviarImagem){
-		foreach($_FILES['imagem']['name'] as $ind => $valor){
-		    if(empty($valor)){
-				$_SESSION['vericaUpload'] = 0;
-				header('Location: http://localhost/teste/criaSala.php');
-			} else {
-				$valor = $_FILES['imagem']['name'];
-				$nomeMestre = $_SESSION['infSala'][2];
-				$codigoMestre = $_SESSION['infSala'][4];
+		$diretorioMusica = "../upload/imagem/" . $_SESSION['infSala'][4];
+
+		if(!is_dir($diretorioMusica)){ 
+			echo "Pasta nao existe";
+		} else {
+
+			$arquivo = isset($_FILES['imagem']) ? $_FILES['imagem'] : FALSE;
+
+			$diretorioMusica = '../upload/imagem/' . $_SESSION['infSala'][4] . '/';
+
+			for ($controle = 0; $controle < count($arquivo['name']); $controle++){
+				$nomes = $arquivo['name'];
+				$nomes[$controle] = rand().'-'.$nomes[$controle];
+				$destino = $diretorioMusica.$nomes[$controle];
 
 				$sqlInsertImagem = $conn->prepare("INSERT INTO imagem (codigo_mestre, nome_imagem) VALUES (?, ?)");
-				$sqlInsertImagem->bindValue(1, $codigoMestre);
-				$sqlInsertImagem->bindValue(2, $valor[$ind]);
-				if($sqlInsertImagem->execute())
-					$_SESSION['vericaUpload'] = 1;
-				else 
-					$_SESSION['vericaUpload'] = 0;				
-				header('Location: http://localhost/teste/criaSala.php');
+				$sqlInsertImagem->bindValue(1, $_SESSION['infSala'][4]);
+				$sqlInsertImagem->bindValue(2, $nomes[$controle]);
+
+				if($sqlInsertImagem->execute()){
+					if(move_uploaded_file($arquivo['tmp_name'][$controle], $destino)){
+						$_SESSION['vericaUpload'] = 1;				
+					} else 
+						$_SESSION['vericaUpload'] = 0;	
+				}			
 			}
+
+			header('Location: http://localhost/teste/criaSala.php');
 		}
 	}
 
 	if ($enviarMusica){
-		foreach($_FILES['musica']['name'] as $ind => $valor){
-		    if(empty($valor)){
-				$_SESSION['vericaUpload'] = 0;
-				header('Location: http://localhost/teste/criaSala.php');
-			} else {
-				$valor = $_FILES['musica']['name'];
-				$nomeMestre = $_SESSION['infSala'][2];
-				$codigoMestre = $_SESSION['infSala'][4];
+		$diretorioMusica = "../upload/musica/" . $_SESSION['infSala'][4];
+
+		if(!is_dir($diretorioMusica)){ 
+			echo "Pasta nao existe";
+		} else {
+
+			$arquivo = isset($_FILES['musica']) ? $_FILES['musica'] : FALSE;
+
+			$diretorioMusica = '../upload/musica/' . $_SESSION['infSala'][4] . '/';
+
+			for ($controle = 0; $controle < count($arquivo['name']); $controle++){
+		        $nomes = $arquivo['name'];
+			    $nomes[$controle] = rand().'-'.$nomes[$controle];
+				$destino = $diretorioMusica.$nomes[$controle];
 
 				$sqlInsertImagem = $conn->prepare("INSERT INTO musica (codigo_mestre, nome_musica) VALUES (?, ?)");
-				$sqlInsertImagem->bindValue(1, $codigoMestre);
-				$sqlInsertImagem->bindValue(2, $valor[$ind]);
-				if($sqlInsertImagem->execute())
-					$_SESSION['vericaUpload'] = 1;
-				else 
-					$_SESSION['vericaUpload'] = 0;				
-				header('Location: http://localhost/teste/criaSala.php');
-			}
-		}
+				$sqlInsertImagem->bindValue(1, $_SESSION['infSala'][4]);
+				$sqlInsertImagem->bindValue(2, $nomes[$controle]);
 
+				if($sqlInsertImagem->execute()){
+
+					if(move_uploaded_file($arquivo['tmp_name'][$controle], $destino)){
+						$_SESSION['vericaUpload'] = 1;				
+					} else 
+						$_SESSION['vericaUpload'] = 0;	
+				}			
+			}
+
+			header('Location: http://localhost/teste/criaSala.php');
+		}
 	}
