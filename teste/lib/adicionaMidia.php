@@ -34,9 +34,12 @@
 
 				if($sqlInsertImagem->execute()){
 					if(move_uploaded_file($arquivo['tmp_name'][$controle], $destino)){
-						$_SESSION['vericaUpload'] = 1;				
-					} else 
-						$_SESSION['vericaUpload'] = 0;	
+						$mensagem = "Upload da imagem foi um SUCESSO!";
+						$_SESSION['vericaUpload'] = array(1, $mensagem);				
+					} else {
+						$mensagem = "Upload da imagem foi um FRACASSO!";
+						$_SESSION['vericaUpload'] = array(0, $mensagem);	
+					}
 				}			
 			}
 
@@ -67,9 +70,12 @@
 				if($sqlInsertImagem->execute()){
 
 					if(move_uploaded_file($arquivo['tmp_name'][$controle], $destino)){
-						$_SESSION['vericaUpload'] = 1;				
-					} else 
-						$_SESSION['vericaUpload'] = 0;	
+						$mensagem = "Upload da musica foi um SUCESSO!";
+						$_SESSION['vericaUpload'] = array(1, $mensagem);				
+					} else {
+						$mensagem = "Upload da musica foi um FRACASSO!";
+						$_SESSION['vericaUpload'] = array(0, $mensagem);	
+					}
 				}			
 			}
 

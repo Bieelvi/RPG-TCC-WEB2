@@ -68,8 +68,7 @@ hr{border-width: 2px; border-color: black;}
 .Titulo{font-family: 'Berkshire Swash', cursive; font-size: 50px;}
 
 .Retorno{display: none; float: left; width: 70%; border: 2px solid #41B13B; background: #D8E2D5; text-align: center; padding: 15px; margin: 20px 15% 10px 15%;}
-.RetornoDois{display: none; float: left; width: 70%; border: 2px solid #41B13B; background: #D8E2D5; text-align: center; padding: 15px; margin: 20px 15% 10px 15%;}
-.RetornoTres{display: none; float: left; width: 70%; border: 2px solid #41B13B; background: #D8E2D5; text-align: center; padding: 15px; margin: 20px 15% 10px 15%;}
+.RetornoTeste{float: left; width: 70%; border: 2px solid #41B13B; background: #D8E2D5; text-align: center; padding: 15px; margin: 20px 15% 10px 15%;}}
 
 .Formulario{width: 100%; height: 500px; margin-bottom: 100px;}
 
