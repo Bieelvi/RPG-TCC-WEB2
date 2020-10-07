@@ -57,7 +57,7 @@
 						<div class="dropdown-content Link">
 							 <?php if(isset($_SESSION['usuarios'])){ ?> <a href="userPage.php">Perfil</a> <?php } ?>
 							 <?php if(isset($_SESSION['usuarios']) && $_SESSION['usuarios'][1] == 1){ ?> <a href="admPage.php">Administrador</a> <?php } ?>		
-							<?php if(isset($_SESSION['usuarios'])){ ?> <a href="sair.php">Sair</a> <?php } ?>
+							<?php if(isset($_SESSION['usuarios'])){ ?> <a href="model/sair.php">Sair</a> <?php } ?>
 						</div>
 					</div>					
 				</li>	

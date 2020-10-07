@@ -43,10 +43,14 @@
 						<div class="CadastroSala">
 							<label>SENHA</label>
 							<input type="password" name="senhaSala" id="senhaSala" size="48%" placeholder="Senha..." required>
-						</div>			
+						</div>
+						<div class="CadastroSala">	
+							Online: <input type="radio" name="sala" value="Online" checked /><br />
+							Presencial: <input type="radio" name="sala" value="Presencial" /><br />
+						</div>	
 						<div class="CadastroSala">
 							<input type="submit" value="Criar">
-						</div>			
+						</div>		
 					</form>
 				</div>
 			</div>

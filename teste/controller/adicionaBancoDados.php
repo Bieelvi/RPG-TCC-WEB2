@@ -7,6 +7,3 @@
 		$nomeUsuario = $_SESSION['usuarios'][0];
 	else
 		header('Location: http://localhost/teste/login.php');
-
-
-	
