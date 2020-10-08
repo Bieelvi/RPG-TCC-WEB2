@@ -168,38 +168,32 @@
 
 					    		<div class="CadastroFicha">
 									<span>Força <br></span>
-									<input class="FonteInterna" onblur="calculaForca()" type="number" id="atrForca" required>
-									<input type="hidden" name="forca" required>
+									<input class="FonteInterna" onblur="calculaForca()" type="number" name="forca" id="atrForca" required>
 								</div>
 								
 								<div class="CadastroFicha">
 									<span>Destreza</span><br>		
-									<input class="FonteInterna" onblur="calculaDestreza()" type="number" id="atrDestreza" required>
-									<input type="hidden" name="destreza" required>
+									<input class="FonteInterna" onblur="calculaDestreza()" type="number" name="destreza" id="atrDestreza" required>
 								</div>
 
 								<div class="CadastroFicha">
 									<span>Constituição</span><br>
-									<input class="FonteInterna" onblur="calculaConstituicao()" type="number" id="atrConstituicao" required>
-									<input type="hidden" name="constituicao" required>
+									<input class="FonteInterna" onblur="calculaConstituicao()" type="number" name="constituicao" id="atrConstituicao" required>
 								</div>
 
 								<div class="CadastroFicha">
 									<span>Inteligência</span><br>
-									<input class="FonteInterna" onblur="calculaInteligencia()" type="number" id="atrInteligencia" required>
-									<input type="hidden" name="inteligencia" required>
+									<input class="FonteInterna" onblur="calculaInteligencia()" type="number" name="inteligencia" id="atrInteligencia" required>
 								</div>
 								
 								<div class="CadastroFicha">
 									<span>Sabedoria</span><br>
-									<input class="FonteInterna" onblur="calculaSabedoria()" type="number" id="atrSabedoria" required>
-									<input type="hidden" name="sabedoria" required>
+									<input class="FonteInterna" onblur="calculaSabedoria()" type="number" name="sabedoria" id="atrSabedoria" required>
 								</div>
 
 								<div class="CadastroFicha">
 									<span>Carisma</span><br>
-									<input class="FonteInterna" onblur="calculaCarisma()" type="number" id="atrCarisma" required>
-									<input type="hidden" name="carisma" required>
+									<input class="FonteInterna" onblur="calculaCarisma()" type="number" name="carisma" id="atrCarisma" required>
 								</div>
 
 							</div>

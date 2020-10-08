@@ -16,6 +16,7 @@ function pegaDeslocamento() {
     if(chooseRaca == "Tiefling") deslocamento = 9;
 
     document.querySelector("[name='deslocamento']").value = deslocamento;
+    document.querySelector("[id='deslocamento']").value = deslocamento;
 }
 
 function calculaProficiencia() {

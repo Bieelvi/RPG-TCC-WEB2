@@ -45,8 +45,8 @@
 							<input type="password" name="senhaSala" id="senhaSala" size="48%" placeholder="Senha..." required>
 						</div>
 						<div class="CadastroSala">	
-							Online: <input type="radio" name="sala" value="Online" checked /><br />
-							Presencial: <input type="radio" name="sala" value="Presencial" /><br />
+							Online: <input type="radio" name="sala" value="Online" checked/>
+							Presencial: <input type="radio" name="sala" value="Presencial"/>
 						</div>	
 						<div class="CadastroSala">
 							<input type="submit" value="Criar">

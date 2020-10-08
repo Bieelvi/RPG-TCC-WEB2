@@ -18,22 +18,16 @@
 	$sqlMestre->bindValue(2, $nomeMestre);
 
 	if($sqlMestre->execute()){
-		$sqlPegaCodigoMestre = $conn->prepare("SELECT codigo_mestre FROM mestre WHERE codigo_usuario = ?");
-		$sqlPegaCodigoMestre->bindValue(1, $codigoUsuario);
-		
-		if($sqlPegaCodigoMestre->execute()){
-			if($sqlPegaCodigoMestre->rowCount()){
-				$dado = $sqlPegaCodigoMestre->fetchAll(PDO::FETCH_ASSOC)[0];
-				$_SESSION['infSala'] = array($nomeSala, $senhaSala, $nomeMestre, $codigoUsuario, $dado['codigo_mestre']);
+		$codigoMestre = $conn->lastInsertId();		
+		$_SESSION['infSala'] = array($nomeSala, $senhaSala, $nomeMestre, $codigoUsuario, $codigoMestre);
 
-				$diretorioImagem = '../upload/imagem/' . $dado['codigo_mestre'] . '/';
-				mkdir($diretorioImagem, 0755);
+		$diretorioImagem = '../upload/imagem/' . $_SESSION['infSala'][4] . '/';
+		mkdir($diretorioImagem, 0755);
 
-				$diretorioMusica = '../upload/musica/' . $dado['codigo_mestre'] . '/';
-				mkdir($diretorioMusica, 0755);
-			}
+		$diretorioMusica = '../upload/musica/' . $_SESSION['infSala'][4] . '/';
+		mkdir($diretorioMusica, 0755);
 			
-		}
+	}
 
 		if($_POST['sala'] == 'Online'){
 			$sqlInsertSalaOnline = $conn->prepare("INSERT INTO sala_online (codigo_mestre, nome_sala_online, senha_sala_online) VALUES (?, ?, ?)");
@@ -51,4 +45,3 @@
 			else echo "Erro";
 		}
 		header('Location: http://localhost/teste/criaSala.php');
-	}

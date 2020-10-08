@@ -41,6 +41,8 @@ hr{border-width: 2px; border-color: black;}
 .CenterTituloIndex{text-align: center; font-family: 'Berkshire Swash', cursive; font-size: 50px; margin: 10px; color: #41B13B; padding-top: 15%; text-shadow: 10px 10px 15px #41B13B;}
   .CenterTituloIndex > h1{color: #ffff; font-weight: bold;}
 
+.CenterMidia{text-align: center; font-family: 'Berkshire Swash', cursive; font-size: 20px; margin: 10px; color: #41B13B; padding-top: 15%; text-shadow: 10px 10px 15px #41B13B;}  
+
 .CenterTitulo{text-align: center; font-family: 'Berkshire Swash', cursive; font-size: 32px; margin: 10px; color: #41B13B;}
 
 .CenterTituloFicha{text-align: center; font-family: 'Berkshire Swash', cursive; font-size: 20px; color: #41B13B; margin: 20px 0 20px 0;}

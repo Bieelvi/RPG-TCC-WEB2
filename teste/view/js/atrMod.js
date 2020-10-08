@@ -8,8 +8,7 @@ function calculaForca(){
 		document.querySelector("[id='modForca']").value = null;
 		alert("Digite um valor entre 1 e 30");
 	} else {
-		document.querySelector("[id='modForca']").value = returnMod;
-		document.querySelector("[name='forca']").value = mod;		
+		document.querySelector("[id='modForca']").value = returnMod;		
 	}
 }
 
@@ -23,8 +22,7 @@ function calculaDestreza(){
 		document.querySelector("[id='modDestreza']").value = null;
 		alert("Digite um valor entre 1 e 30");
 	} else {
-		document.querySelector("[id='modDestreza']").value = returnMod;
-		document.querySelector("[name='destreza']").value = mod;	
+		document.querySelector("[id='modDestreza']").value = returnMod;	
 	}
 }
 
@@ -38,8 +36,7 @@ function calculaConstituicao(){
 		document.querySelector("[id='modConstituicao']").value = null;
 		alert("Digite um valor entre 1 e 30");
 	} else {
-		document.querySelector("[id='modConstituicao']").value = returnMod;
-		document.querySelector("[name='constituicao']").value = mod;		
+		document.querySelector("[id='modConstituicao']").value = returnMod;		
 	}
 }
 
@@ -54,7 +51,6 @@ function calculaInteligencia(){
 		alert("Digite um valor entre 1 e 30");
 	} else {
 		document.querySelector("[id='modInteligencia']").value = returnMod;	
-		document.querySelector("[name='inteligencia']").value = mod;	
 	}
 }
 
@@ -69,7 +65,6 @@ function calculaSabedoria(){
 		alert("Digite um valor entre 1 e 30");
 	} else {
 		document.querySelector("[id='modSabedoria']").value = returnMod;
-		document.querySelector("[name='sabedoria']").value = mod;
 
 		var sabedoriaPassiva = returnMod + 10;
 
@@ -88,8 +83,7 @@ function calculaCarisma(){
 		document.querySelector("[id='modCarisma']").value = null;
 		alert("Digite um valor entre 1 e 30");
 	} else {
-		document.querySelector("[id='modCarisma']").value = returnMod;
-		document.querySelector("[name='carisma']").value = mod;		
+		document.querySelector("[id='modCarisma']").value = returnMod;	
 	}
 }
 
