@@ -24,45 +24,46 @@
 		} else {
 			$sqlConsultaOnline = $conn->prepare("SELECT * FROM sala_online WHERE nome_sala_online = ?");
 			$sqlConsultaOnline->bindValue(1, $nomeSala);
+
 			if($sqlConsultaOnline->execute()){
 				if($sqlConsultaOnline->rowCount()){
 					$mensagem = "Nome de sala já em uso!";
 					$_SESSION['vericaSalas'] = array(0, $mensagem);
 					header('Location: http://localhost/teste/modoJogo.php');
+				} else {
+					echo "asd";
+					$sqlMestre = $conn->prepare("INSERT INTO mestre (codigo_usuario, nome_mestre) VALUES (?, ?)");
+					$sqlMestre->bindValue(1, $codigoUsuario);
+					$sqlMestre->bindValue(2, $nomeMestre);
+
+					if($sqlMestre->execute()){
+						$codigoMestre = $conn->lastInsertId();		
+						$_SESSION['infSala'] = array($nomeSala, $senhaSala, $nomeMestre, $codigoUsuario, $codigoMestre);
+
+						$diretorioImagem = '../upload/imagem/' . $_SESSION['infSala'][4] . '/';
+						mkdir($diretorioImagem, 0755);
+
+						$diretorioMusica = '../upload/musica/' . $_SESSION['infSala'][4] . '/';
+						mkdir($diretorioMusica, 0755);
+					}
+					
+					if($_POST['sala'] == 'Online'){
+						$sqlInsertSalaOnline = $conn->prepare("INSERT INTO sala_online (codigo_mestre, nome_sala_online, senha_sala_online) VALUES (?, ?, ?)");
+						$sqlInsertSalaOnline->bindValue(1, $_SESSION['infSala'][4]);
+						$sqlInsertSalaOnline->bindValue(2, $_SESSION['infSala'][1]);
+						$sqlInsertSalaOnline->bindValue(3, $_SESSION['infSala'][0]);
+
+						if(!$sqlInsertSalaOnline->execute()) echo "Erro";
+					} else if ($_POST['sala'] == 'Presencial'){
+						$sqlInsertSalaPresencial = $conn->prepare("INSERT INTO sala_presencial (codigo_mestre, nome_sala_presencial, senha_sala_presencial) VALUES (?, ?, ?)");
+						$sqlInsertSalaPresencial->bindValue(1, $_SESSION['infSala'][4]);
+						$sqlInsertSalaPresencial->bindValue(2, $_SESSION['infSala'][1]);
+						$sqlInsertSalaPresencial->bindValue(3, $_SESSION['infSala'][0]);
+
+						if(!$sqlInsertSalaPresencial->execute()) echo "Erro";
+					}
+						header('Location: http://localhost/teste/criaSala.php');
 				}
-			} else {
-				$sqlMestre = $conn->prepare("INSERT INTO mestre (codigo_usuario, nome_mestre) VALUES (?, ?)");
-				$sqlMestre->bindValue(1, $codigoUsuario);
-				$sqlMestre->bindValue(2, $nomeMestre);
-
-				if($sqlMestre->execute()){
-					$codigoMestre = $conn->lastInsertId();		
-					$_SESSION['infSala'] = array($nomeSala, $senhaSala, $nomeMestre, $codigoUsuario, $codigoMestre);
-
-					$diretorioImagem = '../upload/imagem/' . $_SESSION['infSala'][4] . '/';
-					mkdir($diretorioImagem, 0755);
-
-					$diretorioMusica = '../upload/musica/' . $_SESSION['infSala'][4] . '/';
-					mkdir($diretorioMusica, 0755);
-						
-				}
-				
-				if($_POST['sala'] == 'Online'){
-					$sqlInsertSalaOnline = $conn->prepare("INSERT INTO sala_online (codigo_mestre, nome_sala_online, senha_sala_online) VALUES (?, ?, ?)");
-					$sqlInsertSalaOnline->bindValue(1, $_SESSION['infSala'][4]);
-					$sqlInsertSalaOnline->bindValue(2, $_SESSION['infSala'][1]);
-					$sqlInsertSalaOnline->bindValue(3, $_SESSION['infSala'][0]);
-
-					if(!$sqlInsertSalaOnline->execute()) echo "Erro";
-				} else if ($_POST['sala'] == 'Presencial'){
-					$sqlInsertSalaPresencial = $conn->prepare("INSERT INTO sala_presencial (codigo_mestre, nome_sala_presencial, senha_sala_presencial) VALUES (?, ?, ?)");
-					$sqlInsertSalaPresencial->bindValue(1, $_SESSION['infSala'][4]);
-					$sqlInsertSalaPresencial->bindValue(2, $_SESSION['infSala'][1]);
-					$sqlInsertSalaPresencial->bindValue(3, $_SESSION['infSala'][0]);
-
-					if(!$sqlInsertSalaPresencial->execute()) echo "Erro";
-				}
-					header('Location: http://localhost/teste/criaSala.php');
 			}
 		}
 	}

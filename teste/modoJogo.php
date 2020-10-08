@@ -19,6 +19,11 @@
 	<?php 
 		if(isset($_SESSION['vericaSalas']) AND $_SESSION['vericaSalas'][0] == 1){ ?>
 			<div class="RetornoTeste">
+				<script type='text/JavaScript'>
+					setTimeout(function () {
+						window.location.href = 'salaJogar.php'; 
+					}, 2000); 
+				</script>
 				<?php echo $_SESSION['vericaSalas'][1]; ?>
 			</div> <?php
 				unset($_SESSION['vericaSalas']);
