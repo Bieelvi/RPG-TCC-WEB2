@@ -9,6 +9,15 @@
 	else
 		header('Location: http://localhost/teste/login.php');
 
+	/*Atributos da criaFicha.php*/
+	$atrFicha = array(
+		$_POST['forca'], 
+		$_POST['destreza'], 
+		$_POST['constituicao'], 
+		$_POST['inteligencia'], 
+		$_POST['sabedoria'], 
+		$_POST['carisma']);
+
 	/*Pega infomacoes finais*/
 	$ouro = isset($_POST['ouro']) ? $_POST['ouro'] : 0;
 	$prata = isset($_POST['prata']) ? $_POST['prata'] : 0;
@@ -86,15 +95,6 @@
 
 	$codigoUsuario = $_SESSION['usuarios'][2];
 	$nomeJogador = $_SESSION['usuarios'][0];
-
-	/*Atributos da criaFicha.php*/
-	$atrFicha = array(
-		$_POST['forca'], 
-		$_POST['destreza'], 
-		$_POST['constituicao'], 
-		$_POST['inteligencia'], 
-		$_POST['sabedoria'], 
-		$_POST['carisma']);
 
 	/*Informações iniciais da criaFicha.php*/
 	$infInicial = array(

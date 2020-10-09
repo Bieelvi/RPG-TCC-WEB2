@@ -15,7 +15,8 @@
 	<link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Josefin+Sans:wght@500&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/cssGridLayout.css">
-	<link rel="stylesheet" type="text/css" href="css/cssFooter.css">	
+	<link rel="stylesheet" type="text/css" href="css/cssFooter.css">
+	<link rel="shortcut icon" href="image/icon.ico">	
 </head>
 <body>
 

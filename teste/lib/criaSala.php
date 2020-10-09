@@ -53,17 +53,32 @@
 						$sqlInsertSalaOnline->bindValue(2, $_SESSION['infSala'][1]);
 						$sqlInsertSalaOnline->bindValue(3, $_SESSION['infSala'][0]);
 
-						if(!$sqlInsertSalaOnline->execute()) echo "Erro";
+						if(!$sqlInsertSalaOnline->execute()) {
+							$mensagem = "Não foi possível inciar um sala nove!";
+							$_SESSION['vericaSala'] = array(0, $mensagem);
+						} else {
+							$mensagem = "Criando um sala!";
+							$_SESSION['vericaSala'] = array(1, $mensagem);
+						}
+
 					} else if ($_POST['sala'] == 'Presencial'){
 						$sqlInsertSalaPresencial = $conn->prepare("INSERT INTO sala_presencial (codigo_mestre, nome_sala_presencial, senha_sala_presencial) VALUES (?, ?, ?)");
 						$sqlInsertSalaPresencial->bindValue(1, $_SESSION['infSala'][4]);
 						$sqlInsertSalaPresencial->bindValue(2, $_SESSION['infSala'][1]);
 						$sqlInsertSalaPresencial->bindValue(3, $_SESSION['infSala'][0]);
 
-						if(!$sqlInsertSalaPresencial->execute()) echo "Erro";
+						if(!$sqlInsertSalaPresencial->execute()) {
+							$mensagem = "Não foi possível inciar um sala nove!";
+							$_SESSION['vericaSala'] = array(0, $mensagem);
+						} else {
+							$mensagem = "Criando um sala!";
+							$_SESSION['vericaSala'] = array(1, $mensagem);
+						}
+
 					}
-						header('Location: http://localhost/teste/criaSala.php');
 				}
 			}
 		}
 	}
+
+	header('Location: http://localhost/teste/modoJogo.php');

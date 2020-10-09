@@ -8,7 +8,6 @@
 	else
 		header('Location: http://localhost/teste/login.php');
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>

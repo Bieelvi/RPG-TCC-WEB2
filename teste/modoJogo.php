@@ -36,6 +36,46 @@
 		} 
 	?>
 
+	<?php 
+		if(isset($_SESSION['vericaPersonagem']) AND $_SESSION['vericaPersonagem'][0] == 1){ ?>
+			<div class="RetornoTeste">
+				<script type='text/JavaScript'>
+					setTimeout(function () {
+						window.location.href = 'criaFicha.php'; 
+					}, 2000); 
+				</script>
+				<?php echo $_SESSION['vericaPersonagem'][1]; ?>
+			</div> <?php
+				unset($_SESSION['vericaPersonagem']);
+		}
+		if(isset($_SESSION['vericaPersonagem']) AND $_SESSION['vericaPersonagem'][0] == 0){ ?>
+			<div class="RetornoTeste">
+				<?php echo $_SESSION['vericaPersonagem'][1]; ?>
+			</div> <?php
+				unset($_SESSION['vericaPersonagem']);
+		} 
+	?>
+
+	<?php 
+		if(isset($_SESSION['vericaSala']) AND $_SESSION['vericaSala'][0] == 1){ ?>
+			<div class="RetornoTeste">
+				<script type='text/JavaScript'>
+					setTimeout(function () {
+						window.location.href = 'criaSala.php'; 
+					}, 2000); 
+				</script>
+				<?php echo $_SESSION['vericaSala'][1]; ?>
+			</div> <?php
+				unset($_SESSION['vericaSala']);
+		}
+		if(isset($_SESSION['vericaSala']) AND $_SESSION['vericaSala'][0] == 0){ ?>
+			<div class="RetornoTeste">
+				<?php echo $_SESSION['vericaSala'][1]; ?>
+			</div> <?php
+				unset($_SESSION['vericaSala']);
+		} 
+	?>
+
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-4">
@@ -85,7 +125,7 @@
 							<input type="password" name="senhaSala" id="senhaSala" size="48%" placeholder="Senha..." required>
 						</div>
 						<div class="CadastroSala">	
-							Online: <input type="radio" name="sala" value="Online" checked/>
+							Online: <input type="radio" name="sala" value="Online" checked/><br>
 							Presencial: <input type="radio" name="sala" value="Presencial"/>
 						</div>	
 						<div class="CadastroSala">
