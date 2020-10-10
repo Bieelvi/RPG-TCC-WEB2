@@ -1,22 +1,40 @@
 <?php 
 	session_start();	
+
     include("model/ConexaoDataBase.php");
 
 	if(isset($_SESSION['usuarios'])) {
 		$hierarquia = $_SESSION['usuarios'][1];
 		if($hierarquia != 1)
 			header('Location: http://localhost/teste/index.php');
-		}
-	else
+	} else
 		header('Location: http://localhost/teste/index.php');
 	
 ?>
-
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>ADM - Roll and Play GENG</title>
 		<?php include("header.php"); ?>
+	<?php 
+		if(isset($_SESSION['vericaDelete']) AND $_SESSION['vericaDelete'][0] == 1){ ?>
+			<div class="RetornoTeste">
+				<script type='text/JavaScript'>
+					setTimeout(function () {
+						window.location.href = 'admPage.php'; 
+					}, 2000); 
+				</script>
+				<?php echo $_SESSION['vericaDelete'][1]; ?>
+			</div> <?php
+				unset($_SESSION['vericaDelete']);
+		}
+		if(isset($_SESSION['vericaDelete']) AND $_SESSION['vericaDelete'][0] == 0){ ?>
+			<div class="RetornoTeste">
+				<?php echo $_SESSION['vericaDelete'][1]; ?>
+			</div> <?php
+				unset($_SESSION['vericaDelete']);
+		} 
+	?>
 	
 	<div style="width: 100%; margin-bottom: 50px; margin-top: 50px;">
 		<table class="TabelaSelecao">
@@ -42,21 +60,10 @@
 					<td>
 						<a href="visualiza.php"><img src="image/lupa.png" width="30" height="30"></a>
 						<a href="atualiza.php"><img src="image/lapis.png" width="30" height="30"></a>
-						<a class="Deletar" href="<?php echo "controller/deletaController.php?codigoUsuario={$cadaItem['codigoUsuario']}"; ?>"><img src="image/lixeira.png" width="30" height="30"></a>
+						<a class="Deletar" href="<?php echo "controller/deletaController.php?codigoUsuario={$cadaItem['codigo_usuario']}"; ?>"><img src="image/lixeira.png" width="30" height="30"></a>
 					</td>
-				</tr>			
-
-		<?php 
-			} 
-			if(isset($_GET['acao'])){
-				if($_GET['acao'] == 1){
-					echo "<script> alert('Deletado com sucesso!');</script>";
-				}
-				if($_GET['acao'] == 2){
-					echo "<script> alert('Erro ao deletar usuário!');</script>";
-				}
-			}			 
-		?>
+				</tr>
+	<?php 	}	?>
 		</table>
 	</div>
 <?php include("footer.php"); ?>

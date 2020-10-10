@@ -5,7 +5,6 @@
 
 	if(isset($_SESSION['usuarios']) && is_array($_SESSION['usuarios'])){
 		$nomeUsuario = $_SESSION['usuarios'][0];
-		$hierarquiaUsuario = $_SESSION['usuarios'][1];
 	} else {
 		header('Location: http://localhost/teste/login.php');
 	}
@@ -15,6 +14,41 @@
 	<head>
 		<title><?php echo $nomeUsuario; ?> - Roll and Play GENG</title>
 <?php include("header.php"); ?>	
-	<div class="content">
-	</div>	
+	<?php 
+		$sqlSelectPersonagem = $conn->prepare("SELECT * FROM jogador WHERE codigo_usuario = ?");
+		$sqlSelectPersonagem->bindValue(1, $_SESSION['usuarios'][2]);
+		if($sqlSelectPersonagem->execute()){
+			if($sqlSelectPersonagem->rowCount()){
+				$dadoJogador = $sqlSelectPersonagem->fetchAll(); ?>
+				<h5>Personagens</h5>
+				<select> <?php 
+					foreach ($dadoJogador as $valor) {
+						?><option><?php echo $valor['nome_jogador']; ?></option><?php
+					} ?>
+				</select>	<?php
+			} else {
+
+			}
+		} else {
+
+		}
+
+		$sqlSelectMestre = $conn->prepare("SELECT * FROM mestre WHERE codigo_usuario = ?");
+		$sqlSelectMestre->bindValue(1, $_SESSION['usuarios'][2]);
+		if($sqlSelectMestre->execute()){
+			if($sqlSelectMestre->rowCount()){
+				$dadoMestre = $sqlSelectMestre->fetchAll(); ?>
+				<h5>Mestres</h5>
+				<select> <?php 
+					foreach ($dadoMestre as $value) {
+						?><option><?php echo $value['nome_mestre']; ?></option><?php
+					} ?>
+				</select>	<?php
+			} else {
+
+			}
+		} else {
+
+		}
+	?>	
 <?php include("footer.php"); ?>

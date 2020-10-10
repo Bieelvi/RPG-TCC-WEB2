@@ -1,5 +1,4 @@
 	<script type="text/javascript" src="view/js/jquery.min.js"></script>
-	<script type="text/javascript" src="view/js/script.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 		   $(".Deletar").click(function(event) {
