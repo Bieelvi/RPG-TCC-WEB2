@@ -1,5 +1,16 @@
-<?php 
-	session_start();
-	$_SESSION['pericias'] = array("Acrobacia (Des)", "Arcanismo (Int)", "Atletismo (For)", "Atuação (Car)", "Enganação (Car)", "Furtividade (Des)", "História (Int)", "Intimidação (Car)", "Intuição (Sab)", "Investigação (Int)", "Lidar com Animais (Sab)", "Medicina (Sab)", "Natureza (Int)", "Percepção (Sab)", "Persuasão (Car)", "Prestidigitação (Des)", "Religião (Int)", "Sobrevivência (Sab)");
-	$_SESSION['nomesPericias'] = array("acrobacia", "arcanismo", "atletismo", "atuacao", "enganacao", "furtividade", "historia", "intimidacao", "intuicao", "investigacao", "lidaComAnimais", "medicina", "natureza", "percepcao", "persuasao", "prestidigitacao", "religiao", "sobrevivencia");
+<?php
+	include("lib/funcoes.php");
 
+	echo verificaJogadoresSala(231, 321);
+
+	echo "<br><br><br><br>";
+
+	echo verificaJogadoresSala("lll", "lll");
+
+	echo "<br><br><br><br>";
+
+	echo verificaJogadoresSala(123, 123);
+
+	echo "<br><br><br><br>";
+
+	echo verificaJogadoresSala(321, 321);

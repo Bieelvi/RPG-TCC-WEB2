@@ -3,6 +3,8 @@
 
 	include("../model/ConexaoDataBase.php");
 
+	include("funcoes.php");
+
 	if(isset($_SESSION['usuarios']) && is_array($_SESSION['usuarios']))
 		$nomeUsuario = $_SESSION['usuarios'][0];
 	else
@@ -26,6 +28,7 @@
 				$sqlSalaOnline->bindValue(2, $_POST['senhaSalaCriada']);
 				if($sqlSalaOnline->execute()){
 					if($sqlSalaOnline->rowCount()){
+
 						$infSalaOnline = $sqlSalaOnline->fetchAll(PDO::FETCH_ASSOC)[0];
 						$mensagem = "Conectando na sala {$_POST['nomeSalaCriada']}!";
 						$_SESSION['vericaSalas'] = array(1, $mensagem);
