@@ -31,7 +31,6 @@
 					$_SESSION['vericaSalas'] = array(0, $mensagem);
 					header('Location: http://localhost/teste/modoJogo.php');
 				} else {
-					echo "asd";
 					$sqlMestre = $conn->prepare("INSERT INTO mestre (codigo_usuario, nome_mestre) VALUES (?, ?)");
 					$sqlMestre->bindValue(1, $codigoUsuario);
 					$sqlMestre->bindValue(2, $nomeMestre);
@@ -50,8 +49,8 @@
 					if($_POST['sala'] == 'Online'){
 						$sqlInsertSalaOnline = $conn->prepare("INSERT INTO sala_online (codigo_mestre, nome_sala_online, senha_sala_online) VALUES (?, ?, ?)");
 						$sqlInsertSalaOnline->bindValue(1, $_SESSION['infSala'][4]);
-						$sqlInsertSalaOnline->bindValue(2, $_SESSION['infSala'][1]);
-						$sqlInsertSalaOnline->bindValue(3, $_SESSION['infSala'][0]);
+						$sqlInsertSalaOnline->bindValue(2, $_SESSION['infSala'][0]);
+						$sqlInsertSalaOnline->bindValue(3, $_SESSION['infSala'][1]);
 
 						if(!$sqlInsertSalaOnline->execute()) {
 							$mensagem = "Não foi possível inciar um sala nove!";
@@ -64,8 +63,8 @@
 					} else if ($_POST['sala'] == 'Presencial'){
 						$sqlInsertSalaPresencial = $conn->prepare("INSERT INTO sala_presencial (codigo_mestre, nome_sala_presencial, senha_sala_presencial) VALUES (?, ?, ?)");
 						$sqlInsertSalaPresencial->bindValue(1, $_SESSION['infSala'][4]);
-						$sqlInsertSalaPresencial->bindValue(2, $_SESSION['infSala'][1]);
-						$sqlInsertSalaPresencial->bindValue(3, $_SESSION['infSala'][0]);
+						$sqlInsertSalaPresencial->bindValue(2, $_SESSION['infSala'][0]);
+						$sqlInsertSalaPresencial->bindValue(3, $_SESSION['infSala'][1]);
 
 						if(!$sqlInsertSalaPresencial->execute()) {
 							$mensagem = "Não foi possível inciar um sala nove!";
@@ -74,7 +73,6 @@
 							$mensagem = "Criando um sala!";
 							$_SESSION['vericaSala'] = array(1, $mensagem);
 						}
-
 					}
 				}
 			}

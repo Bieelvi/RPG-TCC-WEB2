@@ -1,16 +1,11 @@
-<?php
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>ADM - Roll and Play GENG</title>
+	<?php include("header.php");
+
 	include("lib/funcoes.php");
 
-	echo verificaJogadoresSala(231, 321);
+	echo verificaJogadoresSala(852, 852, 9);
 
-	echo "<br><br><br><br>";
-
-	echo verificaJogadoresSala("lll", "lll");
-
-	echo "<br><br><br><br>";
-
-	echo verificaJogadoresSala(123, 123);
-
-	echo "<br><br><br><br>";
-
-	echo verificaJogadoresSala(321, 321);
+	include("footer.php");

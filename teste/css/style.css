@@ -67,7 +67,7 @@ hr{border-width: 2px; border-color: black;}
 .BordaFicha{border: 2px solid #41B13B; border-radius: 5px;}  
 /* Inicio do css da pagina index.php */  
 
-.Titulo{font-family: 'Berkshire Swash', cursive; font-size: 50px;}
+.Titulo{font-family: 'Berkshire Swash', cursive; font-size: 30px;}
 
 .Retorno{display: none; float: left; width: 70%; border: 2px solid #41B13B; background: #D8E2D5; text-align: center; padding: 15px; margin: 20px 15% 10px 15%;}
 .RetornoTeste{float: left; width: 70%; border: 2px solid #41B13B; background: #D8E2D5; text-align: center; padding: 15px; margin: 20px 15% 10px 15%;}}

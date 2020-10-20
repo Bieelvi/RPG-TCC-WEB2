@@ -122,7 +122,7 @@
 						</div>
 						<div class="CadastroSala">
 							<label>SENHA</label>
-							<input type="password" name="senhaSala" id="senhaSala" size="48%" placeholder="Senha..." required>
+							<input type="password" name="senhaSala" id="senhaSala" size="48%" placeholder="Senha da sala..." required>
 						</div>
 						<div class="CadastroSala">	
 							Online: <input type="radio" name="sala" value="Online" checked/><br>
