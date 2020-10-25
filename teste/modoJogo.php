@@ -13,8 +13,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
-		<title><?php echo $nomeUsuario; ?> - Roll and Play GENG</title>
-<?php include("header.php"); ?>	
+	<title><?php echo $nomeUsuario; ?> - Roll and Play GENG</title>
+	<?php include("header.php"); ?>	
+
+	<?php 
+		if(isset($_SESSION['personagmCriado']) AND $_SESSION['personagmCriado'][0] == 1){ ?>
+			<div class="RetornoTeste">
+				<?php echo $_SESSION['personagmCriado'][1]; ?>
+			</div> <?php
+				unset($_SESSION['personagmCriado']);
+		}
+		if(isset($_SESSION['personagmCriado']) AND $_SESSION['personagmCriado'][0] == 0){ ?>
+			<div class="RetornoTeste">
+				<?php echo $_SESSION['personagmCriado'][1]; ?>
+			</div> <?php
+				unset($_SESSION['personagmCriado']);
+		} 
+	?>
 
 	<?php 
 		if(isset($_SESSION['vericaSalas']) AND $_SESSION['vericaSalas'][0] == 1){ ?>

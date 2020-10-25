@@ -115,9 +115,10 @@
 	$sqlCodigo->bindValue(1, $codigoUsuario);
 	$sqlCodigo->execute();
 
-	if($sqlCodigo->rowCount() >= 5)
-		echo "Nao pode add mais de CINCO fichas!";
-	else {
+	if($sqlCodigo->rowCount() >= 5) {
+		$mensagem = "Erro! Personagem já existe!";
+		$_SESSION['personagmCriado'] = array(0, $mensagem);
+	} else {
 		$sqlAddAtr = $conn->prepare("INSERT INTO ficha (nome, classe, raca, classeArm, vida, desloc, forca, destreza, constituicao, inteligencia, sabedoria, carisma, sabedoriaPassiva, nivel, tendencia, nomeJoga, pontosXP, inspiracao, bonusProficiencia, ouro, prata, platina, historiaPersonagem, equipamentos, caracteristicas, acrobacia, arcanismo, 	atletismo, atuacao, enganacao, furtividade, historia, intimidacao, intuicao, investigacao, lidarComAnimais, medicina,
 			natureza, percepcao, persuasao, prestidigitacao, religiao, sobrevivencia, forcaPrest, destrezaPrest, constituicaoPrest, inteligenciaPrest, sabedoriaPrest, carismaPrest, vida1, vida2, vida3, morte1, morte2, morte3
 		) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
@@ -183,7 +184,6 @@
 		$sqlAddAtr->bindValue(55, 0); /*morte3*/
 
 		if($sqlAddAtr->execute()){
-			echo "funcionou";
 			$sqlPegaCodigoFicha = $conn->prepare("SELECT codigo_ficha FROM ficha WHERE nomeJoga = ? AND nome = ?");
 			$sqlPegaCodigoFicha->bindValue(1, $nomeJogador);
 			$sqlPegaCodigoFicha->bindValue(2, $infInicial[0]);
@@ -197,13 +197,19 @@
 				$sqlInsertFichaJogador->bindValue(2, $codigoUsuario);
 				$sqlInsertFichaJogador->bindValue(3, $infInicial[0]);
 				if($sqlInsertFichaJogador->execute()){
-					echo "Inserido a ficha ao jogador";
+					$mensagem = "Personagem {$infInicial[0]} criado!";
+					$_SESSION['personagmCriado'] = array(1, $mensagem);
 					header('Location: http://localhost/teste/modoJogo.php');
+				} else {
+					$mensagem = "Impossível criar o personagem {$infInicial[0]}";
+					$_SESSION['personagmCriado'] = array(0, $mensagem);
 				}
-				else
-					echo "nao funcionou";
 
-			} else 
-				echo "erro algo obter o codigo da ficha";
+			} else {
+				$mensagem = "Alguma força maior impediu a criação da ficha!";
+				$_SESSION['personagmCriado'] = array(0, $mensagem);
+			}
 		}
 	}
+
+	header('Location: http://localhost/teste/modoJogo.php');
