@@ -1,0 +1,29 @@
+.Pai{
+	display: flex;
+	margin: 2%;
+}
+
+#dados-chat{
+	height: 300px; overflow: auto
+}
+
+.caixa-chat{
+	background-color: gray;
+	width: 20%;
+	padding: 10px;
+}
+
+.jogo-layout{
+	background-color: lightgray;
+	width: 80%;
+}
+
+.caixa-chat input[type='text']{
+	width: auto;
+	margin-top: 10px;
+}
+
+.caixa-chat input[type='submit']{
+	margin-top: 10px;
+	width: auto;
+}

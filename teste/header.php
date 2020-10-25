@@ -15,6 +15,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/cssGridLayout.css">
 	<link rel="stylesheet" type="text/css" href="css/cssFooter.css">
+	<link rel="stylesheet" type="text/css" href="css/cssJogo.css">
 	<link rel="shortcut icon" href="image/icon.ico">	
 </head>
 <body>
