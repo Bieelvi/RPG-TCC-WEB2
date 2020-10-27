@@ -16,7 +16,6 @@
 		if(verificaJogador($_SESSION['usuarios'][2], $_POST['nomeSalaCriada'], $_POST['senhaSalaCriada'])){
 			$mensagem = "Conectando na sala {$_POST['nomeSalaCriada']}!";
 			$_SESSION['vericaSalas'] = array(1, $mensagem);
-			header('Location: http://localhost/teste/modoJogo.php');
 		} else {
 			$sqlSalaPresencial = $conn->prepare("SELECT nome_sala_presencial, senha_sala_presencial FROM sala_presencial WHERE nome_sala_presencial = ? AND senha_sala_presencial = ?");
 			$sqlSalaPresencial->bindValue(1, $_POST['nomeSalaCriada']);
@@ -27,11 +26,9 @@
 					if($retorno == 1){
 						$mensagem = "Conectando na sala {$_POST['nomeSalaCriada']}!";
 						$_SESSION['vericaSalas'] = array(1, $mensagem);
-						header('Location: http://localhost/teste/modoJogo.php');
 					} else {
 						$mensagem = "Sala {$_POST['nomeSalaCriada']} cheia!";
 						$_SESSION['vericaSalas'] = array(0, $mensagem);
-						header('Location: http://localhost/teste/modoJogo.php');
 					}			
 				} else {
 					$sqlSalaOnline = $conn->prepare("SELECT nome_sala_online, senha_sala_online FROM sala_online WHERE nome_sala_online = ? AND senha_sala_online = ?");
@@ -43,19 +40,18 @@
 							if($retorno == 1){
 								$mensagem = "Conectando na sala {$_POST['nomeSalaCriada']}!";
 								$_SESSION['vericaSalas'] = array(1, $mensagem);
-								header('Location: http://localhost/teste/modoJogo.php');
 							} else {
 								$mensagem = "Sala {$_POST['nomeSalaCriada']} cheia!";
 								$_SESSION['vericaSalas'] = array(0, $mensagem);
-								header('Location: http://localhost/teste/modoJogo.php');
 							}			
 						} else {
 							$mensagem = "Sala inexistente!";
-							$_SESSION['vericaSalas'] = array(0, $mensagem);
-							header('Location: http://localhost/teste/modoJogo.php');
+							$_SESSION['vericaSalas'] = array(0, $mensagem);							
 						}
 					}
 				}
 			}
 		}
 	}
+	$_SESSION['infSala'] = array($_POST['nomeSalaCriada'], $_POST['senhaSalaCriada'], 1);
+	header('Location: http://localhost/teste/modoJogo.php');

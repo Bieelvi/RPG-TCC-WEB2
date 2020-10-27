@@ -7,6 +7,9 @@
 		$nomeUsuario = $_SESSION['usuarios'][0];
 	else
 		header('Location: http://localhost/teste/login.php');
+
+	if(!is_array($_SESSION['infSala']))
+		header('Location: http://localhost/teste/modoJogo.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,6 +46,10 @@
 			})		
 		}
 	</script>
+
+	<div>
+		<a href="model/sairSalaJogo.php">Sair</a>
+	</div>
 
 	<div class="Pai">
 		<div class="jogo-layout">

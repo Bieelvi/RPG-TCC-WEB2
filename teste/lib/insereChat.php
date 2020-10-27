@@ -1,9 +1,9 @@
 <?php 
 	session_start();
 	
-	include("../model/ConexaoDataBase.php");
+	include("funcoesChat.php");
 
-	$sqlInsert = $conn->prepare("INSERT INTO chat (nome, mensagem) VALUES (?, ?)");
-	$sqlInsert->bindValue(1, $_SESSION['usuarios'][0]);
-	$sqlInsert->bindValue(2, $_POST['mensagem']);
-	$sqlInsert->execute();
+	if(isset($_POST['mensagem']))
+		insereTabelaChat($_SESSION['infSala'][0], $_POST['mensagem'], $_SESSION['usuarios'][0]);
+	else
+		echo "erro";

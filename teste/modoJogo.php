@@ -3,6 +3,8 @@
 
 	include("model/ConexaoDataBase.php");
 
+	include("lib/funcoesChat.php");
+
 	if(isset($_SESSION['usuarios']) && is_array($_SESSION['usuarios'])){
 		$nomeUsuario = $_SESSION['usuarios'][0];
 		$hierarquiaUsuario = $_SESSION['usuarios'][1];
@@ -39,7 +41,10 @@
 						window.location.href = 'salaJogar.php'; 
 					}, 2000); 
 				</script>
-				<?php echo $_SESSION['vericaSalas'][1]; ?>
+				<?php
+					echo $_SESSION['vericaSalas'][1]; 
+					criaTabelaChat($_SESSION['infSala'][0]);
+				?>
 			</div> <?php
 				unset($_SESSION['vericaSalas']);
 		}

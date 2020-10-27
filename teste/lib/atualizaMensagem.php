@@ -1,11 +1,7 @@
 <?php
-	include("../model/ConexaoDataBase.php");
-	$sql = $conn->prepare("SELECT * FROM chat");
-	$sql->execute();
+	session_start();
+	
+	include("funcoesChat.php");
 
-	$dado = $sql->fetchAll(PDO::FETCH_ASSOC);
+	atualizaTabelaChat($_SESSION['infSala'][0]);	
 
-	foreach ($dado as $key) {
-		echo "<span style='font-weight: bold; color: blue;'>". $key['nome'] . ": </span>";
-		echo "<span>". $key['mensagem'] . "</span><br>";
-	}
