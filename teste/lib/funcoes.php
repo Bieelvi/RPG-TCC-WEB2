@@ -78,3 +78,27 @@
 			}
 		}
 	}
+
+	function pegaInfFicha($codigoFicha, $nomePersonagem){
+		include("model/ConexaoDataBase.php");
+		$sqlSelect = $conn->prepare("SELECT * FROM ficha WHERE codigo_ficha = ? AND nome = ?");
+		$sqlSelect->bindValue(1, $codigoFicha);
+		$sqlSelect->bindValue(2, $nomePersonagem);
+		$sqlSelect->execute();
+		if($sqlSelect->rowCount()){
+			$dadosFicha = $sqlSelect->fetchAll(PDO::FETCH_ASSOC)[0];
+			return $dadosFicha;
+		}
+	}
+
+	function pegaInfJogador($nomePersonagem, $codigoUsuario){
+		include("model/ConexaoDataBase.php");
+		$sqlSelect = $conn->prepare("SELECT * FROM jogador WHERE nome_jogador = ? AND codigo_usuario = ?");
+		$sqlSelect->bindValue(1, $nomePersonagem);
+		$sqlSelect->bindValue(2, $codigoUsuario);
+		$sqlSelect->execute();
+		if($sqlSelect->rowCount()){
+			$dadosJogador = $sqlSelect->fetchAll(PDO::FETCH_ASSOC)[0];
+			return $dadosJogador;
+		}
+	}

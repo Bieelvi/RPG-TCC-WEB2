@@ -4,13 +4,13 @@
 	<title>Teste - Roll and Play GENG</title>
 	<?php include("header.php"); ?>
 
+	<?php include("lib/funcoesChat.php");?>
+	<?php include("lib/funcoes.php");?>
+
 	<?php 
-		include("lib/funcoesChat.php");
+		$retorno = pegaInfJogador("Felcor", 13);
 
-		criaTabelaChat($nomeSala);
-
-		deletaTabelaChat($nomeSala);
-
+		print_r($retorno);
 	?>
 
 	<?php include("footer.php"); ?>

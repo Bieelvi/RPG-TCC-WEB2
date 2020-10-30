@@ -88,6 +88,7 @@ hr{border-width: 2px; border-color: black;}
   .CadastroSala input[type='submit']{display: inline-block; width: 20%; height: 40px; font-size: 17px; border:0; border-radius: 15px; background: #41B13B; font-family: 'Josefin Sans', sans-serif;}
   .CadastroSala a{color: #41B13B; text-decoration: none;}
   .CadastroSala a:hover{text-decoration: underline;}
+  .CadastroSala select{float: left; width: 100%; height: 40px; border: 2px solid #41B13B; border-radius: 5px; background: #D8E2D5}
 /* Fim do css da pagina modoJogo.php */        
 
 .TituloLoginCadastro{float: left; width: 20%; margin: 20px 20% 10px 20%;}

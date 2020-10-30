@@ -32,7 +32,6 @@
 				$sqlInsertJogador = $conn->prepare("INSERT INTO jogador (codigo_usuario, nome_jogador) VALUES (?, ?)");
 				$sqlInsertJogador->bindValue(2, $_POST['nomeJogador']);
 				$sqlInsertJogador->bindValue(1, $_SESSION['usuarios'][2]);
-
 				if(!$sqlInsertJogador->execute()){
 					$mensagem = "Algo aconteceu! Não foi possível iniciar uma ficha.";
 					$_SESSION['vericaPersonagem'] = array(0, $mensagem);	

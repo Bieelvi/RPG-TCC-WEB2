@@ -27,3 +27,20 @@
 	margin-top: 10px;
 	width: auto;
 }
+
+.opcoes-ficha{
+	display: flex; 
+	justify-content: space-between; 
+	margin: 30px 150px;
+}
+
+.opcoes-ficha > div{
+	font-weight: bold;
+	padding: 10px 100px;
+	border-radius: 20px;
+}
+
+.opcoes-ficha > div:hover{
+	background-color: #41B13B;
+	cursor: pointer;
+}

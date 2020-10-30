@@ -109,6 +109,19 @@
 							<input type="text" size="48%" class="mb-2" disabled value="<?php echo $nomeUsuario; ?>">
 						</div>	
 						<div class="CadastroSala">
+							<span>PERSONAGEM</span><br>
+							<select id="personagem">
+								<option>Escolha</option> <?php 
+									$sqlPegaPersonagem = $conn->prepare("SELECT * FROM jogador WHERE codigo_usuario = ?");
+									$sqlPegaPersonagem->bindValue(1, $_SESSION['usuarios'][2]);
+									$sqlPegaPersonagem->execute();
+									$dado = $sqlPegaPersonagem->fetchAll(PDO::FETCH_ASSOC);
+									foreach ($dado as $valor) { ?>
+										<option> <?php echo $valor['nome_jogador']; ?> </option>
+							  <?php } ?>
+							</select>
+						</div>
+						<div class="CadastroSala">
 							<label>SALA</label>
 							<input type="text" name="nomeSalaCriada" size="48%" class="mb-2" placeholder="Nome da sala..." required>
 						</div>	

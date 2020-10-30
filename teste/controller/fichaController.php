@@ -111,7 +111,7 @@
 		$_POST['sabPassiva']); /*10*/
 	/*Termina*/
 
-		$sqlAddAtr = $conn->prepare("INSERT INTO ficha (nome, classe, raca, classeArm, vida, desloc, forca, destreza, constituicao, inteligencia, sabedoria, carisma, sabedoriaPassiva, nivel, tendencia, nomeJoga, pontosXP, inspiracao, bonusProficiencia, ouro, prata, platina, historiaPersonagem, equipamentos, caracteristicas, acrobacia, arcanismo, 	atletismo, atuacao, enganacao, furtividade, historia, intimidacao, intuicao, investigacao, lidarComAnimais, medicina,
+		$sqlAddAtr = $conn->prepare("INSERT INTO ficha (nome, classe, raca, classeArm, vida, desloc, forca, destreza, constituicao, inteligencia, sabedoria, carisma, sabedoriaPassiva, nivel, tendencia, nomeJoga, pontosXP, inspiracao, bonusProficiencia, ouro, prata, platina, historiaPersonagem, equipamentos, caracteristicas, acrobacia, arcanismo, atletismo, atuacao, enganacao, furtividade, historia, intimidacao, intuicao, investigacao, lidarComAnimais, medicina,
 			natureza, percepcao, persuasao, prestidigitacao, religiao, sobrevivencia, forcaPrest, destrezaPrest, constituicaoPrest, inteligenciaPrest, sabedoriaPrest, carismaPrest, vida1, vida2, vida3, morte1, morte2, morte3
 		) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 		$sqlAddAtr->bindValue(1, $infInicial[0]); /*nome*/
@@ -202,6 +202,6 @@
 				$_SESSION['personagmCriado'] = array(0, $mensagem);
 			}
 		}
-	}
+	
 
 	header('Location: http://localhost/teste/modoJogo.php');
