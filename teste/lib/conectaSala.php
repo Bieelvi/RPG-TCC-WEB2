@@ -10,48 +10,33 @@
 	else
 		header('Location: http://localhost/teste/login.php');
 
-	if(!isset($_POST['nomeSalaCriada']) && !isset($_POST['senhaSalaCriada'])){
-
-	} else {
-		if(verificaJogador($_SESSION['usuarios'][2], $_POST['nomeSalaCriada'], $_POST['senhaSalaCriada'])){
-			$mensagem = "Conectando na sala {$_POST['nomeSalaCriada']}!";
-			$_SESSION['vericaSalas'] = array(1, $mensagem);
+	if(isset($_POST['nomeSalaCriada']) && isset($_POST['senhaSalaCriada']) && isset($_POST['personagem'])){
+		$idJogador = pegaIdArrayPersonagem($_SESSION['usuarios'][2]);
+		$reCodPerso = pegaIdPersonagem($_SESSION['usuarios'][2], $$_POST['personagem']);
+		if($idJogador == -20){
+			$mensagem = "Erro!";
+			$_SESSION['vericaSalas'] = array(0, $mensagem);
 		} else {
-			$sqlSalaPresencial = $conn->prepare("SELECT nome_sala_presencial, senha_sala_presencial FROM sala_presencial WHERE nome_sala_presencial = ? AND senha_sala_presencial = ?");
-			$sqlSalaPresencial->bindValue(1, $_POST['nomeSalaCriada']);
-			$sqlSalaPresencial->bindValue(2, $_POST['senhaSalaCriada']);
-			if($sqlSalaPresencial->execute()) {
-				if($sqlSalaPresencial->rowCount()){
-					$retorno = verificaJogadoresSala($_POST['nomeSalaCriada'], $_POST['senhaSalaCriada'], $_SESSION['usuarios'][2]);
-					if($retorno == 1){
-						$mensagem = "Conectando na sala {$_POST['nomeSalaCriada']}!";
-						$_SESSION['vericaSalas'] = array(1, $mensagem);
-					} else {
-						$mensagem = "Sala {$_POST['nomeSalaCriada']} cheia!";
-						$_SESSION['vericaSalas'] = array(0, $mensagem);
-					}			
+			if(verificaJogador($reCodPerso['codigo_jogador'], $_POST['nomeSalaCriada'], $_POST['senhaSalaCriada'])){
+				$mensagem = "Conectando na sala {$_POST['nomeSalaCriada']}!";
+				$_SESSION['vericaSalas'] = array(1, $mensagem);
+			} else {
+				if(verificaJogadoresSala($_POST['nomeSalaCriada'], $_POST['senhaSalaCriada'], $idJogador, $reCodPerso['codigo_jogador'])){
+					$mensagem = "Iniciando uma partida nova na sala {$_POST['nomeSalaCriada']}!";
+					$_SESSION['vericaSalas'] = array(1, $mensagem);
 				} else {
-					$sqlSalaOnline = $conn->prepare("SELECT nome_sala_online, senha_sala_online FROM sala_online WHERE nome_sala_online = ? AND senha_sala_online = ?");
-					$sqlSalaOnline->bindValue(1, $_POST['nomeSalaCriada']);
-					$sqlSalaOnline->bindValue(2, $_POST['senhaSalaCriada']);
-					if($sqlSalaOnline->execute()){
-						if($sqlSalaOnline->rowCount()){
-							$retorno = verificaJogadoresSala($_POST['nomeSalaCriada'], $_POST['senhaSalaCriada'], $_SESSION['usuarios'][2]);
-							if($retorno == 1){
-								$mensagem = "Conectando na sala {$_POST['nomeSalaCriada']}!";
-								$_SESSION['vericaSalas'] = array(1, $mensagem);
-							} else {
-								$mensagem = "Sala {$_POST['nomeSalaCriada']} cheia!";
-								$_SESSION['vericaSalas'] = array(0, $mensagem);
-							}			
-						} else {
-							$mensagem = "Sala inexistente!";
-							$_SESSION['vericaSalas'] = array(0, $mensagem);							
-						}
-					}
+					$mensagem = "Você já está participando da sala {$_POST['nomeSalaCriada']} com outro personagem!";
+					$_SESSION['vericaSalas'] = array(0, $mensagem);
 				}
 			}
 		}
+
+
+		
+	} else {
+		
 	}
-	$_SESSION['infSala'] = array($_POST['nomeSalaCriada'], $_POST['senhaSalaCriada'], 1);
+	/* session inicialmente usada no modoJogo para pegar o nome da sala criada e criar uma tabela no banco de dados 
+	e tbm usada para fazer a verificacao se o usuario esta realmente logado para pode entrar na salaJogar */
+	$_SESSION['infSala'] = array($_POST['nomeSalaCriada'], $_POST['senhaSalaCriada'], $_POST['personagem']);
 	header('Location: http://localhost/teste/modoJogo.php');

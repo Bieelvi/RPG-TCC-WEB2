@@ -43,7 +43,7 @@
 				</script>
 				<?php
 					echo $_SESSION['vericaSalas'][1]; 
-					criaTabelaChat($_SESSION['infSala'][0]);
+					//criaTabelaChat($_SESSION['infSala'][0]);
 				?>
 			</div> <?php
 				unset($_SESSION['vericaSalas']);
@@ -109,15 +109,15 @@
 							<input type="text" size="48%" class="mb-2" disabled value="<?php echo $nomeUsuario; ?>">
 						</div>	
 						<div class="CadastroSala">
-							<span>PERSONAGEM</span><br>
-							<select id="personagem">
+							<label>PERSONAGEM</label><br>
+							<select name="personagem">
 								<option>Escolha</option> <?php 
 									$sqlPegaPersonagem = $conn->prepare("SELECT * FROM jogador WHERE codigo_usuario = ?");
 									$sqlPegaPersonagem->bindValue(1, $_SESSION['usuarios'][2]);
 									$sqlPegaPersonagem->execute();
 									$dado = $sqlPegaPersonagem->fetchAll(PDO::FETCH_ASSOC);
 									foreach ($dado as $valor) { ?>
-										<option> <?php echo $valor['nome_jogador']; ?> </option>
+										<option><?php echo $valor['nome_jogador']; ?></option>
 							  <?php } ?>
 							</select>
 						</div>

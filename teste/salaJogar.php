@@ -20,7 +20,7 @@
 	<?php include("lib/funcoes.php");?>
 
 	<?php 
-		$retornoJogador = pegaInfJogador($_SESSION['nomePersonagem'], $_SESSION['usuarios'][2]);
+		$retornoJogador = pegaInfJogador($_SESSION['infSala'][2], $_SESSION['usuarios'][2]);
 
 		$retorno = pegaInfFicha($retornoJogador['codigo_ficha'], $retornoJogador['nome_jogador']);
 	?>
