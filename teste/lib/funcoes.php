@@ -85,7 +85,7 @@
 				if($sqlVerificaOnline->rowCount()){
 					$dadoUm = $sqlVerificaOnline->fetchAll()[0];
 					if($dadoUm[$codigoFormatado] == NULL){
-						if(!verificaPersonagemSala($arrayIdPersonagem, $nomeSala, $senhaSala)){
+						if(verificaPersonagemSala($arrayIdPersonagem, $nomeSala, $senhaSala) != 1){
 							adicionaBanco($nomeSala, $senhaSala, $codigoPersonagem, $codigoFormatado);
 							echo "Adicionado no banco Online";
 							return 1;
