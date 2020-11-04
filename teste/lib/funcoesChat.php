@@ -21,7 +21,10 @@
 		$sqlInsere = $conn->prepare("INSERT INTO chat_{$nomeSala} (nome, mensagem) VALUES (?, ?)");
 		$sqlInsere->bindValue(1, $nomeUsuario);
 		$sqlInsere->bindValue(2, $mensagem);
-		$sqlInsere->execute();
+		if($sqlInsere->execute())
+			return 1;
+		else 
+			return 2;
 	}
 
 	function atualizaTabelaChat($nomeSala){

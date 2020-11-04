@@ -17,7 +17,7 @@ hr{border-width: 2px; border-color: black;}
 
 .TextareaEstilizado textarea{border: 2px solid #41B13B; border-radius: 5px; background: #D8E2D5}
 
-.CadastroFicha{float: left; width: 40%; margin: 10px 30% 10px 30%;}
+/*.CadastroFicha{float: left; width: 40%; margin: 10px 30% 10px 30%;}
   .CadastroFicha span{font-family: 'Josefin Sans', sans-serif;}
   .CadastroFicha label{font-family: 'Josefin Sans', sans-serif; font-size: 15px;}
   .CadastroFicha input[type='text'], input[type="number"], input[type="password"]{float: left; width: 100%; height: 40px; border: 2px solid #41B13B; border-radius: 5px; background: #D8E2D5}
@@ -26,7 +26,7 @@ hr{border-width: 2px; border-color: black;}
   .CadastroFicha a{color: #41B13B; text-decoration: none;}
   .CadastroFicha a:hover{text-decoration: underline;} 
   .CadastroFicha select{float: left; width: 100%; height: 40px; border: 2px solid #41B13B; border-radius: 5px; background: #D8E2D5}
-
+*/
 .FonteInterna{font-weight: bold; text-align: center; font-size: 1em;}
 
 .Content{float: left; width: 100%; padding: 15px; background: lightgray;}
@@ -102,5 +102,13 @@ hr{border-width: 2px; border-color: black;}
 
 /* Inicio do css da pagina jogar.php */
 .colunas{width: 500px; padding: 20px; margin: 10px;}  
-/* Inicio do css da pagina jogar.php */  
+/* Fim do css da pagina jogar.php */  
 
+/* Inicio do css da salaJogar.php */
+.FichaJogar{display: flex;}
+  .FichaJogar span{font-family:'Josefin Sans', sans-serif; font-weight: bold; color: #41B13B}
+  .ConteudoFicha{width: 20%; margin: 0 auto;}
+  .ConteudoFicha input[type='text'], input[type="number"]{height: 40px; border: 2px solid #41B13B; border-radius: 5px; background: #D8E2D5}
+  .ConteudoFicha img{margin: 5px 15px 5px 0px;}
+  .ConteudoFicha img:hover{cursor: pointer;}
+/* Fim do css da salaJogar.php */

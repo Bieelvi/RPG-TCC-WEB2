@@ -44,3 +44,6 @@
 	background-color: #41B13B;
 	cursor: pointer;
 }
+
+.mostraDiv{position: absolute; margin: 0 10% 0 0; border-radius: 10px; border-style: solid; border-width: 1px; padding: 10px; background: lightgray; z-index: 1; display: none;}
+.mostraDiv span{color: black;}

@@ -43,7 +43,7 @@
 				</script>
 				<?php
 					echo $_SESSION['vericaSalas'][1]; 
-					//criaTabelaChat($_SESSION['infSala'][0]);
+					criaTabelaChat($_SESSION['infSala'][0]);
 				?>
 			</div> <?php
 				unset($_SESSION['vericaSalas']);

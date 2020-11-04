@@ -4,38 +4,45 @@
 		include("../model/ConexaoDataBase.php");
 		for ($i = 1; $i <= 4; $i++){
 			$codigoFormatado =  "codigo_jogador".$i;
+			$final = 0;
 			$sqlOnline = $conn->prepare("SELECT * FROM sala_online WHERE nome_sala_online = ? AND senha_sala_online = ?");
 			$sqlOnline->bindValue(1, $nomeSala);
 			$sqlOnline->bindValue(2, $senhaSala);
 			if($sqlOnline->execute()){
 				if($sqlOnline->rowCount()){
-					$dados = $sqlOnline->fetchAll()[0];
-					foreach ($arrayIdPersonagem as $v) {
-						if($dados[$codigoFormatado] == $v['codigo_jogador']){
-							return 1;
+					$dados = $sqlOnline->fetchAll();
+					foreach ($dados as $r) {
+						foreach ($arrayIdPersonagem as $k) {
+							if($r[$codigoFormatado] == $k){
+								return 1;
+							}
 						}
 					}
-				} else {
-					$sqlPresencial = $conn->prepare("SELECT * FROM sala_presencial WHERE nome_sala_presencial = ? AND senha_sala_presencial = ?");
-					$sqlPresencial->bindValue(1, $nomeSala);
-					$sqlPresencial->bindValue(2, $senhaSala);
-					if($sqlPresencial->execute()){
-						if($sqlPresencial->rowCount()){
-							$dadosDois = $sqlPresencial->fetchAll()[0];
-							foreach ($arrayIdPersonagem as $v) {
-								if($dadosDois[$codigoFormatado] == $v['codigo_jogador']){
-									return 1;
-								}
+				}	
+			}				
+			
+			$sqlPresencial = $conn->prepare("SELECT * FROM sala_presencial WHERE nome_sala_presencial = ? AND senha_sala_presencial = ?");
+			$sqlPresencial->bindValue(1, $nomeSala);
+			$sqlPresencial->bindValue(2, $senhaSala);
+			if($sqlPresencial->execute()){
+				if($sqlPresencial->rowCount()){
+					$dadosDois = $sqlPresencial->fetchAll();
+					foreach ($dadosDois as $r) {
+						foreach ($arrayIdPersonagem as $k) {
+							if($r[$codigoFormatado] == $k){
+								return 1;
 							}
-						} 
+						}
 					}
-				}
+				} 
 			}
 		}
+		return $final;
 	}
 
 	function verificaJogador($codigoPersonagem, $nomeSala, $senhaSala){
 		include("../model/ConexaoDataBase.php");
+		$final = 0;
 		for ($i = 1; $i <= 4; $i++){
 			$codigoFormatado =  "codigo_jogador".$i;
 			$sqlVerificaOnline = $conn->prepare("SELECT * FROM sala_online WHERE nome_sala_online = ? AND senha_sala_online = ? AND {$codigoFormatado} = ?");
@@ -44,7 +51,7 @@
 			$sqlVerificaOnline->bindValue(3, $codigoPersonagem);
 			if($sqlVerificaOnline->execute()){
 				if($sqlVerificaOnline->rowCount()){
-					return 1;
+					$final = 1;
 				} else {
 					$sqlVerificaPresencial = $conn->prepare("SELECT * FROM sala_presencial WHERE nome_sala_presencial = ? AND senha_sala_presencial = ? AND {$codigoFormatado} = ?");
 					$sqlVerificaPresencial->bindValue(1, $nomeSala);
@@ -52,11 +59,13 @@
 					$sqlVerificaPresencial->bindValue(3, $codigoPersonagem);
 					if($sqlVerificaPresencial->execute()){
 						if($sqlVerificaPresencial->rowCount())
-							return 1;
+							$final = 1;
 					}
 				}
 			}
 		}
+
+		return $final;
 	}
 
 	function adicionaBanco($nomeSala, $senhaSala, $codigoPersonagem, $colunaJogador){
@@ -85,12 +94,11 @@
 				if($sqlVerificaOnline->rowCount()){
 					$dadoUm = $sqlVerificaOnline->fetchAll()[0];
 					if($dadoUm[$codigoFormatado] == NULL){
-						if(verificaPersonagemSala($arrayIdPersonagem, $nomeSala, $senhaSala) != 1){
-							adicionaBanco($nomeSala, $senhaSala, $codigoPersonagem, $codigoFormatado);
-							echo "Adicionado no banco Online";
-							return 1;
+						if(verificaPersonagemSala($arrayIdPersonagem, $nomeSala, $senhaSala) == 1){
+							$r = 1;
 						} else {
-							return $r = "Já existe um personagem seu nessa sala!";
+							adicionaBanco($nomeSala, $senhaSala, $codigoPersonagem, $codigoFormatado);
+							return 0;
 						}												
 					}
 				} else {
@@ -101,10 +109,12 @@
 						if($sqlVerificaPresencial->rowCount()){
 							$dadoDois = $sqlVerificaPresencial->fetchAll()[0];
 							if($dadoDois[$codigoFormatado] == NULL){
-								if(!verificaPersonagemSala($arrayIdPersonagem, $nomeSala, $senhaSala)){
-									//adicionaBanco($nomeSala, $senhaSala, $codigoPersonagem, $codigoFormatado);
-									echo "Adicionado no banco Presencial";
-									return 1;
+								if(verificaPersonagemSala($arrayIdPersonagem, $nomeSala, $senhaSala)){
+									$r = 1;
+								} else {
+									adicionaBanco($nomeSala, $senhaSala, $codigoPersonagem, $codigoFormatado);
+									return 0;
+									
 								}				
 							}
 						}
@@ -112,21 +122,25 @@
 				}
 			}
 		}
+		return $r;
 	}
 
 	/* função que pega os personagens existentes do usuario e lista pra mim */
 	function pegaIdArrayPersonagem($codigoUsuario){
 		include("../model/ConexaoDataBase.php");
-		$sql = $conn->prepare("SELECT * FROM jogador WHERE codigo_usuario = ?");
+		$sql = $conn->prepare("SELECT codigo_jogador FROM jogador WHERE codigo_usuario = ?");
 		$sql->bindValue(1, $codigoUsuario);
 		$sql->execute();
 		if($sql->rowCount()){
 			$dado = $sql->fetchAll(PDO::FETCH_ASSOC);
-			return $dado;
-		} else 
-			return $r = -20;
+			foreach ($dado as $key) {
+				$array[] = $key['codigo_jogador'];
+			}
+		} else {
+			$array[] = -20;		
+		}
 
-		
+		return $array;
 	}
 
 	function pegaIdPersonagem($codigoUsuario, $nomePersonagem){

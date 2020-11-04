@@ -7,26 +7,32 @@
 	<?php include("lib/funcoesChat.php");?>
 	<?php include("lib/funcoes.php");?>
 
-	<?php
+	<script type="text/javascript">	
+		function mostra_oculta(){
+		    var x = document.getElementById("atr");
+		    if (x.style.display === "block") {
+		        x.style.display = "none";
+		    } else {
+		        x.style.display = "block";
+		    }
 
-	$codigoUsuario = 19;
-	$nomePersonagem = "Caralhinhos";
-	$nomeSala = "DungeonAndDragon";
-	$senhaSala = "123";
+		}
+	</script>
 
-	$retorno = pegaIdArrayPersonagem($codigoUsuario);
+	<img onmouseenter="mostra_oculta()" onmouseout="mostra_oculta()" src="image/interrogacao.png">
 
-	$reCodigoPersonagem = pegaIdPersonagem($codigoUsuario, $nomePersonagem);
+	<span>Força</span><br>
 
-	if($retorno == -20)
-		echo $retorno;
-	else {
-		if(verificaJogador($reCodigoPersonagem['codigo_jogador'], $nomeSala, $senhaSala))
-			echo "Entrou";
-		else
-			verificaJogadoresSala($nomeSala, $senhaSala, $retorno, $reCodigoPersonagem['codigo_jogador']);
-	}
+	<style>
+		.atributos{position: absolute; z-index: 1; margin: 20px; background: lightgray; display: none;}
+	</style>
 
-	?>
+	<div id="atr" class="atributos">
+		astyuiohgjkklçsadfghjkak <br>
+		astyuiohgjkklçsadfghjkastjk <br>
+		astyuiohgjkklçsadfghjçsadfghjk <br>
+
+	</div>
+
 
 	<?php include("footer.php"); ?>  

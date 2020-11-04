@@ -10,6 +10,11 @@
 
 	if(!is_array($_SESSION['infSala']))
 		header('Location: http://localhost/teste/modoJogo.php');
+
+	include("lib/funcoes.php");
+
+	$retornoJogador = pegaInfJogador($_SESSION['infSala'][2], $_SESSION['usuarios'][2]);
+	$retorno = pegaInfFicha($retornoJogador['codigo_ficha'], $retornoJogador['nome_jogador']);
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,67 +22,9 @@
 	<title>Teste - Roll and Play GENG</title>
 	<?php include("header.php"); ?>
 
-	<?php include("lib/funcoes.php");?>
-
-	<?php 
-		$retornoJogador = pegaInfJogador($_SESSION['infSala'][2], $_SESSION['usuarios'][2]);
-
-		$retorno = pegaInfFicha($retornoJogador['codigo_ficha'], $retornoJogador['nome_jogador']);
-	?>
-
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$("#formTeste").on('submit',function(event) {
-				event.preventDefault();
-				var dados=$(this).serialize();
-						  
-				$.ajax ({
-				  	url: 'lib/insereChat.php',
-				    type: 'post',
-				    dataType: 'html',
-				    data: dados,
-				    success:function(dados){
-				    	document.querySelector("[name='mensagem']").value = "";
-				   	}
-			  	})
-			});
-		});
-	</script>
-
-	<script language="javascript">
-		window.setInterval("refreshDiv()", 500);
-		function refreshDiv(){
-			$.get("lib/atualizaMensagem.php", function(resultado){
-		     	$("#dados-chat").html(resultado);
-			})		
-		}
-	</script>
-
-	<script type="text/javascript">
-		function mostrar(){
-			for(var i = 1; i < 5; i++){
-				document.getElementById("div"+i).hidden = true;
-			}
-
-			var obj = event.target.dataset.nome;
-			document.getElementById(obj).hidden = false;
-		}
-
-		function inicia(){
-			for(var i = 1; i < 5; i++){
-				document.getElementById("div"+i).hidden = true;
-			}
-
-			document.getElementById("btn1").addEventListener("click", mostrar);
-			document.getElementById("btn2").addEventListener("click", mostrar);
-			document.getElementById("btn3").addEventListener("click", mostrar);
-			document.getElementById("btn4").addEventListener("click", mostrar);
-		}
-
-		window.addEventListener("load", inicia);
-	</script>
+	<script src="view/js/funcoesJogo.js"></script>
+	<script src="view/js/atrMod.js"></script>
 
 	<div>
 		<a href="model/sairSalaJogo.php">Sair</a>
@@ -94,12 +41,12 @@
 					
 				</div>
 			</div>
-			<form method="post" id="formTeste" action="testeController.php">
+			<form method="post" id="formTeste" action="lib/insereChat.php">
 				<input type="text" name="mensagem" autocomplete="off">
 				<input type="submit" name="enviar" value="Enviar">
+				<input type="hidden" id="valorDado" name="valorDado" value="">
 			</form>
-		</div>	
-
+		</div>
 	</div>
 
 	<div class="opcoes-ficha">
@@ -119,143 +66,129 @@
 						</div>
 						<div class="CadastroFicha">
 							<span>Nome do Personagem<br></span>
-								<input class="FonteInterna" type="text" value="<?php echo $retorno['nome']; ?>" disabled>
-						</div>
-					
+							<input class="FonteInterna" type="text" value="<?php echo $retorno['nome']; ?>" disabled>
+						</div>					
 						<div class="CadastroFicha">
 							<span>Vida</span><br>		
-							<input class="FonteInterna" type="number" name="vida" value="<?php echo $retorno['vida']; ?>">
+							<input class="FonteInterna" type="number" id="vida" value="<?php echo $retorno['vida']; ?>">
 						</div>
 						<div class="CadastroFicha">
 							<span>Classe</span><br>
 							<input class="FonteInterna" type="text" id="classe" value="<?php echo $retorno['classe']; ?>">
 						</div>
-							<div class="CadastroFicha">
+						<div class="CadastroFicha">
 							<span>Raça</span><br>
 							<input class="FonteInterna" type="text" id="raca" value="<?php echo $retorno['raca']; ?>">
-						</div>
-							
+						</div>							
 						<div class="CadastroFicha">
 							<span>Alinhamento</span><br>
 							<input class="FonteInterna" type="text" id="alinhamento" value="<?php echo $retorno['tendencia']; ?>">
 						</div>
-							<div class="CadastroFicha">
+						<div class="CadastroFicha">
 							<span>Antecedente</span><br>
 							<input class="FonteInterna" type="text" name="antecedente" value="<?php echo 'não'; ?>">
 						</div>
-							<div class="CadastroFicha">
+						<div class="CadastroFicha">
 							<span>Nível<br></span>
 							<input class="FonteInterna" type="number" id="nivel" name="nivel" value="<?php echo $retorno['nivel']; ?>">
 						</div>
 					</div>
-					</div>
-					<div class="col-md-6">
-						<div class="container">
-							<div class="CenterTitulo">
-								<span>PERSONAGEM</span>
-							</div>
-			    			<div class="CadastroFicha">
-								<span>Inspiração<br></span>
-								<input class="FonteInterna" type="number" name="inspiracao" value="<?php echo $retorno['inspiracao']; ?>">
-							</div>
-							
+				</div>
+				<div class="col-md-6">
+					<div class="container">
+						<div class="CenterTitulo">
+							<span>PERSONAGEM</span>
+						</div>
+			    		<div class="CadastroFicha">
+							<span>Inspiração<br></span>
+							<input class="FonteInterna" type="number" name="inspiracao" value="<?php echo $retorno['inspiracao']; ?>">
+						</div>							
+						<div class="CadastroFicha">
+							<span>Bonús de Proficiência</span><br>		
+							<input class="FonteInterna" type="number" id="bonusProficiencia" value="<?php echo $retorno['bonusProficiencia']; ?>">
+						</div>
 							<div class="CadastroFicha">
-								<span>Bonús de Proficiência</span><br>		
-								<input class="FonteInterna" type="number" id="bonusProficiencia" value="<?php echo $retorno['bonusProficiencia']; ?>">
-								<input type="hidden" name="bonusProficiencia">
-							</div>
-								<div class="CadastroFicha">
-								<span>Classe de Armadura</span><br>
-								<input class="FonteInterna" type="number" name="classeArm" value="<?php echo $retorno['classeArm']; ?>">
-							</div>
-								<div class="CadastroFicha">
-								<span>Iniciativa</span><br>
-								<input class="FonteInterna" type="number" name="iniciativa" value="<?php echo '-20'; ?>">
-							</div>
-							
+							<span>Classe de Armadura</span><br>
+							<input class="FonteInterna" type="number" name="classeArm" value="<?php echo $retorno['classeArm']; ?>">
+						</div>
 							<div class="CadastroFicha">
-								<span>Deslocamento</span><br>
-								<input class="FonteInterna" type="number" id="deslocamento" value="<?php echo $retorno['desloc']; ?>">
-								<input type="hidden" name="deslocamento">
-							</div>
-								<div class="CadastroFicha">
-								<span>Sabedoria (Passiva)</span><br>
-								<input class="FonteInterna" type="number" name="sabedoriaPassiva" value="<?php echo $retorno['sabedoriaPassiva']; ?>">
-								<input type="hidden" name="sabPassiva">
-							</div>
+							<span>Iniciativa</span><br>
+							<input class="FonteInterna" type="number" name="iniciativa" value="<?php echo '-20'; ?>">
+						</div>
+						
+						<div class="CadastroFicha">
+							<span>Deslocamento</span><br>
+							<input class="FonteInterna" type="number" id="deslocamento" value="<?php echo $retorno['desloc']; ?>">
+						</div>
+							<div class="CadastroFicha">
+							<span>Sabedoria (Passiva)</span><br>
+							<input class="FonteInterna" type="number" name="sabedoriaPassiva" value="<?php echo $retorno['sabedoriaPassiva']; ?>">
 						</div>
 					</div>
 				</div>
 			</div>
     	</div>
-	</div>
-	<div id="div2" style="width: 100%; height: auto;">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6">
-					<div class="container">
-						<div class="CenterTitulo">
-							<span>ATRIBUTOS</span>
-						</div>
-			    		<div class="CadastroFicha">
-							<span>Força <br></span>
-							<input class="FonteInterna" type="number" name="forca" id="atrForca" value="<?php echo $retorno['forca']; ?>">
-						</div>		
-						<div class="CadastroFicha">
-							<span>Destreza</span><br>		
-							<input class="FonteInterna" type="number" name="destreza" id="atrDestreza" value="<?php echo $retorno['destreza']; ?>">
-						</div>
-						<div class="CadastroFicha">
-							<span>Constituição</span><br>
-							<input class="FonteInterna" type="number" name="constituicao" id="atrConstituicao" value="<?php echo $retorno['constituicao']; ?>">
-						</div>
-							<div class="CadastroFicha">
-							<span>Inteligência</span><br>
-							<input class="FonteInterna" type="number" name="inteligencia" id="atrInteligencia" value="<?php echo $retorno['inteligencia']; ?>">
-						</div>
-						
-						<div class="CadastroFicha">
-							<span>Sabedoria</span><br>
-							<input class="FonteInterna" type="number" name="sabedoria" id="atrSabedoria" value="<?php echo $retorno['sabedoria']; ?>">
-						</div>
-							<div class="CadastroFicha">
-							<span>Carisma</span><br>
-							<input class="FonteInterna" type="number" name="carisma" id="atrCarisma" value="<?php echo $retorno['carisma']; ?>">
-						</div>
-						</div>
-				</div>
-				<div class="col-md-6">
-					<div class="container">
-						<div class="CenterTitulo">
-							<span>MODIFICADOR</span>
-						</div>
-		    			<div class="CadastroFicha">
-							<span>Força<br></span>
-							<input class="FonteInterna" disabled type="number" id="modForca" value="">
-						</div>						
-						<div class="CadastroFicha">
-							<span>Destreza</span><br>		
-							<input class="FonteInterna" disabled type="number" id="modDestreza" value="">
-						</div>
-						<div class="CadastroFicha">
-							<span>Constituição</span><br>
-							<input class="FonteInterna" disabled type="number" id="modConstituicao" value="">
-						</div>
-						<div class="CadastroFicha">
-							<span>Inteligência</span><br>
-							<input class="FonteInterna" disabled type="number" id="modInteligencia" value="">
-						</div>							
-						<div class="CadastroFicha">
-							<span>Sabedoria</span><br>
-							<input class="FonteInterna" disabled type="number" id="modSabedoria" value="">
-						</div>
-							<div class="CadastroFicha">
-							<span>Carisma</span><br>
-							<input class="FonteInterna" disabled type="number" id="modCarisma" value="">
-						</div>
-					</div>
-				</div>
+	</div> <!-- MOMO VC É LINDO E VAI CONSEGUIR ACABAR <3 -->
+	<div id="div2" class="FichaJogar">	
+		<div class="ConteudoFicha">
+			<div class="CenterTitulo"><h2>ATRIBUTOS</h2></div>
+
+			<img onmouseenter="mostra_oculta('atr1')" onmouseout="mostra_oculta('atr1')" src="image/interrogacao.png"><span>Força</span><br>
+			<input class="FonteInterna" disabled type="number" id="atrForca" value="<?php echo $retorno['forca']; ?>"><br>
+			<div id="atr1" class="mostraDiv">
+				<span>A força é um atributo usado para as jogadas de ataque e dano corpo-à-corpo, como pré-requisito de armaduras pesadas e armas grandes e na capacidade de carga. Aplica-se na perícia Atletismo. Os talentos de D&D 5.0 que aumentam a força são: Agilidade rasteira, atleta, bem descansado, especialista em briga, maestria em armadura pesada, mestre de armas, musculoso, proteção leve, proteção moderada, proteção pesada.</span>
 			</div>
+
+			<img onmouseenter="mostra_oculta('atr2')" onmouseout="mostra_oculta('atr2')" src="image/interrogacao.png"><span>Destreza</span><br>
+			<input class="FonteInterna" disabled type="number" id="atrDestreza" value="<?php echo $retorno['destreza']; ?>"><br>
+			<div id="atr2" class="mostraDiv">
+				<span>A destreza é um atributo usado para as jogadas de ataque e dano à distância. Aplica-se nas perícias Acrobacia, Furtividade e Prestidigitação. Os talentos de D&D 5.0 que aumentam a destreza são: Acrobata, arrombador, atleta, dedos rápidos, furtivo.</span>
+			</div>
+
+			<img onmouseenter="mostra_oculta('atr3')" onmouseout="mostra_oculta('atr3')" src="image/interrogacao.png"><span>Constituição</span><br>
+			<input class="FonteInterna" disabled type="number" id="atrConstituicao" value="<?php echo $retorno['constituicao']; ?>"><br>
+			<div id="atr3" class="mostraDiv">
+				<span>A constituição é um atributo usado para os pontos de vida. Os talentos de D&D 5.0 que aumentam a constituição: Especialista em briga, gourmand, resistente.</span>
+			</div>
+
+			<img onmouseenter="mostra_oculta('atr4')" onmouseout="mostra_oculta('atr4')" src="image/interrogacao.png"><span>Inteligência</span><br>
+			<input class="FonteInterna" disabled type="number" id="atrInteligencia" value="<?php echo $retorno['inteligencia']; ?>"><br>
+			<div id="atr4" class="mostraDiv">
+				<span>A inteligência é um atributo usado para as jogadas de ataque e CD (classe de dificuldade) das magias. Aplica-se nas perícias Arcanismo, História, Investigação, Natureza, Religião. Os talentos de D&D 5.0 que aumentam a inteligência são: Alquimista, arcanista, historiador, investigador,  mente afiada, naturalista, observado, poliglota, teólogo.</span>
+			</div>
+
+			<img onmouseenter="mostra_oculta('atr5')" onmouseout="mostra_oculta('atr5')" src="image/interrogacao.png"><span>Sabedoria</span><br>
+			<input class="FonteInterna" disabled type="number" id="atrSabedoria" value="<?php echo $retorno['sabedoria']; ?>"><br>
+			<div id="atr5" class="mostraDiv">
+				<span>A sabedoria é um atributo usado para as jogadas de ataque e CD (classe de dificuldade) das magias. Aplica-se nas perícias Adestrar Animais, Intuição, Medicina, Percepção, Sobrevivência. Os talentos de D&D 5.0 que aumentam a sabedoria são: Domador de animais, Médico, observado, perceptivo, sobrevivente.</span>
+			</div>
+
+			<img onmouseenter="mostra_oculta('atr6')" onmouseout="mostra_oculta('atr6')" src="image/interrogacao.png"><span>Carisma</span><br>
+			<input class="FonteInterna" disabled type="number" id="atrCarisma" value="<?php echo $retorno['carisma']; ?>"><br>
+			<div id="atr6" class="mostraDiv">
+				<span>O carisma é um atributo usado para as jogadas de ataque e CD (classe de dificuldade) das magias. Aplica-se nas perícias Atuação, Enganação, Intimidação, Persuasão. Os talentos que aumentam o carisma são: Ameaçador, artista, ator, diplomata, eloquente, líder inspirador, mestre do disfarce.</span>
+			</div>
+		</div>
+
+		<div class="ConteudoFicha">
+			<div class="CenterTitulo"><h2>MODIFICADORES</h2></div>	
+			<img onclick="dado(1, 20, 'Força')" src="image/dado.png" width="25" height="25"><span>Força</span><br>
+			<input class="FonteInterna" disabled type="number" id="modForca" value=""><br>
+
+			<img onclick="dado(1, 20, 'Destreza')" src="image/dado.png" width="25" height="25"><span>Destreza</span><br>
+			<input class="FonteInterna" disabled type="number" id="modDestreza" value=""><br>
+
+			<img onclick="dado(1, 20, 'Constituição')" src="image/dado.png" width="25" height="25"><span>Constituição</span><br>
+			<input class="FonteInterna" disabled type="number" id="modConstituicao" value=""><br>
+
+			<img onclick="dado(1, 20, 'Inteligência')" src="image/dado.png" width="25" height="25"><span>Inteligência</span><br>
+			<input class="FonteInterna" disabled type="number" id="modInteligencia" value=""><br>
+
+			<img onclick="dado(1, 20, 'Sabedoria')" src="image/dado.png" width="25" height="25"><span>Sabedoria</span><br>
+			<input class="FonteInterna" disabled type="number" id="modSabedoria" value=""><br>
+
+			<img onclick="dado(1, 20, 'Carisma')" src="image/dado.png" width="25" height="25"><span>Carisma</span><br>
+			<input class="FonteInterna" disabled type="number" id="modCarisma" value=""><br>
 		</div>
 	</div>
 	<div id="div3" style="width: 100%; height: auto;">
