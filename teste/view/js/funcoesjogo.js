@@ -2,7 +2,7 @@ function dado(min, max, nomeAtr) {
     var valor = Math.floor(Math.random() * (max - min + 1)) + min;
     document.querySelector("[id='valorDado']").value = valor;
 
-    mandaAtrBanco(valor, nomeAtr);
+    console.log(valor);
 }
 
 $(document).ready(function(){
