@@ -35,7 +35,7 @@
 		$dado = $sqlAtualiza->fetchAll(PDO::FETCH_ASSOC);
 
 		foreach ($dado as $key) {
-			echo "<div class='mensagem-chat'><span><strong>". $key['nome'] . "</strong>: " . $key['mensagem'] . "</span><br></div>";
+			echo "<div class='mensagem-chat'><span><small><strong>". $key['nome'] . "</strong></small><br>" . $key['mensagem'] . "</span><br></div>";
 		}
 	}
 

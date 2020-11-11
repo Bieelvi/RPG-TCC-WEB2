@@ -1,45 +1,26 @@
-
 .SizeImg > div > img{width: 50px; height: 50px; border-style: solid; border-width: 1px; border-radius: 5px;}
 
-.Pai{display: flex; margin: 2%; height: 100%; border-style: solid; border-width: 1px; border-radius: 5px;}
+.Pai{display: flex; margin: 2%; height: 600px; border-style: solid; border-width: 1px; border-radius: 5px;}
 
-#dados-chat{height: 300px; overflow: auto;}
+#dados-chat{height: 100%; overflow: auto;}
 
 .mensagem-chat{color: black; background-color: lightgray; padding: 10px; border-radius: 10px; margin-bottom: 5px;}
 
+.chat{height: 90%;}
+
 .caixa-chat{border-left: solid; border-width:1px; width: 20%; padding: 10px; height: 100%;}
 
-.jogo-layout{
-	width: 80%;
-	height: 100%;
-}
+.caixa-manda-mensagem{height: 10%;}
 
-.caixa-chat input[type='text']{
-	width: auto;
-	margin-top: 10px;
-}
+.jogo-layout{width: 80%; height: 100%;}
 
-.caixa-chat input[type='submit']{
-	margin-top: 10px;
-	width: auto;
-}
+.caixa-chat input[type='text']{width: auto;	margin-top: 10px;}
 
-.opcoes-ficha{
-	display: flex; 
-	justify-content: space-between; 
-	margin: 1% 3%;
-}
+.caixa-chat input[type='submit']{margin-top: 10px; width: auto;}
 
-.opcoes-ficha > div{
-	font-weight: bold;
-	padding: 1% 3%;
-	border-radius: 20px;
-}
-
-.opcoes-ficha > div:hover{
-	background-color: #41B13B;
-	cursor: pointer;
-}
+.opcoes-ficha{display: flex; justify-content: space-between; margin: 1% 3%;}
+	.opcoes-ficha > div{font-weight: bold; padding: 1% 3%; border-radius: 20px;}
+	.opcoes-ficha > div:hover{background-color: #41B13B; cursor: pointer;}
 
 .opcoes-layout-jogo{display: flex; justify-content: space-between; margin-top: 5%; margin: 30px 15px;}
 	.opcoes-layout-jogo > div:hover{background-color: #41B13B; cursor: pointer;}
@@ -47,3 +28,9 @@
 
 .mostraDiv{position: absolute; margin: 0 10% 0 0; border-radius: 10px; border-style: solid; border-width: 1px; padding: 10px; background: lightgray; z-index: 1; display: none;}
 	.mostraDiv span{color: black;}
+
+.dropdown-sala-jogar-content{display: none; position: absolute; background-color: #f1f1f1; min-width: 160px; z-index: 1; text-decoration: none;}
+	.dropdown-sala-jogar:hover .dropdown-sala-jogar-content{display: block;}
+
+.dropdown-sala-jogar-content-dado{display: none; position: absolute; background-color: #f1f1f1; min-width: 160px; z-index: 1; text-decoration: none;}
+	.dropdown-sala-jogar-dado:hover .dropdown-sala-jogar-content-dado{display: flex;

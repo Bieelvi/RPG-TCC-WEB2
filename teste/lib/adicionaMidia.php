@@ -25,7 +25,7 @@
 
 			for ($controle = 0; $controle < count($arquivo['name']); $controle++){
 				$nomes = $arquivo['name'];
-				$nomes[$controle] = rand().'-'.$nomes[$controle];
+				$nomes[$controle];
 				$destino = $diretorioMusica.$nomes[$controle];
 
 				$sqlInsertImagem = $conn->prepare("INSERT INTO imagem (codigo_mestre, nome_imagem) VALUES (?, ?)");
@@ -60,7 +60,7 @@
 
 			for ($controle = 0; $controle < count($arquivo['name']); $controle++){
 		        $nomes = $arquivo['name'];
-			    $nomes[$controle] = rand().'-'.$nomes[$controle];
+			    $nomes[$controle];
 				$destino = $diretorioMusica.$nomes[$controle];
 
 				$sqlInsertImagem = $conn->prepare("INSERT INTO musica (codigo_mestre, nome_musica) VALUES (?, ?)");

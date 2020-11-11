@@ -1,7 +1,12 @@
-function dado(min, max, nomeAtr) {
+function imagem(img, diretorio){
+	document.getElementById("imagemJogo").src = diretorio;
+}
+
+function dado(min, max, nome) {
     var valor = Math.floor(Math.random() * (max - min + 1)) + min;
     document.querySelector("[id='valorDado']").value = valor;
 
+    console.log(nome);
     console.log(valor);
 }
 
@@ -34,7 +39,7 @@ function carregaMod(){
 	calculaDestreza();
 	calculaConstituicao();
 	calculaInteligencia();
-	calculaSabedoria();
+	//calculaSabedoria();
 	calculaCarisma();
 }
 

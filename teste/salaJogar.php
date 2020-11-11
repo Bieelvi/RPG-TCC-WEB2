@@ -15,6 +15,8 @@
 
 	$retornoJogador = pegaInfJogador($_SESSION['infSala'][2], $_SESSION['usuarios'][2]);
 	$retorno = pegaInfFicha($retornoJogador['codigo_ficha'], $retornoJogador['nome_jogador']);
+
+	$dados = array("image/diceQuatro.png", "image/diceSeis.png", "image/diceOito.png", "image/diceDex.png", "image/diceDoze.png", "image/diceVinte.png", "image/diceCem.png");
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,23 +28,35 @@
 	<script src="view/js/funcoesJogo.js"></script>
 	<script src="view/js/atrMod.js"></script>
 
-	<style>
-		.dropdown{padding-right: 10px; position: relative; display: inline-block; text-decoration: none;}
-
-		.dropdown-content{display: none; position: absolute; background-color: #f1f1f1; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; text-decoration: none;}
-			.dropdown:hover .dropdown-content{display: flex;}
-	</style>
-
 	<div class="opcoes-layout-jogo">
-		<div>Mapa</div>
-		<div class="dropdown">Dados
-			<div class="dropdown-content SizeImg">			
-				<div><img src="image/dado.png"></div>
-				<div><img src="image/dado.png"></div>
-				<div><img src="image/dado.png"></div>
-				<div><img src="image/dado.png"></div>
-				<div><img src="image/dado.png"></div>
-				<div><img src="image/dado.png"></div>
+		<div class="dropdown-sala-jogar">Mapa
+			<div class="dropdown-sala-jogar-content SizeImg">			
+				<?php 
+					$idMestre = 68;
+					$sql = $conn->prepare("SELECT * FROM imagem WHERE codigo_mestre = {$idMestre}");
+					$sql->execute();
+					$img = $sql->fetchAll(PDO::FETCH_ASSOC);
+					$cont = 1;
+
+					foreach($img as $key) {
+						$diretorio = "upload/imagem/".$idMestre."/".$key['nome_imagem']; ?>
+						<div id="<?php echo $cont; ?>" onclick="imagem('<?php echo $cont; ?>', '<?php echo $diretorio; ?>')">
+							<img src="<?php echo $diretorio ?>" width="50" height="50">
+							<span> <?php echo $key['nome_imagem']; ?> </span>
+						</div>
+			  <?php $cont++;
+			  		} ?>
+			</div>
+		</div>
+		<div class="dropdown-sala-jogar-dado">Dados
+			<div class="dropdown-sala-jogar-content-dado SizeImg"> 
+				<div onclick="dado(1, 4, 'Dado 4')"><img src="image/diceQuatro.png"></div>	
+				<div onclick="dado(1, 6, 'Dado 6')"><img src="image/diceSeis.png"></div>	
+				<div onclick="dado(1, 8, 'Dado 8')"><img src="image/diceOito.png"></div>	
+				<div onclick="dado(1, 10, 'Dado 10')"><img src="image/diceDex.png"></div>	
+				<div onclick="dado(1, 12, 'Dado 12')"><img src="image/diceDoze.png"></div>	
+				<div onclick="dado(1, 20, 'Dado 20')"><img src="image/diceVinte.png"></div>	
+				<div onclick="dado(1, 100, 'Dado 100')"><img src="image/diceCem.png"></div>				
 			</div>
 		</div>
 		<div>Jogadores</div>
@@ -51,7 +65,7 @@
 	</div>
 	<div class="Pai">
 		<div class="jogo-layout">
-			
+			<img id="imagemJogo" src="" style="width: auto; height: 100%;">
 		</div>
 
 		<div class="caixa-chat">
@@ -60,11 +74,13 @@
 					
 				</div>
 			</div>
-			<form method="post" id="formTeste" action="lib/insereChat.php">
-				<input type="text" name="mensagem" autocomplete="off">
-				<input type="submit" name="enviar" value="Enviar">
-				<input type="hidden" id="valorDado" name="valorDado" value="">
-			</form>
+			<div class="caixa-manda-mensagem">
+				<form method="post" id="formTeste" action="lib/insereChat.php">
+					<input type="text" name="mensagem" autocomplete="off">
+					<input type="submit" name="enviar" value="Enviar">
+					<input type="hidden" id="valorDado" name="valorDado" value="">
+				</form>
+			</div>	
 		</div>
 	</div>
 

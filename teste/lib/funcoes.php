@@ -1,4 +1,22 @@
 <?php
+	function teste($nomeSala, $senhaSala){
+		include("model/ConexaoDataBase.php");
+		for ($i = 1; $i <= 4; $i++){
+			$codigoFormatado =  "codigo_jogador".$i;
+			
+			$sql = $conn->prepare("SELECT nome_jogador FROM jogador INNER JOIN sala_presencial ON sala_presencial.{$codigoFormatado} = jogador.codigo_jogador WHERE senha_sala_presencial = ? AND nome_sala_presencial = ?");
+			$sql->bindValue(1, $senhaSala);
+			$sql->bindValue(2, $nomeSala);
+			$sql->execute();
+
+			$teste = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+			print_r($teste);
+			echo "<br>";
+
+		}
+	}
+
 	/* funcao que pega um array os codigos dos personagens de certo usuario e compara se existe algum numa sala em que ele já estava presente */
 	function verificaPersonagemSala($arrayIdPersonagem, $nomeSala, $senhaSala){
 		include("../model/ConexaoDataBase.php");
