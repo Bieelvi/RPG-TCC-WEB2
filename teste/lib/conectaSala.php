@@ -35,11 +35,9 @@
 					$_SESSION['vericaSalas'] = array(0, $mensagem);
 				}
 			}
-		}		
-	} else {
-		
-	}
-	/* session inicialmente usada no modoJogo para pegar o nome da sala criada e criar uma tabela no banco de dados 
-	e tbm usada para fazer a verificacao se o usuario esta realmente logado para pode entrar na salaJogar */
-	$_SESSION['infSala'] = array($_POST['nomeSalaCriada'], $_POST['senhaSalaCriada'], $_POST['personagem']);
+		}
+		/* session inicialmente usada no modoJogo para pegar o nome da sala criada e criar uma tabela no banco de dados 
+		e tbm usada para fazer a verificacao se o usuario esta realmente logado para pode entrar na salaJogar */
+		$_SESSION['infSala'] = array($_POST['nomeSalaCriada'], $_POST['senhaSalaCriada'], $_POST['personagem'], $idJogador);	
+	} 
 	header('Location: http://localhost/teste/modoJogo.php');

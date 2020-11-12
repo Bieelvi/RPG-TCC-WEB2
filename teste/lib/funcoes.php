@@ -198,3 +198,26 @@
 			return $dadosJogador;
 		}
 	}
+
+	function pegaIdMestreSala($nomeSala, $senhaSala){
+		include("model/ConexaoDataBase.php");
+		$sqlVerificaOnline = $conn->prepare("SELECT codigo_mestre FROM sala_online WHERE nome_sala_online = ? AND senha_sala_online = ?");
+		$sqlVerificaOnline->bindValue(1, $nomeSala);
+		$sqlVerificaOnline->bindValue(2, $senhaSala);
+		if($sqlVerificaOnline->execute()){
+			if($sqlVerificaOnline->rowCount()){
+				$id = $sqlVerificaOnline->fetchAll(PDO::FETCH_ASSOC)[0];
+				print_r($id);
+			}
+		} else {
+			$sqlVerificaPresencial = $conn->prepare("SELECT codigo_mestre FROM sala_online WHERE nome_sala_online = ? AND senha_sala_online = ?");
+			$sqlVerificaPresencial->bindValue(1, $nomeSala);
+			$sqlVerificaPresencial->bindValue(2, $senhaSala);
+			if($sqlVerificaPresencial->execute()){
+				if($sqlVerificaPresencial->rowCount()){
+					$id = $sqlVerificaPresencial->fetchAll(PDO::FETCH_ASSOC)[0];
+					print_r($id);
+				}
+			}
+		}
+	}

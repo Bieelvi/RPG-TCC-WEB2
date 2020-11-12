@@ -31,9 +31,9 @@
 	<div class="opcoes-layout-jogo">
 		<div class="dropdown-sala-jogar">Mapa
 			<div class="dropdown-sala-jogar-content SizeImg">			
-				<?php 
-					$idMestre = 68;
-					$sql = $conn->prepare("SELECT * FROM imagem WHERE codigo_mestre = {$idMestre}");
+				<?php
+					$sql = $conn->prepare("SELECT * FROM imagem WHERE codigo_mestre = ?");
+					$sql->bindValue(1, );
 					$sql->execute();
 					$img = $sql->fetchAll(PDO::FETCH_ASSOC);
 					$cont = 1;
