@@ -30,7 +30,7 @@
 
 	function atualizaTabelaChat($nomeSala){
 		include("../model/ConexaoDataBase.php");
-		$sqlAtualiza = $conn->prepare("SELECT * FROM chat_{$nomeSala}");
+		$sqlAtualiza = $conn->prepare("SELECT * FROM chat_{$nomeSala} ORDER BY id DESC");
 		$sqlAtualiza->execute();
 
 		$dado = $sqlAtualiza->fetchAll(PDO::FETCH_ASSOC);

@@ -49,15 +49,6 @@ function refreshDiv(){
 	})
 }
 
-function carregaMod(){
-	/*calculaForca();
-	calculaDestreza();
-	calculaConstituicao();
-	calculaInteligencia();
-	calculaSabedoria();
-	calculaCarisma();*/
-}
-
 function mostrar(){
 	for(var i = 1; i < 5; i++){
 		document.getElementById("div"+i).hidden = true;
