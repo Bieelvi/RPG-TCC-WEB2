@@ -104,11 +104,6 @@
 									<span>Antecedente</span><br>
 									<input class="FonteInterna" type="text" name="antecedente">
 								</div>
-
-								<div class="CadastroFicha">
-									<span>Nível<br></span>
-									<input class="FonteInterna" onblur="calculaProficiencia()" type="number" id="nivel" name="nivel">
-								</div>
 							</div>
 						</div>
 						<div class="col-md-6">
@@ -119,34 +114,28 @@
 				    			<div class="CadastroFicha">
 									<span>Inspiração<br></span>
 									<input class="FonteInterna" type="number" name="inspiracao">
-								</div>
-								
+								</div>								
 								<div class="CadastroFicha">
 									<span>Bonús de Proficiência</span><br>		
 									<input class="FonteInterna" type="number" id="bonusProficiencia" value="" disabled>
 									<input type="hidden" name="bonusProficiencia">
 								</div>
-
 								<div class="CadastroFicha">
 									<span>Classe de Armadura</span><br>
 									<input class="FonteInterna" type="number" name="classeArm">
 								</div>
-
 								<div class="CadastroFicha">
 									<span>Iniciativa</span><br>
 									<input class="FonteInterna" type="number" name="iniciativa">
-								</div>
-								
+								</div>								
 								<div class="CadastroFicha">
 									<span>Deslocamento</span><br>
 									<input class="FonteInterna" type="number" id="deslocamento" value="" disabled>
 									<input type="hidden" name="deslocamento">
 								</div>
-
 								<div class="CadastroFicha">
-									<span>Sabedoria (Passiva)</span><br>
-									<input class="FonteInterna" type="number" name="sabedoriaPassiva" disabled>
-									<input type="hidden" name="sabPassiva">
+									<span>Nível<br></span>
+									<input class="FonteInterna" onblur="calculaProficiencia()" type="number" id="nivel" name="nivel">
 								</div>
 							</div>
 						</div>
@@ -161,41 +150,33 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="container">
-
 								<div class="CenterTitulo">
 									<span>ATRIBUTOS</span>
 								</div>
-
 					    		<div class="CadastroFicha">
 									<span>Força <br></span>
-									<input class="FonteInterna" onblur="calculaForca()" type="number" name="forca" id="atrForca" required>
-								</div>
-								
+									<input class="FonteInterna" onblur="calculaAtr('atrForca', 'modForca')" type="number" name="forca" id="atrForca" required>
+								</div>								
 								<div class="CadastroFicha">
 									<span>Destreza</span><br>		
-									<input class="FonteInterna" onblur="calculaDestreza()" type="number" name="destreza" id="atrDestreza" required>
+									<input class="FonteInterna" onblur="calculaAtr('atrDestreza', 'modDestreza')" type="number" name="destreza" id="atrDestreza" required>
 								</div>
-
 								<div class="CadastroFicha">
 									<span>Constituição</span><br>
-									<input class="FonteInterna" onblur="calculaConstituicao()" type="number" name="constituicao" id="atrConstituicao" required>
+									<input class="FonteInterna" onblur="calculaAtr('atrConstituicao', 'modConstituicao')" type="number" name="constituicao" id="atrConstituicao" required>
 								</div>
-
 								<div class="CadastroFicha">
 									<span>Inteligência</span><br>
-									<input class="FonteInterna" onblur="calculaInteligencia()" type="number" name="inteligencia" id="atrInteligencia" required>
-								</div>
-								
+									<input class="FonteInterna" onblur="calculaAtr('atrInteligencia', 'modInteligencia')" type="number" name="inteligencia" id="atrInteligencia" required>
+								</div>								
 								<div class="CadastroFicha">
 									<span>Sabedoria</span><br>
-									<input class="FonteInterna" onblur="calculaSabedoria()" type="number" name="sabedoria" id="atrSabedoria" required>
+									<input class="FonteInterna" onblur="calculaAtr('atrSabedoria', 'modSabedoria')" type="number" name="sabedoria" id="atrSabedoria" required>
 								</div>
-
 								<div class="CadastroFicha">
 									<span>Carisma</span><br>
-									<input class="FonteInterna" onblur="calculaCarisma()" type="number" name="carisma" id="atrCarisma" required>
+									<input class="FonteInterna" onblur="calculaAtr('atrCarisma', 'modCarisma')" type="number" name="carisma" id="atrCarisma" required>
 								</div>
-
 							</div>
 						</div>
 						<div class="col-md-6">
@@ -205,32 +186,27 @@
 								</div>
 				    			<div class="CadastroFicha">
 									<span>Força<br></span>
-									<input class="FonteInterna" disabled type="number" id="modForca" value="">
-								</div>
-								
+									<input class="FonteInterna" disabled type="number" id="modForca">
+								</div>								
 								<div class="CadastroFicha">
 									<span>Destreza</span><br>		
-									<input class="FonteInterna" disabled type="number" id="modDestreza" value="">
+									<input class="FonteInterna" disabled type="number" id="modDestreza">
 								</div>
-
 								<div class="CadastroFicha">
 									<span>Constituição</span><br>
-									<input class="FonteInterna" disabled type="number" id="modConstituicao" value="">
+									<input class="FonteInterna" disabled type="number" id="modConstituicao">
 								</div>
-
 								<div class="CadastroFicha">
 									<span>Inteligência</span><br>
-									<input class="FonteInterna" disabled type="number" id="modInteligencia" value="">
-								</div>
-								
+									<input class="FonteInterna" disabled type="number" id="modInteligencia">
+								</div>								
 								<div class="CadastroFicha">
 									<span>Sabedoria</span><br>
-									<input class="FonteInterna" disabled type="number" id="modSabedoria" value="">
+									<input class="FonteInterna" disabled type="number" id="modSabedoria">
 								</div>
-
 								<div class="CadastroFicha">
 									<span>Carisma</span><br>
-									<input class="FonteInterna" disabled type="number" id="modCarisma" value="">
+									<input class="FonteInterna" disabled type="number" id="modCarisma">
 								</div>
 							</div>
 						</div>

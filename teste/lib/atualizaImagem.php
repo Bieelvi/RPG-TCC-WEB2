@@ -3,4 +3,4 @@
 	
 	include("funcoesChat.php");
 
-	atualizaTabelaChat($_SESSION['infSala'][0]);
+	atualizaImagem();

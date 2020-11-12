@@ -2,7 +2,7 @@
 
 .Pai{display: flex; margin: 2%; height: 600px; border-style: solid; border-width: 1px; border-radius: 5px;}
 
-#dados-chat{height: 100%; overflow: auto;}
+#dados-chat{display: flex; flex-direction: column-reverse; height: 100%; overflow: auto;}
 
 .mensagem-chat{color: black; background-color: lightgray; padding: 10px; border-radius: 10px; margin-bottom: 5px;}
 

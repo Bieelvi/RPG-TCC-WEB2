@@ -21,7 +21,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Teste - Roll and Play GENG</title>
+	<title>Sala - Roll and Play GENG</title>
 	<?php include("header.php"); ?>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -40,7 +40,7 @@
 
 					foreach($img as $key) {
 						$diretorio = "upload/imagem/".$idMestre."/".$key['nome_imagem']; ?>
-						<div id="<?php echo $cont; ?>" onclick="imagem('<?php echo $cont; ?>', '<?php echo $diretorio; ?>')">
+						<div id="<?php echo $cont; ?>" onclick="imagem('<?php echo $diretorio; ?>')">
 							<img src="<?php echo $diretorio ?>" width="50" height="50">
 							<span> <?php echo $key['nome_imagem']; ?> </span>
 						</div>
@@ -63,10 +63,14 @@
 		<div>Informações</div>
 		<div><a href="model/sairSalaJogo.php">Sair da sala</a></div>
 	</div>
-	<div class="Pai">
-		<div class="jogo-layout">
-			<img id="imagemJogo" src="" style="width: auto; height: 100%;">
+	<div class="Pai" id="pai">
+
+
+
+		<div class="jogo-layout" id='jogo-img'>
+			
 		</div>
+
 
 		<div class="caixa-chat">
 			<div class="chat">
@@ -82,6 +86,8 @@
 				</form>
 			</div>	
 		</div>
+
+
 	</div>
 
 	<div class="opcoes-ficha">
@@ -206,24 +212,24 @@
 		</div>
 
 		<div class="ConteudoFicha">
-			<div class="CenterTitulo"><h2>MODIFICADORES</h2></div>	
+			<div class="CenterTitulo"><h2>MODIFICADORES</h2></div>
 			<img onclick="dado(1, 20, 'Força')" src="image/dado.png" width="25" height="25"><span>Força</span><br>
-			<input class="FonteInterna" disabled type="number" id="modForca" value=""><br>
+			<input class="FonteInterna" disabled type="number" id="atr1" value=""><br>
 
 			<img onclick="dado(1, 20, 'Destreza')" src="image/dado.png" width="25" height="25"><span>Destreza</span><br>
-			<input class="FonteInterna" disabled type="number" id="modDestreza" value=""><br>
+			<input class="FonteInterna" disabled type="number" id="atr2" value=""><br>
 
 			<img onclick="dado(1, 20, 'Constituição')" src="image/dado.png" width="25" height="25"><span>Constituição</span><br>
-			<input class="FonteInterna" disabled type="number" id="modConstituicao" value=""><br>
+			<input class="FonteInterna" disabled type="number" id="atr3" value=""><br>
 
 			<img onclick="dado(1, 20, 'Inteligência')" src="image/dado.png" width="25" height="25"><span>Inteligência</span><br>
-			<input class="FonteInterna" disabled type="number" id="modInteligencia" value=""><br>
+			<input class="FonteInterna" disabled type="number" id="atr4" value=""><br>
 
 			<img onclick="dado(1, 20, 'Sabedoria')" src="image/dado.png" width="25" height="25"><span>Sabedoria</span><br>
-			<input class="FonteInterna" disabled type="number" id="modSabedoria" value=""><br>
+			<input class="FonteInterna" disabled type="number" id="atr5" value=""><br>
 
 			<img onclick="dado(1, 20, 'Carisma')" src="image/dado.png" width="25" height="25"><span>Carisma</span><br>
-			<input class="FonteInterna" disabled type="number" id="modCarisma" value=""><br>
+			<input class="FonteInterna" disabled type="number" id="atr6" value=""><br>
 		</div>
 	</div>
 	<div id="div3" style="width: 100%; height: auto;">

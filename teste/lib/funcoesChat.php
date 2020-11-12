@@ -7,6 +7,7 @@
 			mensagem text
 
 		)");
+		
 		$sqlCria->execute();
 	}
 
@@ -37,6 +38,19 @@
 		foreach ($dado as $key) {
 			echo "<div class='mensagem-chat'><span><small><strong>". $key['nome'] . "</strong></small><br>" . $key['mensagem'] . "</span><br></div>";
 		}
+	}
+
+	function atualizaImagem(){
+		include("../model/ConexaoDataBase.php");
+		$sql_img = $conn->prepare("SELECT * FROM sala_online WHERE nome_sala_online = ? AND senha_sala_online = ?");
+		$sql_img->bindValue(1, "DungeonAndDragon");
+		$sql_img->bindValue(2, "123");
+		$sql_img->execute();
+
+		if($sql_img->rowCount()){
+			$img = $sql_img->fetchAll(PDO::FETCH_ASSOC)[0];
+			echo "<img id='imagemJogo' src='" . $img['imagem_sala_online'] . "' style='width: auto; height: 100%;'>";
+  		}
 	}
 
 	function verificaTabelaChat(){

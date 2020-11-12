@@ -15,7 +15,7 @@
 		$idJogador = pegaIdArrayPersonagem($_SESSION['usuarios'][2]);
 		/* funcao que pega o codigo do personagem que ele vai jogar */
 		$reCodPerso = pegaIdPersonagem($_SESSION['usuarios'][2], $_POST['personagem']);
-		//echo $reCodPerso['codigo_jogador'];
+		
 		if($idJogador == -20){
 			$mensagem = "Erro!";
 			$_SESSION['vericaSalas'] = array(0, $mensagem);
@@ -35,10 +35,7 @@
 					$_SESSION['vericaSalas'] = array(0, $mensagem);
 				}
 			}
-		}
-
-
-		
+		}		
 	} else {
 		
 	}

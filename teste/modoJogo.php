@@ -135,6 +135,7 @@
 					</form>
 				</div>
 			</div>
+			
 			<div class="col-md-4">
 				<div class="container">
 					<form action="lib/criaSala.php" method="POST">
@@ -167,6 +168,7 @@
 					</form>
 				</div>
 			</div>
+
 			<div class="col-md-4">
 				<div class="container">
 					<form action="lib/criaJogador.php" method="POST">

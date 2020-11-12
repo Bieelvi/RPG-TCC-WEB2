@@ -1,5 +1,11 @@
-function imagem(img, diretorio){
-	document.getElementById("imagemJogo").src = diretorio;
+function imagem(diretorio){
+	att(diretorio);
+}
+
+function att(diretorio){
+	$.get("lib/manda_img.php?dir="+diretorio, function(){
+
+	})
 }
 
 function dado(min, max, nome) {
@@ -26,6 +32,15 @@ $(document).ready(function(){
 	});
 });
 
+window.setInterval("refreshDiv_teste()", 500);
+
+function refreshDiv_teste(){
+	$.get("lib/atualizaImagem.php", function(resultado){
+     	$("#jogo-img").html(resultado);
+	})
+}
+
+
 window.setInterval("refreshDiv()", 500);
 
 function refreshDiv(){
@@ -35,12 +50,12 @@ function refreshDiv(){
 }
 
 function carregaMod(){
-	calculaForca();
+	/*calculaForca();
 	calculaDestreza();
 	calculaConstituicao();
 	calculaInteligencia();
-	//calculaSabedoria();
-	calculaCarisma();
+	calculaSabedoria();
+	calculaCarisma();*/
 }
 
 function mostrar(){

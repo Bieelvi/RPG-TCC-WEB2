@@ -1,3 +1,26 @@
+function calculaAtr(atr, mod){
+	var atributo = document.getElementById(atr).value;
+
+	var retorno = testaModificador(atributo);
+
+	if(retorno == -20){
+		document.querySelector(atr).value = null;
+	} else {
+		document.querySelector('[id='+mod+']').value = retorno;		
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
 function calculaForca(){
 	var mod = document.getElementById("atrForca").value;
 
