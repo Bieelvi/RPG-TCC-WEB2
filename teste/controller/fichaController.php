@@ -128,7 +128,7 @@
 		$sqlAddAtr->bindValue(11, $atrFicha[4]); /*sabedoria*/
 		$sqlAddAtr->bindValue(12, $atrFicha[5]); /*carisma*/
 
-		$sqlAddAtr->bindValue(13, $infInicial[10]); /*sabedoriaPassiva*/
+		$sqlAddAtr->bindValue(13, 0); /*sabedoriaPassiva*/
 		$sqlAddAtr->bindValue(14, $infInicial[7]); /*nivel*/
 		$sqlAddAtr->bindValue(15, $infInicial[3]); /*tendencia*/
 		$sqlAddAtr->bindValue(16, $nomeJogador); /*nomeJoga*/
