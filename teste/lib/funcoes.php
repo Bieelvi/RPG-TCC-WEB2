@@ -131,8 +131,7 @@
 									$r = 1;
 								} else {
 									adicionaBanco($nomeSala, $senhaSala, $codigoPersonagem, $codigoFormatado);
-									return 0;
-									
+									return 0;									
 								}				
 							}
 						}
@@ -141,6 +140,43 @@
 			}
 		}
 		return $r;
+	}
+
+	/* função que pega o codigo do mestre e os codigos dos personagens do usuario logado e verifica se o MESTRE do usuario ja esta na sala */
+	function verificaPersonagemMestre($nomeSala, $senhaSala, $arrayIdMestre){
+		include("../model/ConexaoDataBase.php");
+		$final = 0;
+		for ($i = 1; $i <= 4; $i++){
+			$codigoFormatado =  "codigo_jogador".$i;
+			$sqlOnline = $conn->prepare("SELECT codigo_mestre FROM sala_online WHERE nome_sala_online = ? AND senha_sala_online = ?");
+			$sqlOnline->bindValue(1, $nomeSala);
+			$sqlOnline->bindValue(2, $senhaSala);
+			if($sqlOnline->execute()){
+				if($sqlOnline->rowCount()){
+					$idMestreSalaOnline = $sqlOnline->fetchAll(PDO::FETCH_ASSOC)[0];
+					foreach ($arrayIdMestre as $dado) {
+						if($dado == $idMestreSalaOnline['codigo_mestre'])
+							$final = 1;
+					}
+				}
+			}
+
+			$codigoFormatado =  "codigo_jogador".$i;
+			$sqlPresencial = $conn->prepare("SELECT codigo_mestre FROM sala_presencial WHERE nome_sala_presencial = ? AND senha_sala_presencial = ?");
+			$sqlPresencial->bindValue(1, $nomeSala);
+			$sqlPresencial->bindValue(2, $senhaSala);
+			if($sqlPresencial->execute()){
+				if($sqlPresencial->rowCount()){
+					$idMestreSalaOnline = $sqlPresencial->fetchAll(PDO::FETCH_ASSOC)[0];
+					foreach ($arrayIdMestre as $dado) {
+						if($dado == $idMestreSalaOnline['codigo_mestre'])
+							$final = 1;
+					}
+				}
+			}
+		}
+
+		return $final;
 	}
 
 	/* função que pega os personagens existentes do usuario e lista pra mim */
@@ -157,7 +193,6 @@
 		} else {
 			$array[] = -20;		
 		}
-
 		return $array;
 	}
 
@@ -199,6 +234,36 @@
 		}
 	}
 
+	/* função que pega os mestre existentes do usuario e lista pra mim */
+	function pegaIdArrayMestre($codigoUsuario){
+		include("../model/ConexaoDataBase.php");
+		$sql = $conn->prepare("SELECT codigo_mestre FROM mestre WHERE codigo_usuario = ?");
+		$sql->bindValue(1, $codigoUsuario);
+		$sql->execute();
+		if($sql->rowCount()){
+			$dado = $sql->fetchAll(PDO::FETCH_ASSOC);
+			foreach ($dado as $key) {
+				$array[] = $key['codigo_mestre'];
+			}
+		} else {
+			$array[] = -20;		
+		}
+		return $array;
+	}
+
+	function pegaIdMestre($codigoUsuario, $nomeMestre){
+		include("../model/ConexaoDataBase.php");
+		$sqlId = $conn->prepare("SELECT * FROM mestre WHERE codigo_usuario = ? AND nome_mestre = ?");
+		$sqlId->bindValue(1, $codigoUsuario);
+		$sqlId->bindValue(2, $nomeMestre);
+		$sqlId->execute();
+			if($sqlId->rowCount()){
+				$dado = $sqlId->fetchAll()[0];
+				return $dado;
+			} else 
+				return $r = -30;	
+	}
+
 	function pegaIdMestreSala($nomeSala, $senhaSala){
 		include("model/ConexaoDataBase.php");
 		$sqlVerificaOnline = $conn->prepare("SELECT codigo_mestre FROM sala_online WHERE nome_sala_online = ? AND senha_sala_online = ?");
@@ -209,15 +274,39 @@
 				$id = $sqlVerificaOnline->fetchAll(PDO::FETCH_ASSOC)[0];
 				print_r($id);
 			}
-		} else {
-			$sqlVerificaPresencial = $conn->prepare("SELECT codigo_mestre FROM sala_online WHERE nome_sala_online = ? AND senha_sala_online = ?");
-			$sqlVerificaPresencial->bindValue(1, $nomeSala);
-			$sqlVerificaPresencial->bindValue(2, $senhaSala);
-			if($sqlVerificaPresencial->execute()){
-				if($sqlVerificaPresencial->rowCount()){
-					$id = $sqlVerificaPresencial->fetchAll(PDO::FETCH_ASSOC)[0];
-					print_r($id);
+		}
+
+		$sqlVerificaPresencial = $conn->prepare("SELECT codigo_mestre FROM sala_presencial WHERE nome_sala_presencial = ? AND senha_sala_presencial = ?");
+		$sqlVerificaPresencial->bindValue(1, $nomeSala);
+		$sqlVerificaPresencial->bindValue(2, $senhaSala);
+		if($sqlVerificaPresencial->execute()){
+			if($sqlVerificaPresencial->rowCount()){
+				$id = $sqlVerificaPresencial->fetchAll(PDO::FETCH_ASSOC)[0];
+				print_r($id);
+			}
+		}
+	}
+
+	function verificaMestre($codigoMestre, $nomeSala, $senhaSala){
+		include("../model/ConexaoDataBase.php");
+		$final = 0;
+		$sqlVerificaOnline = $conn->prepare("SELECT * FROM sala_online WHERE nome_sala_online = ? AND senha_sala_online = ? AND codigo_mestre = ?");
+		$sqlVerificaOnline->bindValue(1, $nomeSala);
+		$sqlVerificaOnline->bindValue(2, $senhaSala);
+		$sqlVerificaOnline->bindValue(3, $codigoMestre);
+		if($sqlVerificaOnline->execute()){
+			if($sqlVerificaOnline->rowCount()){
+				$final = 1;
+			} else {
+				$sqlVerificaPresencial = $conn->prepare("SELECT * FROM sala_presencial WHERE nome_sala_presencial = ? AND senha_sala_presencial = ? AND codigo_mestre = ?");
+				$sqlVerificaPresencial->bindValue(1, $nomeSala);
+				$sqlVerificaPresencial->bindValue(2, $senhaSala);
+				$sqlVerificaPresencial->bindValue(3, $codigoMestre);
+				if($sqlVerificaPresencial->execute()){
+					if($sqlVerificaPresencial->rowCount())
+						$final = 1;
 				}
 			}
 		}
+		return $final;
 	}

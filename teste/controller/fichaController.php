@@ -108,7 +108,7 @@
 		$_POST['nivel'], /*7*/
 		$_POST['inspiracao'], /*8*/
 		$_POST['bonusProficiencia'], /*9*/
-		$_POST['sabPassiva']); /*10*/
+		0); /*10*/
 	/*Termina*/
 
 		$sqlAddAtr = $conn->prepare("INSERT INTO ficha (nome, classe, raca, classeArm, vida, desloc, forca, destreza, constituicao, inteligencia, sabedoria, carisma, sabedoriaPassiva, nivel, tendencia, nomeJoga, pontosXP, inspiracao, bonusProficiencia, ouro, prata, platina, historiaPersonagem, equipamentos, caracteristicas, acrobacia, arcanismo, atletismo, atuacao, enganacao, furtividade, historia, intimidacao, intuicao, investigacao, lidarComAnimais, medicina,

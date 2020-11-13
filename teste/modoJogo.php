@@ -102,7 +102,7 @@
 				<div class="container">
 					<form action="lib/conectaSala.php" method="POST">
 						<div class="CadastroSala">	
-							<p class="Titulo">ENTRAR NUMA SALA</p>
+							<p class="Titulo">ENTRAR NA SALA</p>
 						</div>
 						<div class="CadastroSala">
 							<label>USUÁRIO</label>
@@ -118,6 +118,19 @@
 									$dado = $sqlPegaPersonagem->fetchAll(PDO::FETCH_ASSOC);
 									foreach ($dado as $valor) { ?>
 										<option><?php echo $valor['nome_jogador']; ?></option>
+							  <?php } ?>
+							</select>
+						</div>
+						<div class="CadastroSala">
+							<label>MESTRE</label><br>
+							<select name="mestre">
+								<option>Escolha</option> <?php 
+									$sqlPegaPersonagem = $conn->prepare("SELECT * FROM mestre WHERE codigo_usuario = ?");
+									$sqlPegaPersonagem->bindValue(1, $_SESSION['usuarios'][2]);
+									$sqlPegaPersonagem->execute();
+									$dado = $sqlPegaPersonagem->fetchAll(PDO::FETCH_ASSOC);
+									foreach ($dado as $valor) { ?>
+										<option><?php echo $valor['nome_mestre']; ?></option>
 							  <?php } ?>
 							</select>
 						</div>
