@@ -8,7 +8,7 @@
 	if(isset($_SESSION['usuarios']) && is_array($_SESSION['usuarios']))
 		$nomeUsuario = $_SESSION['usuarios'][0];
 	else
-		header('Location: http://localhost/teste/login.php');
+		header('Location: ../login.php');
 
 	if(isset($_POST['nomeSalaCriada']) && isset($_POST['senhaSalaCriada'])){
 		if(isset($_POST['personagem']) && $_POST['personagem'] != "Escolha"){
@@ -66,4 +66,4 @@
 		e tbm usada para fazer a verificacao se o usuario esta realmente logado para pode entrar na salaJogar */
 		$_SESSION['infSala'] = array($_POST['nomeSalaCriada'], $_POST['senhaSalaCriada'], $_POST['personagem']);	
 	} 
-	header('Location: http://localhost/teste/modoJogo.php');
+	header('Location: ../modoJogo.php');

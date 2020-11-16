@@ -6,7 +6,7 @@
 	if(isset($_SESSION['usuarios']) && is_array($_SESSION['usuarios']))
 		$nomeUsuario = $_SESSION['usuarios'][0];
 	else
-		header('Location: http://localhost/teste/login.php');
+		header('Location: login.php');
 
 	$_SESSION['pericias'] = array("Acrobacia (Des)", "Arcanismo (Int)", "Atletismo (For)", "Atuação (Car)", "Enganação (Car)", "Furtividade (Des)", "História (Int)", "Intimidação (Car)", "Intuição (Sab)", "Investigação (Int)", "Lidar com Animais (Sab)", "Medicina (Sab)", "Natureza (Int)", "Percepção (Sab)", "Persuasão (Car)", "Prestidigitação (Des)", "Religião (Int)", "Sobrevivência (Sab)");
 ?>

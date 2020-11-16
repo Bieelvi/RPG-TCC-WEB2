@@ -6,7 +6,7 @@
 	if(isset($_SESSION['usuarios']) && is_array($_SESSION['usuarios']))
 		$nomeUsuario = $_SESSION['usuarios'][0];
 	else
-		header('Location: http://localhost/teste/login.php');
+		header('Location: ../login.php');
 
 	if(isset($_POST['nomeJogador'])){
 		$_SESSION['nomePersonagem'] = $_POST['nomeJogador'];
@@ -46,4 +46,4 @@
 		$_SESSION['vericaPersonagem'] = array(0, $mensagem);	
 	}
 	
-	header('Location: http://localhost/teste/modoJogo.php');
+	header('Location: ../modoJogo.php');

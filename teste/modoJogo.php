@@ -9,7 +9,7 @@
 		$nomeUsuario = $_SESSION['usuarios'][0];
 		$hierarquiaUsuario = $_SESSION['usuarios'][1];
 	} else {
-		header('Location: http://localhost/teste/login.php');
+		header('Location: login.php');
 	}
 ?>
 <!DOCTYPE html>

@@ -7,7 +7,7 @@
 	if(isset($_SESSION['usuarios']) && is_array($_SESSION['usuarios']))
 		$nomeUsuario = $_SESSION['usuarios'][0];
 	else
-		header('Location: http://localhost/teste/login.php');
+		header('Location: ../login.php');
 
 	/*Atributos da criaFicha.php*/
 	$atrFicha = array(

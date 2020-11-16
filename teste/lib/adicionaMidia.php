@@ -6,7 +6,7 @@
 	if(isset($_SESSION['usuarios']) && is_array($_SESSION['infSala']))
 		$nomeUsuario = $_SESSION['usuarios'][0];
 	else
-		header('Location: http://localhost/teste/login.php');
+		header('Location: ../login.php');
 
 	if(isset($_POST['addImagem'])){
 		$diretorioMusica = "../upload/imagem/" . $_SESSION['infSalaMestre'][4];
@@ -44,7 +44,7 @@
 				}	
 			}
 
-			header('Location: http://localhost/teste/informacao_sala.php');
+			header('Location: ../informacao_sala.php');
 		}
 	}
 
@@ -85,6 +85,6 @@
 				}			
 			}
 
-			header('Location: http://localhost/teste/informacao_sala.php');
+			header('Location: ../informacao_sala.php');
 		}
 	}

@@ -6,9 +6,9 @@
 	if(isset($_SESSION['usuarios'])) {
 		$hierarquia = $_SESSION['usuarios'][1];
 		if($hierarquia != 1)
-			header('Location: http://localhost/teste/index.php');
+			header('Location: index.php');
 	} else
-		header('Location: http://localhost/teste/index.php');
+		header('Location: login.php');
 	
 ?>
 <!DOCTYPE html>

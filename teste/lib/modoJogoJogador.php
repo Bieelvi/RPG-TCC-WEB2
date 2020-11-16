@@ -5,7 +5,7 @@
 	if(isset($_SESSION['usuarios']) && is_array($_SESSION['usuarios'])){
 		$nomeUsuario = $_SESSION['usuarios'][0];
 	} else {
-		header('Location: http://localhost/teste/login.php');
+		header('Location: ../login.php');
 	}
 
 	if(!isset($_POST['nomeJogador']) && !isset($_POST['nomeSala']) && !isset($_POST['senhaSala']))
@@ -17,5 +17,5 @@
 
 		$_SESSION['infSalaUsuario'] = array($nomeUsuario, $nomeJogador, $nomeSala, $senhaSala);
 
-		header('Location: http://localhost/teste/jogar.php');
+		header('Location: ../jogar.php');
 	}

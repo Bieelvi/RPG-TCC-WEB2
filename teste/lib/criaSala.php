@@ -6,7 +6,7 @@
 	if(isset($_SESSION['usuarios']) && is_array($_SESSION['usuarios']))
 		$nomeUsuario = $_SESSION['usuarios'][0];
 	else
-		header('Location: http://localhost/teste/login.php');
+		header('Location: ../login.php');
 
 	$nomeSala = $_POST['nomeSala'];
 	$senhaSala = $_POST['senhaSala'];
@@ -20,7 +20,7 @@
 		if($sqlConsultaPresencial->rowCount()){
 			$mensagem = "Nome de sala já em uso!";
 			$_SESSION['vericaSalas'] = array(0, $mensagem);
-			header('Location: http://localhost/teste/modoJogo.php');
+			header('Location: ../modoJogo.php');
 		} else {
 			$sqlConsultaOnline = $conn->prepare("SELECT * FROM sala_online WHERE nome_sala_online = ?");
 			$sqlConsultaOnline->bindValue(1, $nomeSala);
@@ -29,7 +29,7 @@
 				if($sqlConsultaOnline->rowCount()){
 					$mensagem = "Nome de sala já em uso!";
 					$_SESSION['vericaSalas'] = array(0, $mensagem);
-					header('Location: http://localhost/teste/modoJogo.php');
+					header('Location: ../modoJogo.php');
 				} else {
 					$sqlMestre = $conn->prepare("INSERT INTO mestre (codigo_usuario, nome_mestre) VALUES (?, ?)");
 					$sqlMestre->bindValue(1, $codigoUsuario);
@@ -79,4 +79,4 @@
 		}
 	}
 
-	header('Location: http://localhost/teste/modoJogo.php');
+	header('Location: ../modoJogo.php');

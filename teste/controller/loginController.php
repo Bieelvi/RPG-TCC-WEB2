@@ -16,11 +16,11 @@
 		if($sql->rowCount()){
 			$dado = $sql->fetchAll(PDO::FETCH_ASSOC)[0];
 			$_SESSION['usuarios'] = array($dado["nome_usuario"], $dado["hierarquia"], $dado["codigo_usuario"]);
-			header('Location: http://localhost/teste/userPage.php');
+			header('Location: ../userPage.php');
 		} else {
-			header('Location: http://localhost/teste/login.php');
+			header('Location: ../login.php');
 		}
 	} else {
-		header('Location: http://localhost/teste/login.php');
+		header('Location: ../login.php');
 	}	
 ?>
