@@ -227,10 +227,13 @@
 		$sqlSelect = $conn->prepare("SELECT * FROM jogador WHERE nome_jogador = ? AND codigo_usuario = ?");
 		$sqlSelect->bindValue(1, $nomePersonagem);
 		$sqlSelect->bindValue(2, $codigoUsuario);
-		$sqlSelect->execute();
-		if($sqlSelect->rowCount()){
-			$dadosJogador = $sqlSelect->fetchAll(PDO::FETCH_ASSOC)[0];
-			return $dadosJogador;
+		if($sqlSelect->execute()){
+			if($sqlSelect->rowCount()){
+				$dadosJogador = $sqlSelect->fetchAll(PDO::FETCH_ASSOC)[0];
+				return $dadosJogador;
+			}	
+		} else {
+			echo "errrrro";		
 		}
 	}
 
@@ -272,7 +275,7 @@
 		if($sqlVerificaOnline->execute()){
 			if($sqlVerificaOnline->rowCount()){
 				$id = $sqlVerificaOnline->fetchAll(PDO::FETCH_ASSOC)[0];
-				print_r($id);
+				return $id['codigo_mestre'];
 			}
 		}
 
@@ -282,7 +285,7 @@
 		if($sqlVerificaPresencial->execute()){
 			if($sqlVerificaPresencial->rowCount()){
 				$id = $sqlVerificaPresencial->fetchAll(PDO::FETCH_ASSOC)[0];
-				print_r($id);
+				return $id['codigo_mestre'];
 			}
 		}
 	}

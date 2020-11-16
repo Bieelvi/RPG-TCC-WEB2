@@ -7,4 +7,4 @@
 
 	unset($_SESSION['infSala']);
 
-	header('Location: http://localhost/teste/index.php');
+	header('Location: ../index.php');

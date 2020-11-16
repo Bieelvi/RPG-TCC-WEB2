@@ -13,6 +13,8 @@
 
 	include("lib/funcoes.php");
 
+	echo $_SESSION['infSala'][2];
+
 	$retornoJogador = pegaInfJogador($_SESSION['infSala'][2], $_SESSION['usuarios'][2]);
 	$retorno = pegaInfFicha($retornoJogador['codigo_ficha'], $retornoJogador['nome_jogador']);
 
@@ -34,17 +36,18 @@
 				$id = pegaIdMestreSala($_SESSION['infSala'][0], $_SESSION['infSala'][1]);
 				$sql = $conn->prepare("SELECT * FROM imagem WHERE codigo_mestre = ?");
 				$sql->bindValue(1, $id);
-				$sql->execute();
-				$img = $sql->fetchAll(PDO::FETCH_ASSOC);
-				$cont = 1;
+				if($sql->execute()){
+					$img = $sql->fetchAll(PDO::FETCH_ASSOC);
+					$cont = 1;		
 
-				foreach($img as $key) {
-					$diretorio = "upload/imagem/".$id."/".$key['nome_imagem']; ?>
-					<div id="<?php echo $cont; ?>" onclick="imagem('<?php echo $diretorio; ?>')">
-						<img src="<?php echo $diretorio ?>" width="50" height="50">
-						<span> <?php echo $key['nome_imagem']; ?> </span>
-					</div> <?php 
-					$cont++; 
+					foreach($img as $key) {
+						$diretorio = "upload/imagem/".$id."/".$key['nome_imagem']; ?>
+						<div id="<?php echo $cont; ?>" onclick="imagem('<?php echo $diretorio; ?>')">
+							<img src="<?php echo $diretorio ?>" width="50" height="50">
+							<span> <?php echo $key['nome_imagem']; ?> </span>
+						</div> <?php 
+						$cont++; 
+					}
 				} ?>
 			</div>
 		</div>
@@ -65,12 +68,9 @@
 	</div>
 	<div class="Pai" id="pai">
 
-
-
 		<div class="jogo-layout" id='jogo-img'>
 			
 		</div>
-
 
 		<div class="caixa-chat">
 			<div class="chat">
@@ -86,7 +86,6 @@
 				</form>
 			</div>	
 		</div>
-
 
 	</div>
 
