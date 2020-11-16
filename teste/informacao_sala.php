@@ -2,7 +2,6 @@
 	session_start();
 
 	include("model/ConexaoDataBase.php");
-	include("model/Pilha.php");
 
 	if(isset($_SESSION['usuarios']) && is_array($_SESSION['usuarios']))
 		$nomeUsuario = $_SESSION['usuarios'][0];
@@ -30,7 +29,7 @@
 				unset($_SESSION['vericaUpload']);
 		} 
 	?>
-	<div class="ImageFundo" style="background-image: url('image/bg3.png');">
+	
 		<div class="CenterMidia">
 			<div class="container">
 				<div class="row">
@@ -54,7 +53,11 @@
 					</div>	
 				</div>
 			</div>
+			<div style="padding: 5%;">
+				<form action="modoJogo.php" method="post">
+					<input type="submit" name="finalizarSala" value="Finalizar">
+				</form>
+			</div>
 		</div>
-	</div>
 
 <?php include("footer.php"); ?>

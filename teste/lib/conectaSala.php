@@ -51,7 +51,7 @@
 
 			if(verificaMestre($reCodMestre['codigo_mestre'], $_POST['nomeSalaCriada'], $_POST['senhaSalaCriada'])){
 				$mensagem = "Conectando na sala {$_POST['nomeSalaCriada']} como mestre {$_POST['mestre']}!";
-				$_SESSION['vericaSalas'] = array(0, $mensagem);
+				$_SESSION['vericaSalas'] = array(1, $mensagem);
 			} else {
 				$mensagem = "Erro! {$_POST['mestre']} não está na sala!";
 				$_SESSION['vericaSalas'] = array(0, $mensagem);

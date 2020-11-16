@@ -81,7 +81,7 @@
 			<div class="RetornoTeste">
 				<script type='text/JavaScript'>
 					setTimeout(function () {
-						window.location.href = 'criaSala.php'; 
+						window.location.href = 'informacao_sala.php'; 
 					}, 2000); 
 				</script>
 				<?php echo $_SESSION['vericaSala'][1]; ?>
