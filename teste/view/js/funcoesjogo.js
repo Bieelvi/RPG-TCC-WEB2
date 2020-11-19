@@ -4,7 +4,6 @@ function imagem(diretorio){
 
 function att(diretorio){
 	$.get("lib/manda_img.php?dir="+diretorio, function(){
-
 	})
 }
 
@@ -68,7 +67,7 @@ function inicia(){
 }
 
 window.addEventListener("load", inicia);
-window.addEventListener("load", carregaMod);
+//window.addEventListener("load", carregaMod);
 
 function mostra_oculta(atr){
     var x = document.getElementById(atr);

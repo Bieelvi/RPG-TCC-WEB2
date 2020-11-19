@@ -13,8 +13,6 @@
 
 	include("lib/funcoes.php");
 
-	echo $_SESSION['infSala'][2];
-
 	$retornoJogador = pegaInfJogador($_SESSION['infSala'][2], $_SESSION['usuarios'][2]);
 	$retorno = pegaInfFicha($retornoJogador['codigo_ficha'], $retornoJogador['nome_jogador']);
 

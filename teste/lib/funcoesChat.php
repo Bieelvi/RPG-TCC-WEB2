@@ -43,13 +43,21 @@
 	function atualizaImagem(){
 		include("../model/ConexaoDataBase.php");
 		$sql_img = $conn->prepare("SELECT * FROM sala_online WHERE nome_sala_online = ? AND senha_sala_online = ?");
-		$sql_img->bindValue(1, "DungeonAndDragon");
-		$sql_img->bindValue(2, "123");
+		$sql_img->bindValue(1, $_SESSION['infSala'][0]);
+		$sql_img->bindValue(2, $_SESSION['infSala'][1]);
 		$sql_img->execute();
-
 		if($sql_img->rowCount()){
 			$img = $sql_img->fetchAll(PDO::FETCH_ASSOC)[0];
 			echo "<img id='imagemJogo' src='" . $img['imagem_sala_online'] . "' style='width: auto; height: 100%;'>";
+  		}
+
+  		$sql_img_ = $conn->prepare("SELECT * FROM sala_presencial WHERE nome_sala_presencial = ? AND senha_sala_presencial = ?");
+		$sql_img_->bindValue(1, $_SESSION['infSala'][0]);
+		$sql_img_->bindValue(2, $_SESSION['infSala'][1]);
+		$sql_img_->execute();
+		if($sql_img_->rowCount()){
+			$img = $sql_img_->fetchAll(PDO::FETCH_ASSOC)[0];
+			echo "<img id='imagemJogo' src='" . $img['imagem_sala_presencial'] . "' style='width: auto; height: 100%;'>";
   		}
 	}
 

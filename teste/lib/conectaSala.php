@@ -44,6 +44,10 @@
 						}
 					}
 				}
+
+				/* session inicialmente usada no modoJogo para pegar o nome da sala criada e criar uma tabela no banco de dados 
+				e tbm usada para fazer a verificacao se o usuario esta realmente logado para pode entrar na salaJogar */
+				$_SESSION['infSala'] = array($_POST['nomeSalaCriada'], $_POST['senhaSalaCriada'], $_POST['personagem']);
 			}
 		} else if(isset($_POST['mestre']) && $_POST['mestre'] != "Escolha"){
 			/* funcao que pega o codigo do mestre que ele vai jogar */
@@ -52,6 +56,10 @@
 			if(verificaMestre($reCodMestre['codigo_mestre'], $_POST['nomeSalaCriada'], $_POST['senhaSalaCriada'])){
 				$mensagem = "Conectando na sala {$_POST['nomeSalaCriada']} como mestre {$_POST['mestre']}!";
 				$_SESSION['vericaSalas'] = array(1, $mensagem);
+
+				/* session inicialmente usada no modoJogo para pegar o nome da sala criada e criar uma tabela no banco de dados 
+				e tbm usada para fazer a verificacao se o usuario esta realmente logado para pode entrar na salaJogar */
+				$_SESSION['infSala'] = array($_POST['nomeSalaCriada'], $_POST['senhaSalaCriada'], $_POST['mestre']);
 			} else {
 				$mensagem = "Erro! {$_POST['mestre']} não está na sala!";
 				$_SESSION['vericaSalas'] = array(0, $mensagem);
@@ -62,8 +70,6 @@
 			$_SESSION['vericaSalas'] = array(0, $mensagem);
 		}
 
-		/* session inicialmente usada no modoJogo para pegar o nome da sala criada e criar uma tabela no banco de dados 
-		e tbm usada para fazer a verificacao se o usuario esta realmente logado para pode entrar na salaJogar */
-		$_SESSION['infSala'] = array($_POST['nomeSalaCriada'], $_POST['senhaSalaCriada'], $_POST['personagem']);	
+			
 	} 
 	header('Location: ../modoJogo.php');
