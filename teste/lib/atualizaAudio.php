@@ -3,6 +3,4 @@
 	
 	include("funcoesChat.php");
 
-	atualizaImagem();
-
-	//atualizaMusica();
+	atualizaMusica();

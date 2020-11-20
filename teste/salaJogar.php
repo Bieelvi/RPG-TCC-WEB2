@@ -49,6 +49,26 @@
 				} ?>
 			</div>
 		</div>
+		<div class="dropdown-sala-jogar">Música
+			<div class="dropdown-sala-jogar-content SizeImg"> <?php
+				$id = pegaIdMestreSala($_SESSION['infSala'][0], $_SESSION['infSala'][1]);
+				$sql = $conn->prepare("SELECT * FROM musica WHERE codigo_mestre = ?");
+				$sql->bindValue(1, $id);
+				if($sql->execute()){
+					$img = $sql->fetchAll(PDO::FETCH_ASSOC);
+					$cont = 1;		
+
+					foreach($img as $key) {
+						$diretorio = "upload/musica/".$id."/".$key['nome_musica']; ?>
+						<div id="<?php echo $cont; ?>" onclick="musica('<?php echo $diretorio; ?>')">
+							<img src="image/icon_music.png" width="50" height="50">
+							<span> <?php echo $key['nome_musica']; ?> </span>
+						</div> <?php 
+						$cont++; 
+					}
+				} ?>
+			</div>
+		</div>
 		<div class="dropdown-sala-jogar-dado">Dados
 			<div class="dropdown-sala-jogar-content-dado SizeImg"> 
 				<div onclick="dado(1, 4, 'Dado 4')"><img src="image/diceQuatro.png"></div>	
@@ -85,6 +105,10 @@
 			</div>	
 		</div>
 
+	</div>
+
+	<div id="jogo-audio">
+		
 	</div>
 
 	<div class="opcoes-ficha">

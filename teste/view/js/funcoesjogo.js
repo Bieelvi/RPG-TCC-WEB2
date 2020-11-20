@@ -1,3 +1,13 @@
+function musica(diretorio){
+	att_dois(diretorio);
+	refreshDiv_teste_dois();
+}
+
+function att_dois(diretorio){
+	$.get("lib/manda_audio.php?dir="+diretorio, function(){
+	})
+}
+
 function imagem(diretorio){
 	att(diretorio);
 }
@@ -32,6 +42,12 @@ $(document).ready(function(){
 });
 
 window.setInterval("refreshDiv_teste()", 500);
+
+function refreshDiv_teste_dois(){
+	$.get("lib/atualizaAudio.php", function(resultado){
+     	$("#jogo-audio").html(resultado);
+	})
+}
 
 function refreshDiv_teste(){
 	$.get("lib/atualizaImagem.php", function(resultado){

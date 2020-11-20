@@ -61,6 +61,31 @@
   		}
 	}
 
+	function atualizaMusica(){
+		include("../model/ConexaoDataBase.php");
+		$sql_audio = $conn->prepare("SELECT * FROM sala_online WHERE nome_sala_online = ? AND senha_sala_online = ?");
+		$sql_audio->bindValue(1, $_SESSION['infSala'][0]);
+		$sql_audio->bindValue(2, $_SESSION['infSala'][1]);
+		$sql_audio->execute();
+		if($sql_audio->rowCount()){
+			$audio = $sql_audio->fetchAll(PDO::FETCH_ASSOC)[0];
+			echo "<audio controls>";
+			echo "<source id='audioJogo' src='" . $audio['audio_sala_online'] . "' type='audio/mp3'>";
+			echo "</audio>";
+  		}
+
+  		$sql_audio = $conn->prepare("SELECT * FROM sala_presencial WHERE nome_sala_presencial = ? AND senha_sala_presencial = ?");
+		$sql_audio->bindValue(1, $_SESSION['infSala'][0]);
+		$sql_audio->bindValue(2, $_SESSION['infSala'][1]);
+		$sql_audio->execute();
+		if($sql_audio->rowCount()){
+			$audio = $sql_audio->fetchAll(PDO::FETCH_ASSOC)[0];
+			echo "<audio controls>";
+			echo "<source id='audioJogo' src='" . $audio['audio_sala_presencial'] . "' type='audio/mp3'>";
+			echo "</audio>";
+  		}
+	}
+
 	function verificaTabelaChat(){
 		include("../model/ConexaoDataBase.php");
 		$sqlBusca = $conn->prepare("SELECT * FROM chat_{$nomeSala}");
