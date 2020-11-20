@@ -29,6 +29,7 @@
 	<script src="view/js/atrMod.js"></script>
 
 	<div class="opcoes-layout-jogo">
+
 		<div class="dropdown-sala-jogar">Mapa
 			<div class="dropdown-sala-jogar-content SizeImg"> <?php
 				$id = pegaIdMestreSala($_SESSION['infSala'][0], $_SESSION['infSala'][1]);
@@ -36,7 +37,7 @@
 				$sql->bindValue(1, $id);
 				if($sql->execute()){
 					$img = $sql->fetchAll(PDO::FETCH_ASSOC);
-					$cont = 1;		
+					$cont = 1;
 
 					foreach($img as $key) {
 						$diretorio = "upload/imagem/".$id."/".$key['nome_imagem']; ?>
@@ -49,6 +50,7 @@
 				} ?>
 			</div>
 		</div>
+
 		<div class="dropdown-sala-jogar">Música
 			<div class="dropdown-sala-jogar-content SizeImg"> <?php
 				$id = pegaIdMestreSala($_SESSION['infSala'][0], $_SESSION['infSala'][1]);
@@ -69,6 +71,7 @@
 				} ?>
 			</div>
 		</div>
+
 		<div class="dropdown-sala-jogar-dado">Dados
 			<div class="dropdown-sala-jogar-content-dado SizeImg"> 
 				<div onclick="dado(1, 4, 'Dado 4')"><img src="image/diceQuatro.png"></div>	
@@ -80,7 +83,36 @@
 				<div onclick="dado(1, 100, 'Dado 100')"><img src="image/diceCem.png"></div>				
 			</div>
 		</div>
-		<div>Jogadores</div>
+
+		<div class="dropdown-sala-jogar">Jogadores
+			<div class="dropdown-sala-jogar-content SizeImg"> <?php
+				$id = pegaIdMestreSala($_SESSION['infSala'][0], $_SESSION['infSala'][1]);
+
+				for ($i = 1; $i <= 4; $i++){
+					$codigoFormatado =  "codigo_jogador".$i;
+					$sqlVerificaOnline = $conn->prepare("SELECT * FROM sala_online WHERE senha_sala_online = ? AND codigo_mestre = ? AND codigo_mestre = ?");
+					$sqlVerificaOnline->bindValue(1, $_SESSION['infSala'][0]);
+					$sqlVerificaOnline->bindValue(2, $_SESSION['infSala'][1]);
+					$sqlVerificaOnline->bindValue(3, $id);
+					if($sqlVerificaOnline->execute()){
+						if($sqlVerificaOnline->rowCount()){
+							$final = 1;
+						} else {
+							$sqlVerificaPresencial = $conn->prepare("SELECT * FROM sala_presencial WHERE nome_sala_presencial = ? AND senha_sala_presencial = ? AND codigo_mestre = ?");
+							$sqlVerificaPresencial->bindValue(1, $_SESSION['infSala'][0]);
+							$sqlVerificaPresencial->bindValue(2, $_SESSION['infSala'][1]);
+							$sqlVerificaPresencial->bindValue(3, $id);
+							if($sqlVerificaPresencial->execute()){
+								if($sqlVerificaPresencial->rowCount()){
+									$final = 1;
+								}	
+							}						
+						}
+					}
+				} ?>
+			</div>
+		</div>
+
 		<div>Informações</div>
 		<div><a href="model/sairSalaJogo.php">Sair da sala</a></div>
 	</div>
@@ -418,6 +450,46 @@
 		    			</div>
 					</div>
 				</div>
+			</div>
+		</div>
+	</div>
+
+	<?php 
+		if(isset($_SESSION['vericaUpload']) AND $_SESSION['vericaUpload'][0] == 1){ ?>
+			<div class="RetornoTeste">
+				<?php echo $_SESSION['vericaUpload'][1]; ?>
+			</div> <?php
+				unset($_SESSION['vericaUpload']);
+		}
+		if(isset($_SESSION['vericaUpload']) AND $_SESSION['vericaUpload'][0] == 0){ ?>
+			<div class="RetornoTeste">
+				<?php echo $_SESSION['vericaUpload'][1]; ?>
+			</div> <?php
+				unset($_SESSION['vericaUpload']);
+		} 
+	?>
+
+	<div class="CenterMidia">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<form name="formCadastroImagem" action="lib/atualizaMidia.php" enctype="multipart/form-data" method="post">
+						<div class="CenterTitulo">
+							<span>IMAGENS</span><br>
+						</div>
+						<input type="file" name="imagem[]" multiple>
+						<input type="submit" name="addImagem" value="Adicionar">
+					</form>
+				</div>
+				<div class="col-md-6">	
+					<form name="formCadastroMusica" action="lib/atualizaMidia.php" enctype="multipart/form-data" method="post">
+						<div class="CenterTitulo">
+							<span>MÚSICAS</span><br>
+						</div>
+						<input type="file" name="musica[]" multiple>
+						<input type="submit" name="addMusica" value="Adicionar">
+					</form>
+				</div>	
 			</div>
 		</div>
 	</div>
