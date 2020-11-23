@@ -17,6 +17,7 @@
 	$retorno = pegaInfFicha($retornoJogador['codigo_ficha'], $retornoJogador['nome_jogador']);
 
 	$dados = array("image/diceQuatro.png", "image/diceSeis.png", "image/diceOito.png", "image/diceDex.png", "image/diceDoze.png", "image/diceVinte.png", "image/diceCem.png");
+	
 ?>
 <!DOCTYPE html>
 <html>
@@ -111,10 +112,12 @@
 					}
 				} ?>
 			</div>
+		</div>	
+
+		<div>
+			<a href="model/sairSalaJogo.php">Sair da sala</a>
 		</div>
 
-		<div>Informações</div>
-		<div><a href="model/sairSalaJogo.php">Sair da sala</a></div>
 	</div>
 	<div class="Pai" id="pai">
 

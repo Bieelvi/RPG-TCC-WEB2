@@ -34,9 +34,6 @@
 				<li class="Link">
 					<a href="comojogar.php">Como Jogar</a>
 				</li>
-				<li class="Link">
-					<a href="download.php">Download</a>
-				</li>
 				<li>
 					<div class="dropdown Link">
 						<a href="#">Contato</a>
